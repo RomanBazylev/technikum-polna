@@ -1,0 +1,142 @@
+[
+  {
+    "id": "wychowawca",
+    "pl": "wychowawca",
+    "ru": "классный руководитель",
+    "en": "form tutor",
+    "category": "szkola",
+    "note": {
+      "ru": "Только он принимает оправдания пропусков, § 43.2.15 устава."
+    }
+  },
+  {
+    "id": "sprawdzian",
+    "pl": "sprawdzian",
+    "ru": "контрольная работа",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Объявляется минимум за неделю. Не больше одной в день и трёх в неделю."
+    }
+  },
+  {
+    "id": "kartkowka",
+    "pl": "kartkówka",
+    "ru": "короткая проверочная",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Охватывает три последние темы и может быть без предупреждения."
+    }
+  },
+  {
+    "id": "usprawiedliwienie",
+    "pl": "usprawiedliwienie",
+    "ru": "оправдание пропуска",
+    "category": "szkola",
+    "note": { "ru": "Семь дней с момента окончания пропуска." }
+  },
+  {
+    "id": "frekwencja",
+    "pl": "frekwencja",
+    "ru": "посещаемость",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Пропуск больше половины часов по предмету означает неаттестацию."
+    }
+  },
+  {
+    "id": "nieklasyfikowanie",
+    "pl": "nieklasyfikowanie",
+    "ru": "неаттестация",
+    "category": "ocenianie",
+    "note": { "ru": "§ 54 ust. 1 устава. Считается по каждому предмету отдельно." }
+  },
+  {
+    "id": "egzamin-poprawkowy",
+    "pl": "egzamin poprawkowy",
+    "ru": "пересдача",
+    "category": "egzamin",
+    "note": {
+      "ru": "Не больше двух предметов, в последнюю неделю летних каникул."
+    }
+  },
+  {
+    "id": "rada-klasyfikacyjna",
+    "pl": "rada klasyfikacyjna",
+    "ru": "аттестационный педсовет",
+    "category": "ocenianie",
+    "note": { "ru": "От его даты отсчитываются сроки просьб о повышении оценки." }
+  },
+  {
+    "id": "praktyka-zawodowa",
+    "pl": "praktyka zawodowa",
+    "ru": "производственная практика",
+    "category": "szkola",
+    "note": {
+      "ru": "В 3 и 4 классе. Одна неоправданная неявка означает неудовлетворительную оценку и непереход в следующий класс."
+    }
+  },
+  {
+    "id": "dziennik-elektroniczny",
+    "pl": "dziennik elektroniczny",
+    "ru": "электронный дневник",
+    "category": "szkola",
+    "note": { "ru": "В этой школе Librus. Логины выдают 1 сентября." }
+  },
+  {
+    "id": "legitymacja-szkolna",
+    "pl": "legitymacja szkolna",
+    "ru": "школьный билет",
+    "category": "urzedy",
+    "note": { "ru": "С 16 лет обязателен при контроле в транспорте." }
+  },
+  {
+    "id": "kwalifikacja",
+    "pl": "kwalifikacja",
+    "ru": "квалификация",
+    "category": "egzamin",
+    "note": { "ru": "У technik programista их две: INF.03 и INF.04." }
+  },
+  {
+    "id": "baza-danych",
+    "pl": "baza danych",
+    "ru": "база данных",
+    "en": "database",
+    "category": "programowanie"
+  },
+  {
+    "id": "zapytanie",
+    "pl": "zapytanie",
+    "ru": "запрос",
+    "en": "query",
+    "category": "programowanie"
+  },
+  {
+    "id": "petla",
+    "pl": "pętla",
+    "ru": "цикл",
+    "en": "loop",
+    "category": "programowanie"
+  },
+  {
+    "id": "tablica",
+    "pl": "tablica",
+    "ru": "массив",
+    "en": "array",
+    "category": "programowanie",
+    "note": { "ru": "Не путать с tabela, это таблица в базе данных." }
+  },
+  {
+    "id": "zmienna",
+    "pl": "zmienna",
+    "ru": "переменная",
+    "en": "variable",
+    "category": "programowanie"
+  },
+  {
+    "id": "dziedziczenie",
+    "pl": "dziedziczenie",
+    "ru": "наследование",
+    "en": "inheritance",
+    "category": "programowanie"
+  }
+]

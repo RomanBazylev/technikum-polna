@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Term from '../components/Term';
+
+const topics = await getCollection('topics');
+const glossary = await getCollection('glossary');
+const byId = new Map(glossary.map((entry) => [entry.data.id, entry.data]));
+
+const grades = [1, 2, 3, 4, 5] as const;
+---
+
+<Base
+  title="Nauka"
+  tab="nauka"
+  lead="Mapa programu, nie podręcznik. Карта программы, а не учебник."
+>
+  <nav aria-label="Klasy" class="mb-6 flex gap-2">
+    {
+      grades.map((grade) => (
+        <span
+          class:list={[
+            'rounded-lg border px-3 py-1 text-sm',
+            grade === 1
+              ? 'border-[var(--color-accent)] text-[var(--color-accent)]'
+              : 'border-[var(--color-line)] opacity-50',
+          ]}
+        >
+          Klasa {grade}
+        </span>
+      ))
+    }
+  </nav>
+
+  <ul class="flex flex-col gap-3">
+    {
+      topics.map((topic) => (
+        <li class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
+          <p class="font-mono text-xs opacity-60">{topic.data.effects.join(' · ')}</p>
+          <h2 class="mt-1 font-medium">{topic.data.title}</h2>
+          <p class="mt-1 text-sm opacity-70">
+            {topic.data.subject} · klasa {topic.data.grade}
+          </p>
+          {topic.data.terms.length > 0 ? (
+            <p class="mt-3 text-sm">
+              {topic.data.terms.map((termId) => {
+                const term = byId.get(termId);
+                return term === undefined ? null : (
+                  <span class="mr-3 inline-block">
+                    <Term client:visible pl={term.pl} ru={term.ru} note={term.note?.ru} />
+                  </span>
+                );
+              })}
+            </p>
+          ) : null}
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="mt-6 text-xs opacity-60">
+    Własnej teorii nie piszemy tam, gdzie poprawności nie da się sprawdzić uruchomieniem kodu.
+    Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację, zadania.info i Wolne Lektury. ·
+    Свою теорию пишем только там, где правильность проверяется запуском кода.
+  </p>
+</Base>

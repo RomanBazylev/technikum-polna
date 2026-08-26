@@ -1,0 +1,19 @@
+{
+  "name": "Technikum Polna",
+  "short_name": "TKK Polna",
+  "description": "Przewodnik i narzędzia dla uczniów Technikum Kinematograficzno-Komputerowego, technik programista.",
+  "lang": "pl",
+  "start_url": "/technikum-polna/",
+  "scope": "/technikum-polna/",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "icons": [
+    {
+      "src": "/technikum-polna/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

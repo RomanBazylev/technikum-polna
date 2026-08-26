@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ObligationList from '../components/ObligationList';
+import type { Obligation } from '../lib/domain/obligations';
+
+const entries = await getCollection('obligations');
+const obligations = entries.map((entry) => entry.data as Obligation);
+---
+
+<Base
+  title="Dziś"
+  tab="dzis"
+  lead="Terminy, o których nikt nie przypomni. Wszystko liczy się w Twojej przeglądarce i nigdzie nie jest wysyłane."
+>
+  <ObligationList client:load obligations={obligations} />
+
+  <p class="mt-6 text-xs opacity-60">
+    Dane zostają na tym urządzeniu. Aplikacja nie ma serwera, więc nie ma dokąd ich wysłać. ·
+    Данные остаются на этом устройстве. У приложения нет сервера, отправлять их некуда.
+  </p>
+</Base>

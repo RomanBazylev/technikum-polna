@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+type Props = {
+  title: string;
+  tab: 'dzis' | 'nauka' | 'egzaminy' | 'szkola';
+  lead?: string;
+};
+
+const { title, tab, lead } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const tabs = [
+  { id: 'dzis', href: base, label: 'Dziś', ru: 'Сегодня' },
+  { id: 'nauka', href: `${base}nauka`, label: 'Nauka', ru: 'Учёба' },
+  { id: 'egzaminy', href: `${base}egzaminy`, label: 'Egzaminy', ru: 'Экзамены' },
+  { id: 'szkola', href: `${base}szkola`, label: 'Szkoła', ru: 'Школа' },
+] as const;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f14" />
+    <meta name="description" content="Przewodnik i narzędzia dla uczniów TKK Polna, technik programista." />
+    <title>{title}</title>
+    <link rel="icon" href={`${base}icon.svg`} type="image/svg+xml" />
+    <link rel="manifest" href={`${base}manifest.webmanifest`} />
+  </head>
+  <body>
+    <main class="mx-auto w-full max-w-2xl px-4 pt-6">
+      <header class="mb-6">
+        <h1 class="text-2xl font-semibold tracking-tight">{title}</h1>
+        {lead ? <p class="mt-2 text-sm opacity-80">{lead}</p> : null}
+      </header>
+      <slot />
+    </main>
+
+    <nav
+      aria-label="Główna nawigacja"
+      class="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--color-line)] bg-[var(--color-ink)]/95 backdrop-blur"
+      style="padding-bottom: env(safe-area-inset-bottom)"
+    >
+      <ul class="mx-auto flex w-full max-w-2xl">
+        {
+          tabs.map((item) => (
+            <li class="flex-1">
+              <a
+                href={item.href}
+                aria-current={item.id === tab ? 'page' : undefined}
+                class:list={[
+                  'flex flex-col items-center gap-0.5 py-3 text-xs',
+                  item.id === tab ? 'text-[var(--color-accent)]' : 'opacity-70',
+                ]}
+              >
+                <span class="font-medium">{item.label}</span>
+                <span class="text-[10px] opacity-70">{item.ru}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <script>
+      // Регистрируем воркер вручную: injectRegister отключён, потому что
+      // Astro не прогоняет свои страницы через трансформацию index.html.
+      if ('serviceWorker' in navigator && import.meta.env.PROD) {
+        window.addEventListener('load', () => {
+          const base = import.meta.env.BASE_URL;
+          navigator.serviceWorker.register(`${base}sw.js`, { scope: base }).catch(() => {
+            // Офлайн - улучшение, а не условие работы. Молча продолжаем.
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

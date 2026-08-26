@@ -1,0 +1,40 @@
+{
+  "name": "technikum-polna",
+  "version": "0.1.0",
+  "description": "Przewodnik i narzędzia dla uczniów Technikum Kinematograficzno-Komputerowego w Warszawie, technik programista.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanBazylev/technikum-polna.git"
+  },
+  "homepage": "https://romanbazylev.github.io/technikum-polna/",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist && node scripts/build-sw.mjs",
+    "preview": "astro preview",
+    "sync": "astro sync",
+    "typecheck": "astro sync && tsc --noEmit",
+    "validate": "node scripts/validate-content.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "verify": "npm run typecheck && npm run validate && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^6.0.4",
+    "astro": "^7.2.7",
+    "preact": "^10.29.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.3.0",
+    "pagefind": "^1.5.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11",
+    "workbox-build": "^7.4.1"
+  }
+}

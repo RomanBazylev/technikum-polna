@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0b0f14;
+  --color-ink-soft: #131a23;
+  --color-line: #22303f;
+  --color-paper: #f6f8fa;
+  --color-accent: #4aa3ff;
+  --color-warn: #ffb454;
+  --color-bad: #ff6b6b;
+  --color-good: #5ad19a;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  /* Место под нижнюю навигацию плюс safe-area на телефонах с вырезом. */
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+}
+
+/* Термин по-польски с переводом по нажатию: точечное подчёркивание
+   отличает его от обычной ссылки, чтобы не путать два разных жеста. */
+.term {
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+  background: none;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

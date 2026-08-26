@@ -1,0 +1,133 @@
+[
+  {
+    "id": "stypendium-szkolne",
+    "title": {
+      "pl": "Stypendium szkolne",
+      "ru": "Школьная стипендия"
+    },
+    "what": {
+      "pl": "Wniosek składa się w OPS właściwym dla miejsca zamieszkania, nie w szkole. Próg dochodu 823 zł na osobę, świadczenie od 99,20 do 248 zł miesięcznie. Można nim opłacić bilet miesięczny.",
+      "ru": "Заявление подаётся в OPS по месту жительства, а не в школе. Порог дохода 823 злотых на человека, выплата от 99,20 до 248 злотых в месяц. Ею можно оплатить месячный проездной."
+    },
+    "anchor": { "kind": "annual-window", "from": "09-01", "to": "09-15" },
+    "appliesTo": "wszyscy",
+    "legalBasis": "art. 90n ustawy o systemie oświaty",
+    "handledAt": "ops",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "m.st. Warszawa",
+        "title": "Stypendium szkolne i zasiłek szkolny",
+        "url": "https://wsparcie.um.warszawa.pl/-/stypendium-szkolne-i-zasilek-szkolny",
+        "why": "Материал города, лицензии на переиспользование нет, поэтому только ссылка."
+      }
+    ],
+    "reviewBy": "2027-08-01"
+  },
+  {
+    "id": "usprawiedliwienie-nieobecnosci",
+    "title": {
+      "pl": "Usprawiedliwienie nieobecności",
+      "ru": "Оправдание пропуска"
+    },
+    "what": {
+      "pl": "Siedem dni od ustania nieobecności. Wpis w dzienniku elektronicznym albo kartka z podpisem, wyłącznie u wychowawcy klasy. Usprawiedliwienie po terminie może nie zostać uwzględnione.",
+      "ru": "Семь дней с момента окончания пропуска. Запись в электронном дневнике или бумажка с подписью, и только классному руководителю. Поданное позже могут не принять."
+    },
+    "anchor": { "kind": "after-event", "event": "absence-ended", "days": 7 },
+    "appliesTo": "wszyscy",
+    "legalBasis": "§ 43 ust. 2 pkt 15 statutu TKK",
+    "handledAt": "librus",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "TKK Polna",
+        "title": "Statut TKK",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2025/01/statut-tkk-1.pdf",
+        "why": "Документ школы, распространять его копию мы не вправе."
+      }
+    ]
+  },
+  {
+    "id": "podwyzszenie-oceny-rocznej",
+    "title": {
+      "pl": "Wniosek o podwyższenie oceny rocznej",
+      "ru": "Просьба о повышении годовой оценки"
+    },
+    "what": {
+      "pl": "Pisemny wniosek do nauczyciela najpóźniej 14 dni przed radą klasyfikacyjną. Sprawdzian odbywa się najpóźniej 7 dni przed radą, a uzyskana ocena nie może być niższa od proponowanej, więc próba niczym nie ryzykuje.",
+      "ru": "Письменная просьба учителю не позже чем за 14 дней до педсовета. Экзамен проходит не позже чем за 7 дней до него, а полученная оценка не может быть ниже предложенной, поэтому попытка ничем не рискует."
+    },
+    "anchor": { "kind": "before-event", "event": "rada-klasyfikacyjna", "days": 14 },
+    "appliesTo": "wszyscy",
+    "legalBasis": "§ 52 ust. 6 statutu TKK",
+    "handledAt": "szkola",
+    "sources": []
+  },
+  {
+    "id": "legitymacja-w-transporcie",
+    "title": {
+      "pl": "Legitymacja szkolna obowiązkowa w kontroli",
+      "ru": "Школьный билет обязателен при контроле"
+    },
+    "what": {
+      "pl": "Do 16 lat wystarczy dokument ze zdjęciem i datą urodzenia. Od 16. urodzin trzeba wozić ważną legitymację szkolną albo mLegitymację, inaczej kara 196 zł, a 117,60 zł przy zapłacie u kontrolera.",
+      "ru": "До 16 лет хватает документа с фотографией и датой рождения. С 16-летия нужно возить действующий школьный билет или mLegitymację, иначе штраф 196 злотых, или 117,60 при оплате контролёру."
+    },
+    "anchor": { "kind": "from-age", "years": 16 },
+    "appliesTo": "wszyscy",
+    "legalBasis": "§ 2 załącznika do uchwały nr XXXIII/828/2016 Rady m.st. Warszawy",
+    "handledAt": "szkola",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "WTP Warszawa",
+        "title": "Ulgi i zwolnienia",
+        "url": "https://www.wtp.waw.pl/ulgi-znizki/",
+        "why": "Официальные условия перевозчика, зеркалить их нельзя и незачем."
+      }
+    ],
+    "reviewBy": "2027-09-01"
+  },
+  {
+    "id": "samodzielne-usprawiedliwianie",
+    "title": {
+      "pl": "Samodzielne usprawiedliwianie nieobecności",
+      "ru": "Самостоятельное оправдание пропусков"
+    },
+    "what": {
+      "pl": "Od 18. urodzin uczeń usprawiedliwia własne nieobecności sam, u wychowawcy, w tym samym terminie siedmiu dni. Wcześniej robi to rodzic lub opiekun prawny.",
+      "ru": "С 18-летия ученик оправдывает свои пропуски сам, у классного руководителя, в тот же семидневный срок. До этого — родитель или опекун."
+    },
+    "anchor": { "kind": "from-age", "years": 18 },
+    "appliesTo": "wszyscy",
+    "legalBasis": "§ 43 ust. 2 pkt 15 lit. b statutu TKK",
+    "handledAt": "szkola",
+    "sources": []
+  },
+  {
+    "id": "dobry-start",
+    "title": {
+      "pl": "Dobry Start, 300 zł",
+      "ru": "Dobry Start, 300 злотых"
+    },
+    "what": {
+      "pl": "Jednorazowe 300 zł na wyprawkę, bez kryterium dochodowego, wyłącznie elektronicznie. Od 1 lipca 2026 obywatele państw trzecich muszą dodatkowo wykazać aktywność zawodową w Polsce w miesiącu poprzedzającym wniosek.",
+      "ru": "Разовые 300 злотых на сборы в школу, без проверки доходов, только электронно. С 1 июля 2026 гражданам третьих стран нужно дополнительно показать трудовую активность в Польше за предыдущий месяц."
+    },
+    "anchor": { "kind": "annual-window", "from": "07-01", "to": "11-30" },
+    "appliesTo": "wszyscy",
+    "legalBasis": "rozporządzenie Rady Ministrów w sprawie programu Dobry Start",
+    "handledAt": "zus",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "gov.pl",
+        "title": "Zmiany w programie Dobry Start od 1 lipca 2026",
+        "url": "https://www.gov.pl/web/rodzina/zmiany-w-programie-dobry-start-obowiazujace-od-1-lipca-2026-r",
+        "why": "Правительственная страница, ссылаемся, а не копируем."
+      }
+    ],
+    "reviewBy": "2027-06-01"
+  }
+]

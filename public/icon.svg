@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Technikum Polna">
+  <rect width="512" height="512" rx="112" fill="#0b0f14" />
+  <g fill="none" stroke="#4aa3ff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 186 L214 256 L150 326" />
+    <path d="M264 336 L372 336" />
+  </g>
+</svg>
