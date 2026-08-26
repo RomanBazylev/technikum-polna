@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+.astro/
+.output/
+
+# test artifacts
+playwright-report/
+test-results/
+blob-report/
+coverage/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editor and OS
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
