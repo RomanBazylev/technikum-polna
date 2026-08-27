@@ -18,7 +18,12 @@ const TONE_CLASS: Record<Tone, string> = {
   quiet: 'border-[var(--color-line)]',
 };
 
-function describe(status: ObligationStatus): { tone: Tone; pl: string; ru: string } {
+function describe(status: ObligationStatus): {
+  tone: Tone;
+  pl: string;
+  ru: string;
+  footnote?: string;
+} {
   switch (status.kind) {
     case 'open':
       return {
@@ -31,15 +36,16 @@ function describe(status: ObligationStatus): { tone: Tone; pl: string; ru: strin
         tone: 'soon',
         pl: `Otwiera się ${status.from}, za dni: ${status.daysUntilOpen}`,
         ru: `Откроется ${status.from}`,
+        // Свежий промах — сноска, а не заголовок: действие всё равно
+        // возможно только в следующем окне.
+        ...(status.justMissed === undefined
+          ? {}
+          : {
+              footnote: `Poprzednie okno zamknęło się ${status.justMissed.to}, ${status.justMissed.daysSince} dni temu.`,
+            }),
       };
     case 'overdue':
-      return status.nextOccurrence === undefined
-        ? { tone: 'late', pl: `Termin minął ${status.to}`, ru: `Срок прошёл ${status.to}` }
-        : {
-            tone: 'late',
-            pl: `Termin minął, następny raz ${status.nextOccurrence}`,
-            ru: `Следующее окно ${status.nextOccurrence}`,
-          };
+      return { tone: 'late', pl: `Termin minął ${status.to}`, ru: `Срок прошёл ${status.to}` };
     case 'not-yet':
       return {
         tone: 'quiet',
@@ -122,26 +128,52 @@ export default function ObligationList({ obligations }: Props) {
       .sort((a, b) => rank(a.status) - rank(b.status));
   }, [obligations, birthDate]);
 
+  // Пункты, которые нельзя посчитать без данных, не должны выглядеть как
+  // поломка в общем списке. Они уезжают в свёрнутый блок внизу.
+  const actionable = rows.filter(({ status }) => status.kind !== 'needs-data');
+  const pending = rows.filter(({ status }) => status.kind === 'needs-data');
+
   return (
-    <ul className="flex flex-col gap-3">
-      {rows.map(({ obligation, status }) => {
-        const { tone, pl, ru } = describe(status);
-        return (
-          <li
-            key={obligation.id}
-            className={`rounded-xl border-l-4 bg-[var(--color-ink-soft)]/60 p-4 ${TONE_CLASS[tone]}`}
-          >
-            <p className="text-xs font-medium uppercase tracking-wide">{pl}</p>
-            <p className="text-xs opacity-60">{ru}</p>
-            <h2 className="mt-2 font-medium">{obligation.title.pl}</h2>
-            <p className="text-sm opacity-70">{obligation.title.ru}</p>
-            <p className="mt-2 text-sm">{obligation.what.ru}</p>
-            <p className="mt-2 text-xs opacity-60">
-              {obligation.legalBasis} · {obligation.handledAt}
-            </p>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul className="flex flex-col gap-3">
+        {actionable.map(({ obligation, status }) => {
+          const { tone, pl, ru, footnote } = describe(status);
+          return (
+            <li
+              key={obligation.id}
+              className={`rounded-xl border-l-4 bg-[var(--color-ink-soft)]/60 p-4 ${TONE_CLASS[tone]}`}
+            >
+              <p className="text-xs font-medium uppercase tracking-wide">{pl}</p>
+              <p className="text-xs opacity-60">{ru}</p>
+              <h2 className="mt-2 font-medium">{obligation.title.pl}</h2>
+              <p className="text-sm opacity-70">{obligation.title.ru}</p>
+              <p className="mt-2 text-sm">{obligation.what.ru}</p>
+              {footnote === undefined ? null : (
+                <p className="mt-2 text-xs opacity-50">{footnote}</p>
+              )}
+              <p className="mt-2 text-xs opacity-60">
+                {obligation.legalBasis} · {obligation.handledAt}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+
+      {pending.length === 0 ? null : (
+        <details className="mt-4 rounded-xl border border-[var(--color-line)] p-4 text-sm">
+          <summary className="cursor-pointer opacity-70">
+            Wymaga uzupełnienia danych: {pending.length} · Нужны данные: {pending.length}
+          </summary>
+          <ul className="mt-3 flex flex-col gap-2">
+            {pending.map(({ obligation, status }) => (
+              <li key={obligation.id} className="opacity-80">
+                <span className="font-medium">{obligation.title.pl}</span>
+                <span className="opacity-60"> — {describe(status).pl}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+    </>
   );
 }

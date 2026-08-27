@@ -34,15 +34,18 @@ export type ResolutionContext = {
   absenceEndedOn?: IsoDate | null;
 };
 
+/**
+ * Для ежегодного окна пропуск не является конечным состоянием: следующее окно
+ * всё равно наступит. Поэтому такой якорь всегда показывает ближайшее будущее
+ * окно, а недавний промах едет прицепом в justMissed. Заголовок «просрочено на
+ * 344 дня» технически верен и совершенно бесполезен.
+ */
+export type JustMissed = { to: IsoDate; daysSince: number };
+
 export type ObligationStatus =
-  | { kind: 'upcoming'; from: IsoDate; to: IsoDate; daysUntilOpen: number }
+  | { kind: 'upcoming'; from: IsoDate; to: IsoDate; daysUntilOpen: number; justMissed?: JustMissed }
   | { kind: 'open'; from: IsoDate | null; to: IsoDate; daysLeft: number }
-  /**
-   * Для ежегодного окна заполняется nextOccurrence: сказать «просрочено на 344
-   * дня» и промолчать про следующий сентябрь означало бы спрятать единственное
-   * действие, которое ученику ещё доступно.
-   */
-  | { kind: 'overdue'; to: IsoDate; daysSince: number; nextOccurrence?: IsoDate }
+  | { kind: 'overdue'; to: IsoDate; daysSince: number }
   | { kind: 'not-yet'; from: IsoDate; daysUntil: number }
   | { kind: 'in-force'; since: IsoDate }
   | { kind: 'needs-data'; missing: string };
@@ -94,10 +97,17 @@ export function windowForSchoolYear(
 ): { from: IsoDate; to: IsoDate } {
   const from = parseMonthDay(anchor.from);
   const to = parseMonthDay(anchor.to);
-  const yearFor = (month: number): number => (month >= 9 ? startYear : startYear + 1);
+
+  // Год определяется по началу окна, а конец ставится относительно начала.
+  // Раньше год вычислялся для каждой границы отдельно, и окно вроде 07-01..11-30
+  // разрывалось на два разных года, превращаясь в отрицательный промежуток.
+  const fromYear = from.month >= 9 ? startYear : startYear + 1;
+  const endsNextYear =
+    to.month < from.month || (to.month === from.month && to.day < from.day);
+
   return {
-    from: toIsoDate(Date.UTC(yearFor(from.month), from.month - 1, from.day)),
-    to: toIsoDate(Date.UTC(yearFor(to.month), to.month - 1, to.day)),
+    from: toIsoDate(Date.UTC(fromYear, from.month - 1, from.day)),
+    to: toIsoDate(Date.UTC(endsNextYear ? fromYear + 1 : fromYear, to.month - 1, to.day)),
   };
 }
 
@@ -123,19 +133,23 @@ function statusForWindow(
   today: IsoDate,
   from: IsoDate | null,
   to: IsoDate,
-  nextOccurrence?: IsoDate,
+  justMissed?: JustMissed,
 ): ObligationStatus {
   if (from !== null && daysBetween(today, from) > 0) {
-    return { kind: 'upcoming', from, to, daysUntilOpen: daysBetween(today, from) };
+    const daysUntilOpen = daysBetween(today, from);
+    return justMissed === undefined
+      ? { kind: 'upcoming', from, to, daysUntilOpen }
+      : { kind: 'upcoming', from, to, daysUntilOpen, justMissed };
   }
   const daysLeft = daysBetween(today, to);
   if (daysLeft >= 0) {
     return { kind: 'open', from, to, daysLeft };
   }
-  return nextOccurrence === undefined
-    ? { kind: 'overdue', to, daysSince: -daysLeft }
-    : { kind: 'overdue', to, daysSince: -daysLeft, nextOccurrence };
+  return { kind: 'overdue', to, daysSince: -daysLeft };
 }
+
+/** Промах перестаёт быть новостью примерно через полтора месяца. */
+const JUST_MISSED_DAYS = 45;
 
 export function resolveAnchor(
   anchor: DeadlineAnchor,
@@ -144,9 +158,21 @@ export function resolveAnchor(
   switch (anchor.kind) {
     case 'annual-window': {
       const startYear = schoolYearStart(context.today);
-      const window = windowForSchoolYear(anchor, startYear);
+      const current = windowForSchoolYear(anchor, startYear);
+      const daysLeft = daysBetween(context.today, current.to);
+      if (daysLeft >= 0) {
+        return statusForWindow(context.today, current.from, current.to);
+      }
+      // Окно этого учебного года закрылось, значит действие возможно только
+      // в следующем. Показываем его, а свежий промах отмечаем прицепом.
       const next = windowForSchoolYear(anchor, startYear + 1);
-      return statusForWindow(context.today, window.from, window.to, next.from);
+      const daysSince = -daysLeft;
+      return statusForWindow(
+        context.today,
+        next.from,
+        next.to,
+        daysSince <= JUST_MISSED_DAYS ? { to: current.to, daysSince } : undefined,
+      );
     }
     case 'fixed-date':
       return statusForWindow(context.today, anchor.from, anchor.to);

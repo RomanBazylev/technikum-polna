@@ -42,6 +42,32 @@ describe('ежегодное окно', () => {
       to: '2027-01-10',
     });
   });
+
+  it('окно, пересекающее начало учебного года, не выворачивается наизнанку', () => {
+    // Раньше год считался для каждой границы отдельно, и Dobry Start с окном
+    // 1 июля - 30 ноября превращался в 2026-07-01 … 2025-11-30.
+    expect(resolveAnnualWindow({ from: '07-01', to: '11-30' }, '2026-08-27')).toEqual({
+      from: '2026-07-01',
+      to: '2026-11-30',
+    });
+  });
+
+  it('конец не может оказаться раньше начала ни при каком дне года', () => {
+    const anchors = [
+      { from: '07-01', to: '11-30' },
+      { from: '09-01', to: '09-15' },
+      { from: '12-20', to: '01-10' },
+      { from: '02-15', to: '04-30' },
+      { from: '11-30', to: '07-01' },
+    ];
+    for (const anchor of anchors) {
+      for (const today of ['2026-01-15', '2026-06-30', '2026-08-27', '2026-09-01', '2026-12-31']) {
+        const window = resolveAnnualWindow(anchor, today);
+        expect(daysBetween(window.from, window.to), `${JSON.stringify(anchor)} @ ${today}`)
+          .toBeGreaterThanOrEqual(0);
+      }
+    }
+  });
 });
 
 describe('stypendium szkolne, 1-15 сентября', () => {
@@ -57,13 +83,14 @@ describe('stypendium szkolne, 1-15 сентября', () => {
     });
   });
 
-  it('20 сентября просрочено и показывает следующее окно', () => {
+  it('20 сентября зовёт на следующий год и помечает свежий промах', () => {
     const status = resolveAnchor(anchor, { ...base, today: '2026-09-20' });
     expect(status).toEqual({
-      kind: 'overdue',
-      to: '2026-09-15',
-      daysSince: 5,
-      nextOccurrence: '2027-09-01',
+      kind: 'upcoming',
+      from: '2027-09-01',
+      to: '2027-09-15',
+      daysUntilOpen: 346,
+      justMissed: { to: '2026-09-15', daysSince: 5 },
     });
   });
 
@@ -72,10 +99,35 @@ describe('stypendium szkolne, 1-15 сентября', () => {
     expect(status.kind).toBe('open');
   });
 
-  it('в конце августа зовёт на ближайший сентябрь, а не на прошлогодний', () => {
-    const status = resolveAnchor(anchor, { ...base, today: '2026-08-25' });
-    expect(status.kind).toBe('overdue');
-    expect(status).toMatchObject({ nextOccurrence: '2026-09-01' });
+  it('27 августа показывает ближайший сентябрь, а не прошлогодний промах', () => {
+    // Тот самый случай со скриншота: до окна пять дней, а карточка писала
+    // «termin minął».
+    const status = resolveAnchor(anchor, { ...base, today: '2026-08-27' });
+    expect(status).toEqual({
+      kind: 'upcoming',
+      from: '2026-09-01',
+      to: '2026-09-15',
+      daysUntilOpen: 5,
+    });
+  });
+
+  it('промах годовой давности не выдаётся за свежий', () => {
+    const status = resolveAnchor(anchor, { ...base, today: '2026-08-27' });
+    expect(status).not.toHaveProperty('justMissed');
+  });
+});
+
+describe('Dobry Start, 1 июля - 30 ноября', () => {
+  const anchor = { kind: 'annual-window', from: '07-01', to: '11-30' } as const;
+
+  it('27 августа окно открыто, а не просрочено', () => {
+    const status = resolveAnchor(anchor, { ...base, today: '2026-08-27' });
+    expect(status).toEqual({
+      kind: 'open',
+      from: '2026-07-01',
+      to: '2026-11-30',
+      daysLeft: 95,
+    });
   });
 });
 
