@@ -10,6 +10,13 @@ export type PersonalEvent = 'absence-ended';
  * к выздоровлению, а обязанность возить школьный билет - ко дню рождения.
  */
 export type DeadlineAnchor =
+  /**
+   * Постоянное право без срока. Заявление на zasiłek szkolny подаётся когда
+   * угодно, а право иностранца на дополнительный польский не истекает вовсе.
+   * Загонять такое в окно значило бы показывать обратный отсчёт там, где
+   * отсчитывать нечего.
+   */
+  | { kind: 'always' }
   | { kind: 'annual-window'; from: MonthDay; to: MonthDay }
   | { kind: 'fixed-date'; from: IsoDate; to: IsoDate }
   | { kind: 'before-event'; event: SchoolEvent; days: number }
@@ -48,6 +55,7 @@ export type ObligationStatus =
   | { kind: 'overdue'; to: IsoDate; daysSince: number }
   | { kind: 'not-yet'; from: IsoDate; daysUntil: number }
   | { kind: 'in-force'; since: IsoDate }
+  | { kind: 'standing' }
   | { kind: 'needs-data'; missing: string };
 
 const DAY_MS = 86_400_000;
@@ -156,6 +164,8 @@ export function resolveAnchor(
   context: ResolutionContext,
 ): ObligationStatus {
   switch (anchor.kind) {
+    case 'always':
+      return { kind: 'standing' };
     case 'annual-window': {
       const startYear = schoolYearStart(context.today);
       const current = windowForSchoolYear(anchor, startYear);

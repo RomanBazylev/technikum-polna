@@ -220,6 +220,22 @@ describe('правило, включающееся с возрастом', () =>
   });
 });
 
+describe('постоянное право без срока', () => {
+  const anchor = { kind: 'always' } as const;
+
+  it('никогда не горит и не устаревает', () => {
+    for (const today of ['2026-09-05', '2027-02-14', '2030-12-31']) {
+      expect(resolveAnchor(anchor, { ...base, today })).toEqual({ kind: 'standing' });
+    }
+  });
+
+  it('не требует ни даты рождения, ни школьных событий', () => {
+    expect(resolveAnchor(anchor, { today: '2026-09-05', schoolEvents: {} }).kind).toBe(
+      'standing',
+    );
+  });
+});
+
 describe('разбор дат', () => {
   it('считает разницу в днях через границу года', () => {
     expect(daysBetween('2026-12-20', '2027-01-10')).toBe(21);

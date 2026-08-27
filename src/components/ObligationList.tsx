@@ -58,6 +58,12 @@ function describe(status: ObligationStatus): {
         pl: `Obowiązuje od ${status.since}`,
         ru: `Действует с ${status.since}`,
       };
+    case 'standing':
+      return {
+        tone: 'open',
+        pl: 'Bez terminu, można w każdej chwili',
+        ru: 'Без срока, можно в любой момент',
+      };
     case 'needs-data':
       return status.missing === 'birthDate'
         ? {
@@ -86,12 +92,16 @@ function rank(status: ObligationStatus): number {
       return 1;
     case 'in-force':
       return 2;
-    case 'overdue':
+    // Постоянные права ниже срочного, но выше просроченного: они не горят,
+    // но и не устарели.
+    case 'standing':
       return 3;
-    case 'not-yet':
+    case 'overdue':
       return 4;
-    case 'needs-data':
+    case 'not-yet':
       return 5;
+    case 'needs-data':
+      return 6;
     default: {
       const exhaustive: never = status;
       throw new Error(`Необработанный статус: ${JSON.stringify(exhaustive)}`);

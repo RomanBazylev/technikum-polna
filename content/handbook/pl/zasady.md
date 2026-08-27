@@ -109,10 +109,10 @@ Limity godzin nieusprawiedliwionych w semestrze:
 | bardzo dobre | do 7 | do 7 |
 | dobre | do 15 | do 10 |
 | poprawne | do 30 | do 15 |
-| nieodpowiednie | do 50 | brak danych |
-| naganne | powyżej 50 | brak danych |
+| nieodpowiednie | do 50 | „często się spóźnia” |
+| naganne | powyżej 50 | „często się spóźnia” |
 
-Statut podaje cztery limity spóźnień, przypisane kolejnym ocenom od wzorowego do poprawnego. Dla nieodpowiedniego i nagannego limitu spóźnień nie podajemy, bo nie mamy go potwierdzonego. Sprawdź w statucie.
+Liczbowe limity spóźnień statut podaje tylko dla czterech górnych ocen. Przy nieodpowiednim i nagannym posługuje się sformułowaniem opisowym „często się spóźnia”, więc granicy nie da się podać liczbą i ocenia ją wychowawca.
 
 Siedem godzin na semestr to niewiele. Jeden dzień zwolnienia bez usprawiedliwienia zjada prawie cały limit na zachowanie bardzo dobre.
 

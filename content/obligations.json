@@ -9,7 +9,11 @@
       "pl": "Wniosek składa się w OPS właściwym dla miejsca zamieszkania, nie w szkole. Próg dochodu 823 zł na osobę, świadczenie od 99,20 do 248 zł miesięcznie. Można nim opłacić bilet miesięczny.",
       "ru": "Заявление подаётся в OPS по месту жительства, а не в школе. Порог дохода 823 злотых на человека, выплата от 99,20 до 248 злотых в месяц. Ею можно оплатить месячный проездной."
     },
-    "anchor": { "kind": "annual-window", "from": "09-01", "to": "09-15" },
+    "anchor": {
+      "kind": "annual-window",
+      "from": "09-01",
+      "to": "09-15"
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "art. 90n ustawy o systemie oświaty",
     "handledAt": "ops",
@@ -34,7 +38,11 @@
       "pl": "Siedem dni od ustania nieobecności. Wpis w dzienniku elektronicznym albo kartka z podpisem, wyłącznie u wychowawcy klasy. Usprawiedliwienie po terminie może nie zostać uwzględnione.",
       "ru": "Семь дней с момента окончания пропуска. Запись в электронном дневнике или бумажка с подписью, и только классному руководителю. Поданное позже могут не принять."
     },
-    "anchor": { "kind": "after-event", "event": "absence-ended", "days": 7 },
+    "anchor": {
+      "kind": "after-event",
+      "event": "absence-ended",
+      "days": 7
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "§ 43 ust. 2 pkt 15 statutu TKK",
     "handledAt": "librus",
@@ -58,7 +66,11 @@
       "pl": "Pisemny wniosek do nauczyciela najpóźniej 14 dni przed radą klasyfikacyjną. Sprawdzian odbywa się najpóźniej 7 dni przed radą, a uzyskana ocena nie może być niższa od proponowanej, więc próba niczym nie ryzykuje.",
       "ru": "Письменная просьба учителю не позже чем за 14 дней до педсовета. Экзамен проходит не позже чем за 7 дней до него, а полученная оценка не может быть ниже предложенной, поэтому попытка ничем не рискует."
     },
-    "anchor": { "kind": "before-event", "event": "rada-klasyfikacyjna", "days": 14 },
+    "anchor": {
+      "kind": "before-event",
+      "event": "rada-klasyfikacyjna",
+      "days": 14
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "§ 52 ust. 6 statutu TKK",
     "handledAt": "szkola",
@@ -74,7 +86,10 @@
       "pl": "Do 16 lat wystarczy dokument ze zdjęciem i datą urodzenia. Od 16. urodzin trzeba wozić ważną legitymację szkolną albo mLegitymację, inaczej kara 196 zł, a 117,60 zł przy zapłacie u kontrolera.",
       "ru": "До 16 лет хватает документа с фотографией и датой рождения. С 16-летия нужно возить действующий школьный билет или mLegitymację, иначе штраф 196 злотых, или 117,60 при оплате контролёру."
     },
-    "anchor": { "kind": "from-age", "years": 16 },
+    "anchor": {
+      "kind": "from-age",
+      "years": 16
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "§ 2 załącznika do uchwały nr XXXIII/828/2016 Rady m.st. Warszawy",
     "handledAt": "szkola",
@@ -99,7 +114,10 @@
       "pl": "Od 18. urodzin uczeń usprawiedliwia własne nieobecności sam, u wychowawcy, w tym samym terminie siedmiu dni. Wcześniej robi to rodzic lub opiekun prawny.",
       "ru": "С 18-летия ученик оправдывает свои пропуски сам, у классного руководителя, в тот же семидневный срок. До этого — родитель или опекун."
     },
-    "anchor": { "kind": "from-age", "years": 18 },
+    "anchor": {
+      "kind": "from-age",
+      "years": 18
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "§ 43 ust. 2 pkt 15 lit. b statutu TKK",
     "handledAt": "szkola",
@@ -115,7 +133,11 @@
       "pl": "Jednorazowe 300 zł na wyprawkę, bez kryterium dochodowego, wyłącznie elektronicznie. Od 1 lipca 2026 obywatele państw trzecich muszą dodatkowo wykazać aktywność zawodową w Polsce w miesiącu poprzedzającym wniosek.",
       "ru": "Разовые 300 злотых на сборы в школу, без проверки доходов, только электронно. С 1 июля 2026 гражданам третьих стран нужно дополнительно показать трудовую активность в Польше за предыдущий месяц."
     },
-    "anchor": { "kind": "annual-window", "from": "07-01", "to": "11-30" },
+    "anchor": {
+      "kind": "annual-window",
+      "from": "07-01",
+      "to": "11-30"
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "rozporządzenie Rady Ministrów w sprawie programu Dobry Start",
     "handledAt": "zus",
@@ -140,7 +162,9 @@
       "pl": "Jednorazowe świadczenie do 620 zł przy przejściowo trudnej sytuacji spowodowanej zdarzeniem losowym. Nie ma terminu rocznego, wniosek składa się w OPS właściwym dla miejsca zamieszkania w dowolnym momencie roku.",
       "ru": "Разовая выплата до 620 злотых при временной трудной ситуации из-за случайного события. Годового срока нет, заявление подаётся в OPS по месту жительства в любой момент года."
     },
-    "anchor": { "kind": "annual-window", "from": "01-01", "to": "12-31" },
+    "anchor": {
+      "kind": "always"
+    },
     "appliesTo": "wszyscy",
     "legalBasis": "art. 90n ustawy o systemie oświaty",
     "handledAt": "ops",
@@ -165,7 +189,9 @@
       "pl": "Uczniowi cudzoziemcowi przysługują bezpłatne dodatkowe lekcje polskiego, indywidualnie, od 2 do 5 godzin tygodniowo, bez ograniczenia czasowego. Zajęcia nie ruszają same, trzeba złożyć wniosek u dyrektora. Ustawowego terminu nie ma, podane daty to po prostu rok szkolny 2026/2027, a wniosek warto złożyć we wrześniu, bo każdy tydzień zwłoki to tydzień straconych zajęć.",
       "ru": "Ученику-иностранцу положены бесплатные дополнительные уроки польского, индивидуально, от 2 до 5 часов в неделю, без ограничения по времени. Сами занятия не начнутся, заявление подаётся директору. Законного срока нет, указанные даты — это просто учебный год 2026/2027, а подать заявление стоит в сентябре, потому что каждая неделя промедления — это неделя потерянных занятий."
     },
-    "anchor": { "kind": "annual-window", "from": "09-01", "to": "06-25" },
+    "anchor": {
+      "kind": "always"
+    },
     "appliesTo": "cudzoziemcy",
     "legalBasis": "§ 47 ust. 13–14 statutu TKK",
     "handledAt": "szkola",
@@ -179,5 +205,34 @@
       }
     ],
     "reviewBy": "2027-09-01"
+  },
+  {
+    "id": "sapere-auso",
+    "title": {
+      "pl": "Stypendium m.st. Warszawy SAPERE AUSO",
+      "ru": "Стипендия Варшавы SAPERE AUSO"
+    },
+    "what": {
+      "pl": "Jednorazowe 3800 zł za udokumentowane osiągnięcia, bez kryterium dochodowego. Wniosek składa się elektronicznie przez ESdOS. Liczą się własne badania i twórczość, konkursy międzynarodowe oraz tytuł laureata olimpiady.",
+      "ru": "Разовая выплата 3800 злотых за подтверждённые достижения, без проверки доходов. Заявление подаётся электронно через ESdOS. Учитываются собственные исследования и творчество, международные конкурсы и звание лауреата олимпиады."
+    },
+    "anchor": {
+      "kind": "annual-window",
+      "from": "06-26",
+      "to": "08-31"
+    },
+    "appliesTo": "wszyscy",
+    "legalBasis": "uchwała nr XXXV/1419/2026 Rady m.st. Warszawy z 14 maja 2026 r.",
+    "handledAt": "esdos",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "Biuro Edukacji m.st. Warszawy",
+        "title": "Stypendia edukacyjne SAPERE AUSO",
+        "url": "https://edukacja.um.warszawa.pl/kryteria",
+        "why": "Городская страница, условия меняются ежегодно, поэтому ведём на первоисточник."
+      }
+    ],
+    "reviewBy": "2027-06-01"
   }
 ]

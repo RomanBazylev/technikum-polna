@@ -98,6 +98,7 @@ const obligations = defineCollection({
     title: z.object({ pl: z.string().min(1), ru: z.string().min(1) }),
     what: z.object({ pl: z.string().min(1), ru: z.string().min(1) }),
     anchor: z.discriminatedUnion('kind', [
+      z.object({ kind: z.literal('always') }),
       z.object({ kind: z.literal('annual-window'), from: monthDay, to: monthDay }),
       z.object({ kind: z.literal('fixed-date'), from: isoDate, to: isoDate }),
       z.object({
