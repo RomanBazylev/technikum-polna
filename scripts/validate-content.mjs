@@ -13,8 +13,14 @@ const CONTENT = 'content';
 const errors = [];
 const warnings = [];
 
-const fail = (message) => errors.push(message);
-const warn = (message) => warnings.push(message);
+// Один и тот же файл встречается в нескольких проходах, поэтому сообщения
+// не должны дублироваться: повторы прячут настоящие ошибки.
+const fail = (message) => {
+  if (!errors.includes(message)) errors.push(message);
+};
+const warn = (message) => {
+  if (!warnings.includes(message)) warnings.push(message);
+};
 
 function listMarkdown(dir) {
   if (!existsSync(dir)) return [];
@@ -29,7 +35,10 @@ function listMarkdown(dir) {
  * проверяет zod при сборке, здесь нужны лишь несколько полей.
  */
 function readFrontmatter(path) {
-  const text = readFileSync(path, 'utf8');
+  // Редакторы под Windows пишут BOM, из-за которого файл перестаёт начинаться
+  // с разделителя и валидатор ругался бы на отсутствие фронтматтера вместо
+  // настоящей ошибки.
+  const text = readFileSync(path, 'utf8').replace(/^\uFEFF/, '');
   const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(text);
   if (match === null) {
     fail(`${path}: отсутствует фронтматтер`);
