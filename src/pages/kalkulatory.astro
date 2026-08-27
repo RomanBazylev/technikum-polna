@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import AbsenceBudget from '../components/AbsenceBudget';
+import GradeTools from '../components/GradeTools';
+import ProfileCard from '../components/ProfileCard';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Kalkulatory"
+  tab="dzis"
+  lead="Cztery rzeczy, których Librus nie liczy. Четыре вещи, которых Librus не считает."
+>
+  <div class="flex flex-col gap-4">
+    <AbsenceBudget client:load />
+    <GradeTools client:load />
+    <ProfileCard client:load />
+  </div>
+
+  <p class="mt-6 text-xs opacity-60">
+    Progi pochodzą ze statutu TKK, nie z ogólnopolskich przepisów, dlatego żaden krajowy dostawca
+    ich nie policzy. · Пороги взяты из устава этой школы, поэтому национальный сервис их и не
+    считает.
+  </p>
+
+  <a class="mt-4 inline-block text-sm underline" href={base}>Wróć do „Dziś”</a>
+</Base>

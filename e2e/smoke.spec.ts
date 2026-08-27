@@ -78,6 +78,29 @@ test('вкладки не подменяются главной после ак�
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Egzaminy');
 });
 
+test('калькулятор считает бюджет пропусков по уставу', async ({ page }) => {
+  await page.goto('./kalkulatory/');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Kalkulatory');
+
+  // 60 часов предмета, пропущено 8, значит до порога § 54 остаётся 22.
+  await expect(page.getByText('Możesz opuścić jeszcze 22 godz.')).toBeVisible();
+  await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
+});
+
+test('дата рождения сохраняется и раскрывает возрастные правила', async ({ page }) => {
+  await page.goto('./kalkulatory/');
+  const birthDate = page.locator('input[type="date"]');
+  await birthDate.fill('2011-03-15');
+  await expect(birthDate).toHaveValue('2011-03-15');
+
+  // Состояние переживает переход между страницами, и правило с 16 лет
+  // перестаёт висеть в разделе «нужны данные».
+  await page.goto('./');
+  await expect(
+    page.getByRole('listitem').filter({ hasText: 'Legitymacja szkolna obowiązkowa' }),
+  ).toBeVisible();
+});
+
 test('справочник показывает словарь', async ({ page }) => {
   await page.goto('./szkola/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Szkoła');

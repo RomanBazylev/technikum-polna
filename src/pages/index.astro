@@ -6,6 +6,7 @@ import type { Obligation } from '../lib/domain/obligations';
 
 const entries = await getCollection('obligations');
 const obligations = entries.map((entry) => entry.data as Obligation);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -13,6 +14,19 @@ const obligations = entries.map((entry) => entry.data as Obligation);
   tab="dzis"
   lead="Terminy, o których nikt nie przypomni. Wszystko liczy się w Twojej przeglądarce i nigdzie nie jest wysyłane."
 >
+  <a
+    href={`${base}kalkulatory/`}
+    class="mb-4 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
+  >
+    <span class="block font-medium">Kalkulatory</span>
+    <span class="block text-sm opacity-70">
+      Ile godzin jeszcze możesz opuścić, jaka ocena jest potrzebna, punkty na ocenę
+    </span>
+    <span class="mt-1 block text-xs opacity-60">
+      Сколько ещё можно пропустить и какая оценка нужна
+    </span>
+  </a>
+
   <ObligationList client:load obligations={obligations} />
 
   <p class="mt-6 text-xs opacity-60">
