@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const lektury = await getCollection('lektury');
+const withAudio = lektury.filter((entry) => entry.data.hasAudio).length;
+const base = import.meta.env.BASE_URL;
+
+const byEpoch = new Map<string, typeof lektury>();
+for (const entry of lektury) {
+  const epoch = entry.data.epoch === '' ? 'Inne' : entry.data.epoch;
+  byEpoch.set(epoch, [...(byEpoch.get(epoch) ?? []), entry]);
+}
+const epochs = [...byEpoch.entries()].sort((a, b) => a[0].localeCompare(b[0], 'pl'));
+---
+
+<Base
+  title="Lektury"
+  tab="nauka"
+  lead={`${lektury.length} pozycji, w tym ${withAudio} z audiobookiem. Полные тексты и озвучка бесплатно.`}
+>
+  <p class="mb-6 rounded-xl border-l-4 border-[var(--color-good)] bg-[var(--color-ink-soft)]/60 p-4 text-sm">
+    Audiobook to nie ozdoba. Jeśli czytasz po polsku wolno, wysłuchanie „Lalki” jest różnicą
+    między przeczytaniem a nieprzeczytaniem. · Аудиокнига здесь не украшение, а разница между
+    «прочитал» и «не прочитал».
+  </p>
+
+  {
+    epochs.map(([epoch, entries]) => (
+      <section class="mb-8">
+        <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">
+          {epoch} · {entries.length}
+        </h2>
+        <ul class="flex flex-col gap-2">
+          {entries.map((entry) => (
+            <li class="rounded-lg border border-[var(--color-line)] p-3">
+              <a href={entry.data.url} class="font-medium underline" rel="noopener">
+                {entry.data.title}
+              </a>
+              <p class="text-sm opacity-70">{entry.data.author}</p>
+              {entry.data.hasAudio ? (
+                <p class="mt-1 text-xs text-[var(--color-good)]">audiobook</p>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <p class="text-xs opacity-60">
+    Źródło: Wolne Lektury, kolekcja „Lektury szkolne dla liceów i techników”. Teksty są w domenie
+    publicznej albo na wolnych licencjach, dlatego prowadzimy prosto do nich zamiast kopiować. ·
+    Источник: Wolne Lektury. Тексты в общественном достоянии или под свободными лицензиями.
+  </p>
+
+  <a class="mt-4 inline-block text-sm underline" href={`${base}nauka/`}>Wróć do „Nauka”</a>
+</Base>

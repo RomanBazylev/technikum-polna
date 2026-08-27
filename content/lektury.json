@@ -1,0 +1,1055 @@
+[
+  {
+    "id": "daremne-zale",
+    "title": "Daremne żale",
+    "author": "Adam Asnyk",
+    "url": "https://wolnelektury.pl/katalog/lektura/daremne-zale/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "do-mlodych",
+    "title": "Do młodych",
+    "author": "Adam Asnyk",
+    "url": "https://wolnelektury.pl/katalog/lektura/do-mlodych/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "asnyk-glos-wolajacy-na-puszczy",
+    "title": "Głos wołający na puszczy",
+    "author": "Adam Asnyk",
+    "url": "https://wolnelektury.pl/katalog/lektura/asnyk-glos-wolajacy-na-puszczy/",
+    "hasAudio": false,
+    "epoch": "Pozytywizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "miedzy-nami-nic-nie-bylo",
+    "title": "Między nami nic nie było",
+    "author": "Adam Asnyk",
+    "url": "https://wolnelektury.pl/katalog/lektura/miedzy-nami-nic-nie-bylo/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "mickiewicz-ballady-i-romanse-do-przyjaciol",
+    "title": "Do przyjaciół",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-ballady-i-romanse-do-przyjaciol/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "mickiewicz-dudarz",
+    "title": "Dudarz",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-dudarz/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Romans"
+  },
+  {
+    "id": "dziady-dziady-poema-dziady-czesc-iii",
+    "title": "Dziady, część III",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/dziady-dziady-poema-dziady-czesc-iii/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Dramat romantyczny"
+  },
+  {
+    "id": "dziady-dziady-poema-dziady-czesc-iv",
+    "title": "Dziady, część IV",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/dziady-dziady-poema-dziady-czesc-iv/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Dramat romantyczny"
+  },
+  {
+    "id": "mickiewicz-ballady-i-romanse-kurhanek-maryli",
+    "title": "Kurhanek Maryli",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-ballady-i-romanse-kurhanek-maryli/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Romans"
+  },
+  {
+    "id": "ballady-i-romanse-lilje",
+    "title": "Lilije",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/ballady-i-romanse-lilje/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "oda-do-mlodosci",
+    "title": "Oda do młodości",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/oda-do-mlodosci/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Oda"
+  },
+  {
+    "id": "mickiewicz-ballady-i-romanse-pierwiosnek",
+    "title": "Pierwiosnek",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-ballady-i-romanse-pierwiosnek/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Romans"
+  },
+  {
+    "id": "ballady-i-romanse-rekawiczka",
+    "title": "Rękawiczka",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/ballady-i-romanse-rekawiczka/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "ballady-i-romanse-romantycznosc",
+    "title": "Romantyczność",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/ballady-i-romanse-romantycznosc/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "ballady-i-romanse-rybka",
+    "title": "Rybka",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/ballady-i-romanse-rybka/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "sonety-krymskie",
+    "title": "Sonety krymskie",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/sonety-krymskie/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Sonet"
+  },
+  {
+    "id": "ballady-i-romanse-switez",
+    "title": "Świteź",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/ballady-i-romanse-switez/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "mickiewicz-ballady-i-romanse-to-lubie",
+    "title": "To lubię",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-ballady-i-romanse-to-lubie/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "trzech-budrysow",
+    "title": "Trzech Budrysów",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/trzech-budrysow/",
+    "hasAudio": false,
+    "epoch": "Romantyzm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "mickiewicz-tukaj",
+    "title": "Tukaj albo próby przyjaźni",
+    "author": "Adam Mickiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/mickiewicz-tukaj/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Ballada"
+  },
+  {
+    "id": "zipper-opowiadania-z-mitologii-grekow-i-rzymian",
+    "title": "Opowiadania z mitologii Greków i Rzymian",
+    "author": "Albert Zipper",
+    "url": "https://wolnelektury.pl/katalog/lektura/zipper-opowiadania-z-mitologii-grekow-i-rzymian/",
+    "hasAudio": false,
+    "epoch": "",
+    "genre": ""
+  },
+  {
+    "id": "fredro-sluby-panienskie",
+    "title": "Śluby panieńskie czyli Magnetyzm serca",
+    "author": "Aleksander Fredro",
+    "url": "https://wolnelektury.pl/katalog/lektura/fredro-sluby-panienskie/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Komedia"
+  },
+  {
+    "id": "o-poprawie-rzeczypospolitej",
+    "title": "O poprawie Rzeczypospolitej",
+    "author": "Andrzej Frycz Modrzewski",
+    "url": "https://wolnelektury.pl/katalog/lektura/o-poprawie-rzeczypospolitej/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Rozprawa"
+  },
+  {
+    "id": "arystoteles-poetyka",
+    "title": "Poetyka",
+    "author": "Arystoteles",
+    "url": "https://wolnelektury.pl/katalog/lektura/arystoteles-poetyka/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Rozprawa"
+  },
+  {
+    "id": "bogurodzica",
+    "title": "Bogurodzica",
+    "author": "Autor nieznany",
+    "url": "https://wolnelektury.pl/katalog/lektura/bogurodzica/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "Hymn"
+  },
+  {
+    "id": "dzieje-tristana-i-izoldy",
+    "title": "Dzieje Tristana i Izoldy",
+    "author": "Autor nieznany",
+    "url": "https://wolnelektury.pl/katalog/lektura/dzieje-tristana-i-izoldy/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "powieść dworna"
+  },
+  {
+    "id": "lament-swietokrzyski",
+    "title": "Lament świętokrzyski",
+    "author": "Autor nieznany",
+    "url": "https://wolnelektury.pl/katalog/lektura/lament-swietokrzyski/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "Plankt"
+  },
+  {
+    "id": "piesn-o-rolandzie",
+    "title": "Pieśń o Rolandzie",
+    "author": "Autor nieznany",
+    "url": "https://wolnelektury.pl/katalog/lektura/piesn-o-rolandzie/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "chanson de geste"
+  },
+  {
+    "id": "rozmowa-mistrza-polikarpa-ze-smiercia",
+    "title": "Rozmowa mistrza Polikarpa ze Śmiercią",
+    "author": "Autor nieznany",
+    "url": "https://wolnelektury.pl/katalog/lektura/rozmowa-mistrza-polikarpa-ze-smiercia/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "lesmian-po-ciemku",
+    "title": "[Po ciemku, po ciemku łkasz...]",
+    "author": "Bolesław Leśmian",
+    "url": "https://wolnelektury.pl/katalog/lektura/lesmian-po-ciemku/",
+    "hasAudio": true,
+    "epoch": "Modernizm, Dwudziestolecie międzywojenne",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "dusiolek",
+    "title": "Dusiołek",
+    "author": "Bolesław Leśmian",
+    "url": "https://wolnelektury.pl/katalog/lektura/dusiolek/",
+    "hasAudio": true,
+    "epoch": "Modernizm, Dwudziestolecie międzywojenne",
+    "genre": "Ballada"
+  },
+  {
+    "id": "dziejba-lesna-dziejba-lesna",
+    "title": "Dziejba leśna",
+    "author": "Bolesław Leśmian",
+    "url": "https://wolnelektury.pl/katalog/lektura/dziejba-lesna-dziejba-lesna/",
+    "hasAudio": false,
+    "epoch": "Modernizm, Dwudziestolecie międzywojenne",
+    "genre": "Dramat wierszowany"
+  },
+  {
+    "id": "w-malinowym-chrusniaku",
+    "title": "W malinowym chruśniaku",
+    "author": "Bolesław Leśmian",
+    "url": "https://wolnelektury.pl/katalog/lektura/w-malinowym-chrusniaku/",
+    "hasAudio": true,
+    "epoch": "Modernizm, Dwudziestolecie międzywojenne",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "lalka",
+    "title": "Lalka",
+    "author": "Bolesław Prus",
+    "url": "https://wolnelektury.pl/katalog/lektura/lalka/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Powieść"
+  },
+  {
+    "id": "schulz-sklepy-cynamonowe",
+    "title": "Sklepy cynamonowe (zbiór)",
+    "author": "Bruno Schulz",
+    "url": "https://wolnelektury.pl/katalog/lektura/schulz-sklepy-cynamonowe/",
+    "hasAudio": true,
+    "epoch": "Dwudziestolecie międzywojenne",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "cos-ty-atenom-zrobil-sokratesie",
+    "title": "Coś ty Atenom zrobił, Sokratesie",
+    "author": "Cyprian Kamil Norwid",
+    "url": "https://wolnelektury.pl/katalog/lektura/cos-ty-atenom-zrobil-sokratesie/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "fortepian-chopina",
+    "title": "Fortepian Chopina",
+    "author": "Cyprian Kamil Norwid",
+    "url": "https://wolnelektury.pl/katalog/lektura/fortepian-chopina/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "norwid-nad-grobem-julii-capulleti-w-weronie",
+    "title": "Nad grobem Julii Capuletti w Weronie",
+    "author": "Cyprian Kamil Norwid",
+    "url": "https://wolnelektury.pl/katalog/lektura/norwid-nad-grobem-julii-capulleti-w-weronie/",
+    "hasAudio": false,
+    "epoch": "Romantyzm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "naborowski-wybor-poezji",
+    "title": "Wybór poezji",
+    "author": "Daniel Naborowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/naborowski-wybor-poezji/",
+    "hasAudio": false,
+    "epoch": "Barok",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "boska-komedia",
+    "title": "Boska Komedia",
+    "author": "Dante Alighieri",
+    "url": "https://wolnelektury.pl/katalog/lektura/boska-komedia/",
+    "hasAudio": true,
+    "epoch": "Średniowiecze",
+    "genre": "Poemat alegoryczny"
+  },
+  {
+    "id": "beczka-amontillada",
+    "title": "Beczka Amontillada",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/beczka-amontillada/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "berenice",
+    "title": "Berenice",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/berenice/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "czarny-kot",
+    "title": "Czarny kot",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/czarny-kot/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "diabel-na-wiezy",
+    "title": "Diabeł na wieży",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/diabel-na-wiezy/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "hop-frog",
+    "title": "Hop-frog",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/hop-frog/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "krol-dzumiec",
+    "title": "Król Dżumiec",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/krol-dzumiec/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "maska-smierci-szkarlatnej",
+    "title": "Maska śmierci szkarłatnej",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/maska-smierci-szkarlatnej/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "prawdziwy-opis-wypadku-z-p-waldemarem",
+    "title": "Prawdziwy opis wypadku z p. Waldemarem",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/prawdziwy-opis-wypadku-z-p-waldemarem/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "serce-oskarzycielem",
+    "title": "Serce oskarżycielem",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/serce-oskarzycielem/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "zaglada-domu-usherow",
+    "title": "Zagłada domu Usherów",
+    "author": "Edgar Allan Poe",
+    "url": "https://wolnelektury.pl/katalog/lektura/zaglada-domu-usherow/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "gloria-victis-gloria-victis",
+    "title": "Gloria victis",
+    "author": "Eliza Orzeszkowa",
+    "url": "https://wolnelektury.pl/katalog/lektura/gloria-victis-gloria-victis/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Nowela"
+  },
+  {
+    "id": "nad-niemnem",
+    "title": "Nad Niemnem",
+    "author": "Eliza Orzeszkowa",
+    "url": "https://wolnelektury.pl/katalog/lektura/nad-niemnem/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Powieść"
+  },
+  {
+    "id": "kandyd",
+    "title": "Kandyd",
+    "author": "François-Marie Arouet (Voltaire / Wolter)",
+    "url": "https://wolnelektury.pl/katalog/lektura/kandyd/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Powiastka filozoficzna"
+  },
+  {
+    "id": "kafka-proces",
+    "title": "Proces",
+    "author": "Franz Kafka",
+    "url": "https://wolnelektury.pl/katalog/lektura/kafka-proces/",
+    "hasAudio": false,
+    "epoch": "Dwudziestolecie międzywojenne",
+    "genre": "powieść psychologiczna"
+  },
+  {
+    "id": "moralnosc-pani-dulskiej",
+    "title": "Moralność pani Dulskiej",
+    "author": "Gabriela Zapolska",
+    "url": "https://wolnelektury.pl/katalog/lektura/moralnosc-pani-dulskiej/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Komedia, Tragifarsa"
+  },
+  {
+    "id": "giaur",
+    "title": "Giaur",
+    "author": "George Gordon Byron",
+    "url": "https://wolnelektury.pl/katalog/lektura/giaur/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Powieść poetycka"
+  },
+  {
+    "id": "orwell-rok-1984",
+    "title": "Rok 1984",
+    "author": "George Orwell",
+    "url": "https://wolnelektury.pl/katalog/lektura/orwell-rok-1984/",
+    "hasAudio": true,
+    "epoch": "Współczesność",
+    "genre": "Powieść"
+  },
+  {
+    "id": "pamiatki-soplicy",
+    "title": "Pamiątki Soplicy",
+    "author": "Henryk Rzewuski",
+    "url": "https://wolnelektury.pl/katalog/lektura/pamiatki-soplicy/",
+    "hasAudio": false,
+    "epoch": "Romantyzm",
+    "genre": "Gawęda szlachecka"
+  },
+  {
+    "id": "sienkiewicz-listy-z-podrozy-do-ameryki",
+    "title": "Listy z podróży do Ameryki",
+    "author": "Henryk Sienkiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/sienkiewicz-listy-z-podrozy-do-ameryki/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Reportaż podróżniczy"
+  },
+  {
+    "id": "potop",
+    "title": "Potop",
+    "author": "Henryk Sienkiewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/potop/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "powieść historyczna"
+  },
+  {
+    "id": "homer-iliada",
+    "title": "Iliada",
+    "author": "Homer",
+    "url": "https://wolnelektury.pl/katalog/lektura/homer-iliada/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Epos"
+  },
+  {
+    "id": "homer-odyseja",
+    "title": "Odyseja",
+    "author": "Homer",
+    "url": "https://wolnelektury.pl/katalog/lektura/homer-odyseja/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Epos"
+  },
+  {
+    "id": "ojciec-goriot",
+    "title": "Ojciec Goriot",
+    "author": "Honoré de Balzac",
+    "url": "https://wolnelektury.pl/katalog/lektura/ojciec-goriot/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "powieść obyczajowa"
+  },
+  {
+    "id": "horacy-wybrane-utwory",
+    "title": "Wybrane utwory",
+    "author": "Horacy",
+    "url": "https://wolnelektury.pl/katalog/lektura/horacy-wybrane-utwory/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "hymn-do-milosci-ojczyzny",
+    "title": "Hymn do miłości ojczyzny (Święta miłości kochanej ojczyzny...)",
+    "author": "Ignacy Krasicki",
+    "url": "https://wolnelektury.pl/katalog/lektura/hymn-do-milosci-ojczyzny/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "monachomachia",
+    "title": "Monachomachia",
+    "author": "Ignacy Krasicki",
+    "url": "https://wolnelektury.pl/katalog/lektura/monachomachia/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Poemat heroikomiczny"
+  },
+  {
+    "id": "satyry",
+    "title": "Satyry",
+    "author": "Ignacy Krasicki",
+    "url": "https://wolnelektury.pl/katalog/lektura/satyry/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Satyra"
+  },
+  {
+    "id": "do-trupa",
+    "title": "Do trupa",
+    "author": "Jan Andrzej Morsztyn",
+    "url": "https://wolnelektury.pl/katalog/lektura/do-trupa/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Sonet"
+  },
+  {
+    "id": "na-krzyzyk-na-piersiach-jednej-panny",
+    "title": "Na krzyżyk na piersiach jednej panny",
+    "author": "Jan Andrzej Morsztyn",
+    "url": "https://wolnelektury.pl/katalog/lektura/na-krzyzyk-na-piersiach-jednej-panny/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Sonet"
+  },
+  {
+    "id": "nadgrobek-perlisi",
+    "title": "Nadgrobek Perlisi",
+    "author": "Jan Andrzej Morsztyn",
+    "url": "https://wolnelektury.pl/katalog/lektura/nadgrobek-perlisi/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "hymny",
+    "title": "Hymny",
+    "author": "Jan Kasprowicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/hymny/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Hymn"
+  },
+  {
+    "id": "z-wichrow-i-hal",
+    "title": "Z wichrów i hal",
+    "author": "Jan Kasprowicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/z-wichrow-i-hal/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "odprawa-poslow-greckich",
+    "title": "Odprawa posłów greckich",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/odprawa-poslow-greckich/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Tragedia"
+  },
+  {
+    "id": "fragmenta-piesn-czego-chcesz-od-nas-panie",
+    "title": "Pieśń (Czego chcesz od nas, Panie, za Twe hojne dary?)",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/fragmenta-piesn-czego-chcesz-od-nas-panie/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Pieśń"
+  },
+  {
+    "id": "piesni-ksiegi-pierwsze-piesn-ix",
+    "title": "Pieśń IX (Chcemy sobie być radzi?)",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/piesni-ksiegi-pierwsze-piesn-ix/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Pieśń"
+  },
+  {
+    "id": "piesn-swietojanska-o-sobotce",
+    "title": "Pieśń świętojańska o Sobótce",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/piesn-swietojanska-o-sobotce/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Pieśń"
+  },
+  {
+    "id": "piesni-ksiegi-wtore-piesn-v",
+    "title": "Pieśń V (Wieczna sromota i nienagrodzona...)",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/piesni-ksiegi-wtore-piesn-v/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Pieśń"
+  },
+  {
+    "id": "treny",
+    "title": "Treny",
+    "author": "Jan Kochanowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/treny/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Tren"
+  },
+  {
+    "id": "kitowicz-opis-obyczajow-i-zwyczajow-za-panowania-augusta-iii",
+    "title": "Opis obyczajów i zwyczajów za panowania Augusta III",
+    "author": "Jędrzej Kitowicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/kitowicz-opis-obyczajow-i-zwyczajow-za-panowania-augusta-iii/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Pamiętnik"
+  },
+  {
+    "id": "cierpienia-mlodego-wertera",
+    "title": "Cierpienia młodego Wertera",
+    "author": "Johann Wolfgang von Goethe",
+    "url": "https://wolnelektury.pl/katalog/lektura/cierpienia-mlodego-wertera/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Powieść epistolarna"
+  },
+  {
+    "id": "goethe-faust",
+    "title": "Faust",
+    "author": "Johann Wolfgang von Goethe",
+    "url": "https://wolnelektury.pl/katalog/lektura/goethe-faust/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Tragedia"
+  },
+  {
+    "id": "lord-jim-zagorska",
+    "title": "Lord Jim",
+    "author": "Joseph Conrad",
+    "url": "https://wolnelektury.pl/katalog/lektura/lord-jim-zagorska/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Powieść"
+  },
+  {
+    "id": "dzien-jak-co-dzien",
+    "title": "dzień jak co dzień (tomik)",
+    "author": "Józef Czechowicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/dzien-jak-co-dzien/",
+    "hasAudio": true,
+    "epoch": "Dwudziestolecie międzywojenne",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "stara-basn",
+    "title": "Stara baśń",
+    "author": "Józef Ignacy Kraszewski",
+    "url": "https://wolnelektury.pl/katalog/lektura/stara-basn/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "powieść historyczna"
+  },
+  {
+    "id": "powrot-posla",
+    "title": "Powrót posła",
+    "author": "Julian Ursyn Niemcewicz",
+    "url": "https://wolnelektury.pl/katalog/lektura/powrot-posla/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Komedia"
+  },
+  {
+    "id": "beniowski",
+    "title": "Beniowski",
+    "author": "Juliusz Słowacki",
+    "url": "https://wolnelektury.pl/katalog/lektura/beniowski/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Poemat dygresyjny"
+  },
+  {
+    "id": "kordian",
+    "title": "Kordian",
+    "author": "Juliusz Słowacki",
+    "url": "https://wolnelektury.pl/katalog/lektura/kordian/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Dramat romantyczny"
+  },
+  {
+    "id": "eviva-l-arte",
+    "title": "Eviva l'arte!",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/eviva-l-arte/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "hymn-do-nirwany",
+    "title": "Hymn do Nirwany",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/hymn-do-nirwany/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "koniec-wieku",
+    "title": "Koniec wieku",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/koniec-wieku/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "lubie-kiedy-kobieta",
+    "title": "Lubię, kiedy kobieta...",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/lubie-kiedy-kobieta/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "melodia-mgiel-nocnych",
+    "title": "Melodia mgieł nocnych",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/melodia-mgiel-nocnych/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "nie-wierze-w-nic",
+    "title": "Nie wierzę w nic...",
+    "author": "Kazimierz Przerwa-Tetmajer",
+    "url": "https://wolnelektury.pl/katalog/lektura/nie-wierze-w-nic/",
+    "hasAudio": false,
+    "epoch": "Modernizm",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "baczynski-1942-1943-1944",
+    "title": "1942, 1943, 1944",
+    "author": "Krzysztof Kamil Baczyński",
+    "url": "https://wolnelektury.pl/katalog/lektura/baczynski-1942-1943-1944/",
+    "hasAudio": true,
+    "epoch": "Współczesność",
+    "genre": "Wiersz"
+  },
+  {
+    "id": "rota",
+    "title": "Rota",
+    "author": "Maria Konopnicka",
+    "url": "https://wolnelektury.pl/katalog/lektura/rota/",
+    "hasAudio": false,
+    "epoch": "Pozytywizm",
+    "genre": "Pieśń"
+  },
+  {
+    "id": "don-kichot-z-la-manchy",
+    "title": "Don Kichot z La Manchy",
+    "author": "Miguel de Cervantes Saavedra",
+    "url": "https://wolnelektury.pl/katalog/lektura/don-kichot-z-la-manchy/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Powieść"
+  },
+  {
+    "id": "rej-zywot-czlowieka-poczciwego",
+    "title": "Żywot człowieka poczciwego",
+    "author": "Mikołaj Rej",
+    "url": "https://wolnelektury.pl/katalog/lektura/rej-zywot-czlowieka-poczciwego/",
+    "hasAudio": false,
+    "epoch": "Renesans",
+    "genre": "Traktat"
+  },
+  {
+    "id": "skapiec",
+    "title": "Skąpiec",
+    "author": "Molière (Molier)",
+    "url": "https://wolnelektury.pl/katalog/lektura/skapiec/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Komedia"
+  },
+  {
+    "id": "zycie-snem",
+    "title": "Życie snem",
+    "author": "Pedro Calderon de la Barca",
+    "url": "https://wolnelektury.pl/katalog/lektura/zycie-snem/",
+    "hasAudio": false,
+    "epoch": "Barok",
+    "genre": "Tragedia"
+  },
+  {
+    "id": "skarga-kazania-sejmowe",
+    "title": "Kazania sejmowe",
+    "author": "Piotr Skarga",
+    "url": "https://wolnelektury.pl/katalog/lektura/skarga-kazania-sejmowe/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Kazanie"
+  },
+  {
+    "id": "platon-panstwo",
+    "title": "Państwo",
+    "author": "Platon",
+    "url": "https://wolnelektury.pl/katalog/lektura/platon-panstwo/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Rozprawa"
+  },
+  {
+    "id": "antygona",
+    "title": "Antygona",
+    "author": "Sofokles",
+    "url": "https://wolnelektury.pl/katalog/lektura/antygona/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Tragedia"
+  },
+  {
+    "id": "krol-edyp",
+    "title": "Król Edyp",
+    "author": "Sofokles",
+    "url": "https://wolnelektury.pl/katalog/lektura/krol-edyp/",
+    "hasAudio": true,
+    "epoch": "Starożytność",
+    "genre": "Tragedia"
+  },
+  {
+    "id": "szewcy",
+    "title": "Szewcy",
+    "author": "Stanisław Ignacy Witkiewicz (Witkacy)",
+    "url": "https://wolnelektury.pl/katalog/lektura/szewcy/",
+    "hasAudio": true,
+    "epoch": "Dwudziestolecie międzywojenne",
+    "genre": "Dramat współczesny"
+  },
+  {
+    "id": "przestrogi-dla-polski",
+    "title": "Przestrogi dla Polski",
+    "author": "Stanisław Staszic",
+    "url": "https://wolnelektury.pl/katalog/lektura/przestrogi-dla-polski/",
+    "hasAudio": true,
+    "epoch": "Oświecenie",
+    "genre": "Rozprawa polityczna"
+  },
+  {
+    "id": "wesele",
+    "title": "Wesele",
+    "author": "Stanisław Wyspiański",
+    "url": "https://wolnelektury.pl/katalog/lektura/wesele/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Dramat poetycki"
+  },
+  {
+    "id": "echa-lesne",
+    "title": "Echa leśne",
+    "author": "Stefan Żeromski",
+    "url": "https://wolnelektury.pl/katalog/lektura/echa-lesne/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm",
+    "genre": "Nowela"
+  },
+  {
+    "id": "ludzie-bezdomni",
+    "title": "Ludzie bezdomni",
+    "author": "Stefan Żeromski",
+    "url": "https://wolnelektury.pl/katalog/lektura/ludzie-bezdomni/",
+    "hasAudio": true,
+    "epoch": "Modernizm",
+    "genre": "Powieść"
+  },
+  {
+    "id": "przedwiosnie",
+    "title": "Przedwiośnie",
+    "author": "Stefan Żeromski",
+    "url": "https://wolnelektury.pl/katalog/lektura/przedwiosnie/",
+    "hasAudio": true,
+    "epoch": "Dwudziestolecie międzywojenne",
+    "genre": "Powieść"
+  },
+  {
+    "id": "borowski-prosze-panstwa-do-gazu",
+    "title": "Proszę państwa do gazu",
+    "author": "Tadeusz Borowski",
+    "url": "https://wolnelektury.pl/katalog/lektura/borowski-prosze-panstwa-do-gazu/",
+    "hasAudio": true,
+    "epoch": "Współczesność",
+    "genre": "Opowiadanie"
+  },
+  {
+    "id": "potocki-transakcja-wojny-chocimskiej",
+    "title": "Transakcja wojny chocimskiej",
+    "author": "Wacław Potocki",
+    "url": "https://wolnelektury.pl/katalog/lektura/potocki-transakcja-wojny-chocimskiej/",
+    "hasAudio": true,
+    "epoch": "Barok",
+    "genre": "Poemat"
+  },
+  {
+    "id": "hamlet",
+    "title": "Hamlet",
+    "author": "William Shakespeare (Szekspir)",
+    "url": "https://wolnelektury.pl/katalog/lektura/hamlet/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Dramat szekspirowski, Tragedia"
+  },
+  {
+    "id": "makbet",
+    "title": "Makbet",
+    "author": "William Shakespeare (Szekspir)",
+    "url": "https://wolnelektury.pl/katalog/lektura/makbet/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Dramat szekspirowski, Tragedia"
+  },
+  {
+    "id": "romeo-i-julia",
+    "title": "Romeo i Julia",
+    "author": "William Shakespeare (Szekspir)",
+    "url": "https://wolnelektury.pl/katalog/lektura/romeo-i-julia/",
+    "hasAudio": true,
+    "epoch": "Renesans",
+    "genre": "Dramat szekspirowski, Tragedia"
+  },
+  {
+    "id": "pilecki-raport-w",
+    "title": "Raport W",
+    "author": "Witold Pilecki",
+    "url": "https://wolnelektury.pl/katalog/lektura/pilecki-raport-w/",
+    "hasAudio": false,
+    "epoch": "Współczesność",
+    "genre": "Pamiętnik"
+  },
+  {
+    "id": "chlopi",
+    "title": "Chłopi",
+    "author": "Władysław Stanisław Reymont",
+    "url": "https://wolnelektury.pl/katalog/lektura/chlopi/",
+    "hasAudio": true,
+    "epoch": "Pozytywizm, Modernizm",
+    "genre": "Powieść"
+  },
+  {
+    "id": "nie-boska-komedia",
+    "title": "Nie-Boska komedia",
+    "author": "Zygmunt Krasiński",
+    "url": "https://wolnelektury.pl/katalog/lektura/nie-boska-komedia/",
+    "hasAudio": true,
+    "epoch": "Romantyzm",
+    "genre": "Dramat romantyczny"
+  }
+]

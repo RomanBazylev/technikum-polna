@@ -129,5 +129,55 @@
       }
     ],
     "reviewBy": "2027-06-01"
+  },
+  {
+    "id": "zasilek-szkolny",
+    "title": {
+      "pl": "Zasiłek szkolny",
+      "ru": "Разовое школьное пособие"
+    },
+    "what": {
+      "pl": "Jednorazowe świadczenie do 620 zł przy przejściowo trudnej sytuacji spowodowanej zdarzeniem losowym. Nie ma terminu rocznego, wniosek składa się w OPS właściwym dla miejsca zamieszkania w dowolnym momencie roku.",
+      "ru": "Разовая выплата до 620 злотых при временной трудной ситуации из-за случайного события. Годового срока нет, заявление подаётся в OPS по месту жительства в любой момент года."
+    },
+    "anchor": { "kind": "annual-window", "from": "01-01", "to": "12-31" },
+    "appliesTo": "wszyscy",
+    "legalBasis": "art. 90n ustawy o systemie oświaty",
+    "handledAt": "ops",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "m.st. Warszawa",
+        "title": "Stypendium szkolne i zasiłek szkolny",
+        "url": "https://wsparcie.um.warszawa.pl/-/stypendium-szkolne-i-zasilek-szkolny",
+        "why": "Материал города, лицензии на переиспользование нет, поэтому только ссылка."
+      }
+    ],
+    "reviewBy": "2027-08-01"
+  },
+  {
+    "id": "dodatkowe-lekcje-polskiego",
+    "title": {
+      "pl": "Wniosek o dodatkowe lekcje języka polskiego",
+      "ru": "Заявление на дополнительные уроки польского"
+    },
+    "what": {
+      "pl": "Uczniowi cudzoziemcowi przysługują bezpłatne dodatkowe lekcje polskiego, indywidualnie, od 2 do 5 godzin tygodniowo, bez ograniczenia czasowego. Zajęcia nie ruszają same, trzeba złożyć wniosek u dyrektora. Ustawowego terminu nie ma, podane daty to po prostu rok szkolny 2026/2027, a wniosek warto złożyć we wrześniu, bo każdy tydzień zwłoki to tydzień straconych zajęć.",
+      "ru": "Ученику-иностранцу положены бесплатные дополнительные уроки польского, индивидуально, от 2 до 5 часов в неделю, без ограничения по времени. Сами занятия не начнутся, заявление подаётся директору. Законного срока нет, указанные даты — это просто учебный год 2026/2027, а подать заявление стоит в сентябре, потому что каждая неделя промедления — это неделя потерянных занятий."
+    },
+    "anchor": { "kind": "annual-window", "from": "09-01", "to": "06-25" },
+    "appliesTo": "cudzoziemcy",
+    "legalBasis": "§ 47 ust. 13–14 statutu TKK",
+    "handledAt": "szkola",
+    "sources": [
+      {
+        "kind": "link-only",
+        "provider": "TKK Polna",
+        "title": "Statut TKK",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2025/01/statut-tkk-1.pdf",
+        "why": "Документ школы, распространять его копию мы не вправе."
+      }
+    ],
+    "reviewBy": "2027-09-01"
   }
 ]

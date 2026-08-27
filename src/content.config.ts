@@ -124,4 +124,60 @@ const obligations = defineCollection({
   }),
 });
 
-export const collections = { handbook, topics, glossary, obligations };
+/**
+ * Ось программы: единицы efektów kształcenia из podstawa programowa.
+ * Названия взяты из ZPE, где они отдаются чистым HTML. Разбирать PDF ORE до
+ * уровня отдельных efektów не стали: текстовый дамп искажает польские
+ * диакритики, а искажённая ось хуже отсутствующей.
+ */
+const effects = defineCollection({
+  loader: file('./content/effects.json'),
+  schema: z.object({
+    id: z.string().regex(/^INF\.0[34]\.\d{1,2}$/),
+    qualification: z.enum(['INF.03', 'INF.04']),
+    name: z.string().min(1),
+    subjects: z.array(z.string().min(1)),
+    grades: z.array(z.number().int().min(1).max(5)),
+  }),
+});
+
+const subjects = defineCollection({
+  loader: file('./content/subjects.json'),
+  schema: z.object({
+    id: z.string().min(1),
+    name: z.object({ pl: z.string().min(1), ru: z.string().min(1) }),
+    track: z.enum(['ogolny', 'rozszerzony', 'jezyk', 'zawodowy']),
+    // null означает, что распределение часов по классам определяет директор.
+    hoursByGrade: z.array(z.number().int().min(0)).length(5).nullable(),
+    textbook: z.string().optional(),
+    note: z.object({ pl: z.string(), ru: z.string() }).optional(),
+  }),
+});
+
+/**
+ * Полка лектур. Снимок ответа Wolne Lektury, обновляется скриптом
+ * `npm run content:refresh`, а не при каждой сборке: так сборка остаётся
+ * детерминированной и не зависит от доступности чужого сервера.
+ */
+const lektury = defineCollection({
+  loader: file('./content/lektury.json'),
+  schema: z.object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    author: z.string(),
+    url: z.string().url(),
+    hasAudio: z.boolean(),
+    epoch: z.string(),
+    genre: z.string(),
+  }),
+});
+
+export const collections = {
+  handbook,
+  topics,
+  glossary,
+  obligations,
+  effects,
+  subjects,
+  lektury,
+};

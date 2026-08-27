@@ -3,11 +3,28 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Term from '../components/Term.astro';
 
-const topics = await getCollection('topics');
-const glossary = await getCollection('glossary');
-const byId = new Map(glossary.map((entry) => [entry.data.id, entry.data]));
+const [topics, glossary, effects, subjects] = await Promise.all([
+  getCollection('topics'),
+  getCollection('glossary'),
+  getCollection('effects'),
+  getCollection('subjects'),
+]);
 
-const grades = [1, 2, 3, 4, 5] as const;
+const termById = new Map(glossary.map((entry) => [entry.data.id, entry.data]));
+const topicsByEffect = new Map<string, typeof topics>();
+for (const topic of topics) {
+  for (const code of topic.data.effects) {
+    topicsByEffect.set(code, [...(topicsByEffect.get(code) ?? []), topic]);
+  }
+}
+
+const lektury = await getCollection('lektury');
+const audiobooks = lektury.filter((entry) => entry.data.hasAudio).length;
+
+const qualifications = ['INF.03', 'INF.04'] as const;
+const base = import.meta.env.BASE_URL;
+const hoursTotal = (hours: number[] | null): number | null =>
+  hours === null ? null : hours.reduce((sum, value) => sum + value, 0);
 ---
 
 <Base
@@ -15,50 +32,135 @@ const grades = [1, 2, 3, 4, 5] as const;
   tab="nauka"
   lead="Mapa programu, nie podręcznik. Карта программы, а не учебник."
 >
-  <nav aria-label="Klasy" class="mb-6 flex gap-2">
-    {
-      grades.map((grade) => (
-        <span
-          class:list={[
-            'rounded-lg border px-3 py-1 text-sm',
-            grade === 1
-              ? 'border-[var(--color-accent)] text-[var(--color-accent)]'
-              : 'border-[var(--color-line)] opacity-50',
-          ]}
-        >
-          Klasa {grade}
-        </span>
-      ))
-    }
-  </nav>
+  <a
+    href={`${base}lektury/`}
+    class="mb-6 block rounded-xl border-l-4 border-[var(--color-good)] bg-[var(--color-ink-soft)]/60 p-4"
+  >
+    <span class="block font-medium">Lektury: {lektury.length} pozycji</span>
+    <span class="block text-sm opacity-70">
+      Pełne teksty za darmo, {audiobooks} z audiobookiem
+    </span>
+    <span class="mt-1 block text-xs opacity-60">
+      Полные тексты бесплатно, {audiobooks} с озвучкой
+    </span>
+  </a>
 
-  <ul class="flex flex-col gap-3">
-    {
-      topics.map((topic) => (
-        <li class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
-          <p class="font-mono text-xs opacity-60">{topic.data.effects.join(' · ')}</p>
-          <h2 class="mt-1 font-medium">{topic.data.title}</h2>
-          <p class="mt-1 text-sm opacity-70">
-            {topic.data.subject} · klasa {topic.data.grade}
-          </p>
-          {topic.data.terms.length > 0 ? (
-            <p class="mt-3 text-sm">
-              {topic.data.terms.map((termId) => {
-                const term = byId.get(termId);
-                return term === undefined ? null : (
-                  <span class="mr-3 inline-block">
-                    <Term pl={term.pl} ru={term.ru} note={term.note?.ru} />
-                  </span>
-                );
-              })}
-            </p>
-          ) : null}
-        </li>
-      ))
-    }
-  </ul>
+  <section>
+    <h2 class="mb-1 text-sm font-medium uppercase tracking-wide opacity-70">
+      Siatka godzin, klasy I–V
+    </h2>
+    <p class="mb-3 text-xs opacity-60">
+      Rozporządzenie Ministra Edukacji z 22 lipca 2026, Dz.U. 2026 poz. 1028, załącznik nr 5.
+    </p>
+    <div class="overflow-x-auto rounded-xl border border-[var(--color-line)]">
+      <table class="w-full text-sm">
+        <thead class="text-xs uppercase opacity-60">
+          <tr>
+            <th class="p-2 text-left">Przedmiot</th>
+            {[1, 2, 3, 4, 5].map((grade) => <th class="p-2 text-center">{grade}</th>)}
+            <th class="p-2 text-center">Σ</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            subjects.map((subject) => (
+              <tr class="border-t border-[var(--color-line)]">
+                <td class="p-2">
+                  <span class="font-medium">{subject.data.name.pl}</span>
+                  <span class="block text-xs opacity-60">{subject.data.name.ru}</span>
+                  {subject.data.textbook ? (
+                    <span class="block text-xs opacity-50">{subject.data.textbook}</span>
+                  ) : null}
+                </td>
+                {[0, 1, 2, 3, 4].map((index) => (
+                  <td class="p-2 text-center tabular-nums opacity-80">
+                    {subject.data.hoursByGrade === null
+                      ? '·'
+                      : subject.data.hoursByGrade[index] === 0
+                        ? ''
+                        : subject.data.hoursByGrade[index]}
+                  </td>
+                ))}
+                <td class="p-2 text-center font-medium tabular-nums">
+                  {hoursTotal(subject.data.hoursByGrade) ?? '·'}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-2 text-xs opacity-60">
+      Kropka oznacza, że rozłożenie godzin na klasy ustala dyrektor szkoły. ·
+      Точка означает, что распределение часов по классам определяет директор.
+    </p>
+  </section>
 
-  <p class="mt-6 text-xs opacity-60">
+  {
+    qualifications.map((qualification) => (
+      <section class="mt-8">
+        <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">
+          {qualification} · jednostki efektów kształcenia
+        </h2>
+        <ul class="flex flex-col gap-2">
+          {effects
+            .filter((effect) => effect.data.qualification === qualification)
+            .map((effect) => {
+              const related = topicsByEffect.get(effect.data.id) ?? [];
+              return (
+                <li class="rounded-xl border border-[var(--color-line)] p-3">
+                  <p class="font-mono text-xs opacity-60">{effect.data.id}</p>
+                  <p class="font-medium">{effect.data.name}</p>
+                  <p class="mt-1 text-xs opacity-60">
+                    {effect.data.subjects.join(' · ')} — klasy {effect.data.grades.join(', ')}
+                  </p>
+                  {related.length > 0 ? (
+                    <ul class="mt-2 list-disc pl-5 text-sm">
+                      {related.map((topic) => (
+                        <li>{topic.data.title}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </li>
+              );
+            })}
+        </ul>
+      </section>
+    ))
+  }
+
+  {
+    topics.length > 0 ? (
+      <section class="mt-8">
+        <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">Tematy</h2>
+        <ul class="flex flex-col gap-3">
+          {topics.map((topic) => (
+            <li class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
+              <p class="font-mono text-xs opacity-60">{topic.data.effects.join(' · ')}</p>
+              <h3 class="mt-1 font-medium">{topic.data.title}</h3>
+              <p class="mt-1 text-sm opacity-70">
+                {topic.data.subject} · klasa {topic.data.grade}
+              </p>
+              {topic.data.terms.length > 0 ? (
+                <p class="mt-3 text-sm">
+                  {topic.data.terms.map((termId) => {
+                    const term = termById.get(termId);
+                    return term === undefined ? null : (
+                      <span class="mr-3 inline-block">
+                        <Term pl={term.pl} ru={term.ru} note={term.note?.ru} />
+                      </span>
+                    );
+                  })}
+                </p>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : null
+  }
+
+  <p class="mt-8 text-xs opacity-60">
     Własnej teorii nie piszemy tam, gdzie poprawności nie da się sprawdzić uruchomieniem kodu.
     Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację, zadania.info i Wolne Lektury. ·
     Свою теорию пишем только там, где правильность проверяется запуском кода.

@@ -138,5 +138,250 @@
     "ru": "наследование",
     "en": "inheritance",
     "category": "programowanie"
+  },
+  {
+    "id": "rada-pedagogiczna",
+    "pl": "rada pedagogiczna",
+    "ru": "педагогический совет",
+    "en": "teaching staff council",
+    "category": "szkola",
+    "note": {
+      "ru": "Её положительное мнение — основание для матуры в адаптированных условиях, art. 44zzr ust. 7."
+    }
+  },
+  {
+    "id": "swiadectwo",
+    "pl": "świadectwo",
+    "ru": "свидетельство об окончании учебного года",
+    "en": "school certificate",
+    "category": "szkola",
+    "note": {
+      "ru": "Не путать с zaświadczenie, это справка из учреждения."
+    }
+  },
+  {
+    "id": "klasyfikacja",
+    "pl": "klasyfikacja",
+    "ru": "аттестация",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Подведение оценок за полугодие или год. Пропуск больше половины часов по предмету означает nieklasyfikowanie, § 54 ust. 1."
+    }
+  },
+  {
+    "id": "promocja",
+    "pl": "promocja",
+    "ru": "перевод в следующий класс",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Нужны все годовые оценки выше единицы, § 56. С отличием — средний балл от 4,75 и поведение wzorowe или bardzo dobre."
+    }
+  },
+  {
+    "id": "zwolnienie",
+    "pl": "zwolnienie",
+    "ru": "освобождение",
+    "category": "szkola",
+    "note": {
+      "ru": "Освобождение от физкультуры выдаёт директор по заявлению родителей и справке врача, § 51 ust. 5. Действует со дня подачи справки, не задним числом."
+    }
+  },
+  {
+    "id": "dzienniczek-praktyk",
+    "pl": "dzienniczek praktyk",
+    "ru": "дневник практики",
+    "category": "szkola",
+    "note": {
+      "ru": "Одно из трёх оснований годовой оценки за практику, § 52 ust. 5 pkt 6."
+    }
+  },
+  {
+    "id": "opiekun-praktyk",
+    "pl": "opiekun praktyk",
+    "ru": "наставник на практике",
+    "category": "szkola",
+    "note": {
+      "ru": "Сотрудник работодателя. Его предложение ложится в основу годовой оценки за практику, § 52 ust. 5 pkt 6."
+    }
+  },
+  {
+    "id": "stypendium",
+    "pl": "stypendium",
+    "ru": "стипендия",
+    "category": "urzedy",
+    "note": {
+      "ru": "Stypendium szkolne подаётся в OPS с 1 по 15 сентября, порог дохода 823 злотых на человека."
+    }
+  },
+  {
+    "id": "zasilek",
+    "pl": "zasiłek",
+    "ru": "пособие",
+    "category": "urzedy",
+    "note": {
+      "ru": "Zasiłek szkolny разовый, до 620 злотых, при случайном событии, подаётся круглый год."
+    }
+  },
+  {
+    "id": "wniosek",
+    "pl": "wniosek",
+    "ru": "заявление",
+    "en": "application",
+    "category": "urzedy",
+    "note": {
+      "ru": "Письменная просьба о повышении годовой оценки подаётся минимум за 14 дней до педсовета, § 52 ust. 6."
+    }
+  },
+  {
+    "id": "zaswiadczenie",
+    "pl": "zaświadczenie",
+    "ru": "справка",
+    "en": "certificate",
+    "category": "urzedy",
+    "note": {
+      "ru": "Справка из налоговой — одна из четырёх принимаемых форм подтверждения для Karty Młodego Warszawiaka, § 4 ust. 3 zarządzenia nr 1571/2024."
+    }
+  },
+  {
+    "id": "urzad-skarbowy",
+    "pl": "urząd skarbowy",
+    "ru": "налоговая инспекция",
+    "en": "tax office",
+    "category": "urzedy",
+    "note": {
+      "ru": "Для Karty Młodego Warszawiaka декларация PIT должна быть подана в варшавскую налоговую и указывать варшавский адрес."
+    }
+  },
+  {
+    "id": "meldunek",
+    "pl": "meldunek",
+    "ru": "прописка",
+    "category": "urzedy",
+    "note": {
+      "ru": "Постоянная прописка родителя в Варшаве — альтернатива уже поданной декларации PIT для Karty Młodego Warszawiaka."
+    }
+  },
+  {
+    "id": "mlegitymacja",
+    "pl": "mLegitymacja",
+    "ru": "мобильный школьный билет",
+    "category": "urzedy",
+    "note": {
+      "ru": "Условие оформления — фотография, загруженная в Librus. С 16 лет билет обязателен при контроле в транспорте."
+    }
+  },
+  {
+    "id": "poradnia-psychologiczno-pedagogiczna",
+    "pl": "poradnia psychologiczno-pedagogiczna",
+    "ru": "психолого-педагогическая консультация",
+    "category": "szkola",
+    "note": {
+      "ru": "Только её заключение о нарушениях развития снижает требования на уроке. Слабое знание польского таким основанием не является."
+    }
+  },
+  {
+    "id": "stroj-galowy",
+    "pl": "strój galowy",
+    "ru": "парадная одежда",
+    "category": "szkola",
+    "note": {
+      "ru": "Для торжеств. В обычные дни обязательна сменная обувь со светлой подошвой, § 43 ust. 2 pkt 11."
+    }
+  },
+  {
+    "id": "dyzur",
+    "pl": "dyżur",
+    "ru": "дежурство",
+    "en": "duty",
+    "category": "szkola"
+  },
+  {
+    "id": "zastepstwo",
+    "pl": "zastępstwo",
+    "ru": "замена урока",
+    "category": "szkola",
+    "note": {
+      "ru": "Урок, который вместо отсутствующего учителя ведёт другой."
+    }
+  },
+  {
+    "id": "wagary",
+    "pl": "wagary",
+    "ru": "прогулы",
+    "category": "szkola",
+    "note": {
+      "ru": "Неоправданные часы. Для поведения wzorowe их должно быть ноль за семестр, § 58."
+    }
+  },
+  {
+    "id": "oceny-czastkowe",
+    "pl": "oceny cząstkowe",
+    "ru": "текущие оценки",
+    "category": "ocenianie",
+    "note": {
+      "ru": "Только у них бывают плюсы и минусы. Для полугодовой или годовой оценки нужно минимум три, § 53 ust. 2."
+    }
+  },
+  {
+    "id": "funkcja",
+    "pl": "funkcja",
+    "ru": "функция",
+    "en": "function",
+    "category": "programowanie"
+  },
+  {
+    "id": "klasa",
+    "pl": "klasa",
+    "ru": "класс",
+    "en": "class",
+    "category": "programowanie",
+    "note": {
+      "ru": "То же слово означает школьный класс. Смысл различается по контексту."
+    }
+  },
+  {
+    "id": "obiekt",
+    "pl": "obiekt",
+    "ru": "объект",
+    "en": "object",
+    "category": "programowanie"
+  },
+  {
+    "id": "wyjatek",
+    "pl": "wyjątek",
+    "ru": "исключение",
+    "en": "exception",
+    "category": "programowanie"
+  },
+  {
+    "id": "biblioteka",
+    "pl": "biblioteka",
+    "ru": "библиотека",
+    "en": "library",
+    "category": "programowanie",
+    "note": {
+      "ru": "То же слово, что школьная библиотека. В школьной выдают три тома сразу, § 24."
+    }
+  },
+  {
+    "id": "zapytanie-sql",
+    "pl": "zapytanie SQL",
+    "ru": "SQL-запрос",
+    "en": "SQL query",
+    "category": "programowanie"
+  },
+  {
+    "id": "siec",
+    "pl": "sieć",
+    "ru": "сеть",
+    "en": "network",
+    "category": "programowanie"
+  },
+  {
+    "id": "serwer",
+    "pl": "serwer",
+    "ru": "сервер",
+    "en": "server",
+    "category": "programowanie"
   }
 ]

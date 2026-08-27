@@ -1,0 +1,166 @@
+[
+  {
+    "id": "jezyk-polski",
+    "name": { "pl": "Język polski", "ru": "Польский язык" },
+    "track": "ogolny",
+    "hoursByGrade": [3, 3, 3, 3, 4],
+    "textbook": "Przeszłość i dziś. Literatura – język – kultura. Klasa 1, cz. 1 i 2, Stentor"
+  },
+  {
+    "id": "matematyka",
+    "name": { "pl": "Matematyka", "ru": "Математика" },
+    "track": "rozszerzony",
+    "hoursByGrade": [2, 3, 3, 3, 3],
+    "textbook": "Matematyka i przykłady jej zastosowań 1, zakres rozszerzony, Podkowa",
+    "note": {
+      "pl": "Rozszerzenie obowiązkowe, dodatkowe 8 godzin w cyklu.",
+      "ru": "Обязательное расширение, дополнительно 8 часов за цикл."
+    }
+  },
+  {
+    "id": "jezyk-angielski",
+    "name": { "pl": "Język angielski", "ru": "Английский язык" },
+    "track": "rozszerzony",
+    "hoursByGrade": null,
+    "textbook": "New Password B1+ lub B2, Macmillan",
+    "note": {
+      "pl": "Podręcznik zależy od wyniku testu poziomującego z 1 września.",
+      "ru": "Учебник зависит от результата теста на уровень 1 сентября."
+    }
+  },
+  {
+    "id": "jezyk-niemiecki",
+    "name": { "pl": "Język niemiecki", "ru": "Немецкий язык" },
+    "track": "jezyk",
+    "hoursByGrade": null,
+    "textbook": "Effekt Neu cz. 1, WSiP",
+    "note": { "pl": "Grupa 1Bn.", "ru": "Группа 1Bn." }
+  },
+  {
+    "id": "jezyk-hiszpanski",
+    "name": { "pl": "Język hiszpański", "ru": "Испанский язык" },
+    "track": "jezyk",
+    "hoursByGrade": null,
+    "textbook": "Ya lo sé 1 A1, Draco",
+    "note": { "pl": "Grupa 1Bh.", "ru": "Группа 1Bh." }
+  },
+  {
+    "id": "historia",
+    "name": { "pl": "Historia", "ru": "История" },
+    "track": "ogolny",
+    "hoursByGrade": [1, 1, 2, 2, 1],
+    "textbook": "Poznać przeszłość 1, edycja 2024, Nowa Era",
+    "note": {
+      "pl": "W klasie V zajęcia trwają tylko do końca stycznia.",
+      "ru": "В пятом классе занятия идут только до конца января."
+    }
+  },
+  {
+    "id": "edukacja-obywatelska",
+    "name": { "pl": "Edukacja obywatelska", "ru": "Гражданское образование" },
+    "track": "ogolny",
+    "hoursByGrade": [0, 1, 1, 1, 0],
+    "note": {
+      "pl": "Zastąpiła HiT od roku 2025/2026.",
+      "ru": "Заменила HiT с 2025/2026 года."
+    }
+  },
+  {
+    "id": "informatyka",
+    "name": { "pl": "Informatyka", "ru": "Информатика" },
+    "track": "ogolny",
+    "hoursByGrade": [2, 1, 0, 0, 0],
+    "note": {
+      "pl": "Informatyka ogólna kończy się w klasie II; dalej tylko przedmioty zawodowe.",
+      "ru": "Общая информатика заканчивается во втором классе, дальше только профессиональные предметы."
+    }
+  },
+  {
+    "id": "fizyka",
+    "name": { "pl": "Fizyka", "ru": "Физика" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "textbook": "Fizyka 1, nowa edycja, WSiP",
+    "note": {
+      "pl": "4 godziny w całym cyklu, rozłożenie ustala dyrektor.",
+      "ru": "4 часа за весь цикл, распределение определяет директор."
+    }
+  },
+  {
+    "id": "chemia",
+    "name": { "pl": "Chemia", "ru": "Химия" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "textbook": "NOWA To jest chemia 1, Nowa Era",
+    "note": {
+      "pl": "4 godziny w całym cyklu.",
+      "ru": "4 часа за весь цикл."
+    }
+  },
+  {
+    "id": "biologia",
+    "name": { "pl": "Biologia", "ru": "Биология" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "textbook": "NOWA Biologia na czasie 1, Nowa Era",
+    "note": { "pl": "4 godziny w całym cyklu.", "ru": "4 часа за весь цикл." }
+  },
+  {
+    "id": "geografia",
+    "name": { "pl": "Geografia", "ru": "География" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "textbook": "NOWE Oblicza geografii 1, Nowa Era",
+    "note": { "pl": "4 godziny w całym cyklu.", "ru": "4 часа за весь цикл." }
+  },
+  {
+    "id": "biznes-i-zarzadzanie",
+    "name": { "pl": "Biznes i zarządzanie", "ru": "Бизнес и управление" },
+    "track": "ogolny",
+    "hoursByGrade": [1, 1, 0, 0, 0],
+    "textbook": "Krok w biznes i zarządzanie 1, Nowa Era"
+  },
+  {
+    "id": "edukacja-dla-bezpieczenstwa",
+    "name": { "pl": "Edukacja dla bezpieczeństwa", "ru": "Основы безопасности" },
+    "track": "ogolny",
+    "hoursByGrade": [1, 0, 0, 0, 0],
+    "textbook": "Edukacja dla bezpieczeństwa, WSiP"
+  },
+  {
+    "id": "edukacja-zdrowotna",
+    "name": { "pl": "Edukacja zdrowotna", "ru": "Здоровье" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "note": {
+      "pl": "Od 1 września 2026 przedmiot obowiązkowy, 1 godzina tygodniowo w dwóch klasach wybranych przez dyrektora.",
+      "ru": "С 1 сентября 2026 обязательный предмет, час в неделю в двух классах на выбор директора."
+    }
+  },
+  {
+    "id": "wychowanie-fizyczne",
+    "name": { "pl": "Wychowanie fizyczne", "ru": "Физкультура" },
+    "track": "ogolny",
+    "hoursByGrade": [3, 3, 3, 3, 3]
+  },
+  {
+    "id": "religia-etyka",
+    "name": { "pl": "Religia albo etyka", "ru": "Религия или этика" },
+    "track": "ogolny",
+    "hoursByGrade": null,
+    "note": {
+      "pl": "Ocena nie wlicza się do średniej, § 56 ust. 5 statutu.",
+      "ru": "Оценка не идёт в средний балл, § 56 уст. 5 устава."
+    }
+  },
+  {
+    "id": "ksztalcenie-zawodowe",
+    "name": { "pl": "Kształcenie zawodowe", "ru": "Профессиональные предметы" },
+    "track": "zawodowy",
+    "hoursByGrade": [11, 12, 13, 13, 7],
+    "note": {
+      "pl": "56 godzin tygodniowych w całym cyklu, podzielone na przedmioty INF.03 i INF.04.",
+      "ru": "56 недельных часов за цикл, разделённых на предметы INF.03 и INF.04."
+    }
+  }
+]

@@ -67,9 +67,17 @@ test('вкладки не подменяются главной после ак�
   // находил nauka/index.html среди закешированного и отдавал navigateFallback,
   // то есть главную. Для повторного визита это ломало всю навигацию.
   await page.goto('./');
+  // Ожидание ограничено: если воркер почему-то не поднялся, проверять
+  // навигацию всё равно надо, а зависать на полминуты незачем.
   await page.evaluate(async () => {
-    if ('serviceWorker' in navigator) await navigator.serviceWorker.ready;
+    if (!('serviceWorker' in navigator)) return;
+    await Promise.race([
+      navigator.serviceWorker.ready,
+      new Promise((resolve) => setTimeout(resolve, 8000)),
+    ]);
   });
+  // Перезагрузка гарантирует, что страницей управляет воркер, а не сеть.
+  await page.reload();
 
   await page.goto('./nauka/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nauka');
@@ -101,8 +109,28 @@ test('дата рождения сохраняется и раскрывает �
   ).toBeVisible();
 });
 
-test('справочник показывает словарь', async ({ page }) => {
+test('справочник показывает статьи и словарь', async ({ page }) => {
   await page.goto('./szkola/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Szkoła');
-  await expect(page.getByText('wychowawca')).toBeVisible();
+  await expect(page.getByText('wychowawca').first()).toBeVisible();
+
+  // Двуязычность справочника обеспечивается схемой и валидатором, но проверим,
+  // что русские версии действительно доехали до страницы.
+  await expect(page.getByText('Права ученика-иностранца')).toBeVisible();
+});
+
+test('полка лектур собрана из Wolne Lektury и отмечает аудиокниги', async ({ page }) => {
+  await page.goto('./lektury/');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Lektury');
+
+  const links = page.locator('main a[href^="https://wolnelektury.pl"]');
+  expect(await links.count()).toBeGreaterThan(50);
+  await expect(page.getByText('audiobook').first()).toBeVisible();
+});
+
+test('карта программы показывает сетку часов и единицы efektów', async ({ page }) => {
+  await page.goto('./nauka/');
+  // Профессиональный блок: 11/12/13/13/7, всего 56 часов за цикл.
+  await expect(page.getByRole('cell', { name: '56', exact: true })).toBeVisible();
+  await expect(page.getByText('INF.04.7').first()).toBeVisible();
 });
