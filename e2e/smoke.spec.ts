@@ -128,6 +128,22 @@ test('полка лектур собрана из Wolne Lektury и отмеча�
   await expect(page.getByText('audiobook').first()).toBeVisible();
 });
 
+test('весь функционал доступен с главной за один переход', async ({ page }) => {
+  // Сторож против «на сайте пара плашек»: если ссылка на раздел пропадёт или
+  // раздел перестанет открываться, тест это поймает раньше пользователя.
+  await page.goto('./');
+  await expect(page.getByRole('link', { name: /Kalkulatory/ })).toBeVisible();
+
+  for (const [path, heading] of [
+    ['kalkulatory/', 'Kalkulatory'],
+    ['lektury/', 'Lektury'],
+    ['warsztat/', 'Warsztat'],
+  ] as const) {
+    await page.goto(`./${path}`);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(heading);
+  }
+});
+
 test('песочница SQL реально выполняет запрос в браузере', async ({ page }) => {
   await page.goto('./warsztat/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Warsztat');

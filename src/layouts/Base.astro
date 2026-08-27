@@ -70,9 +70,30 @@ const tabs = [
       if ('serviceWorker' in navigator && import.meta.env.PROD) {
         window.addEventListener('load', () => {
           const base = import.meta.env.BASE_URL;
-          navigator.serviceWorker.register(`${base}sw.js`, { scope: base }).catch(() => {
-            // Офлайн - улучшение, а не условие работы. Молча продолжаем.
-          });
+
+          // Перезагружаем только при смене уже работавшего воркера. При первой
+          // установке контроллера ещё нет, и перезагрузка была бы напрасной:
+          // страница и так свежая, а посетитель увидел бы моргание.
+          if (navigator.serviceWorker.controller !== null) {
+            let reloading = false;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+              if (reloading) return;
+              reloading = true;
+              window.location.reload();
+            });
+          }
+
+          navigator.serviceWorker
+            .register(`${base}sw.js`, { scope: base })
+            .then((registration) => {
+              // Проверяем обновление при каждом запуске и раз в час, если
+              // вкладку держат открытой неделями.
+              void registration.update();
+              window.setInterval(() => void registration.update(), 60 * 60 * 1000);
+            })
+            .catch(() => {
+              // Офлайн - улучшение, а не условие работы. Молча продолжаем.
+            });
         });
       }
     </script>
