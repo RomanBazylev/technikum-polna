@@ -1,0 +1,25 @@
+---
+import Speak from './Speak';
+
+type Props = {
+  pl: string;
+  ru: string;
+  note?: string;
+};
+
+const { pl, ru, note } = Astro.props;
+---
+
+{/*
+  Раскрытие сделано нативным details, а не островом: перевод обязан
+  показываться без JavaScript. Гидратация нужна только кнопке произношения,
+  и её отсутствие ничего не ломает.
+*/}
+<details class="term">
+  <summary>{pl}</summary>
+  <span class="term-panel" role="note">
+    <span class="term-ru">{ru}</span>
+    {note ? <span class="term-note">{note}</span> : null}
+    <Speak client:visible pl={pl} />
+  </span>
+</details>

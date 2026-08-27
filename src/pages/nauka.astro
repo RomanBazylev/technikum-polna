@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import Term from '../components/Term';
+import Term from '../components/Term.astro';
 
 const topics = await getCollection('topics');
 const glossary = await getCollection('glossary');
@@ -47,7 +47,7 @@ const grades = [1, 2, 3, 4, 5] as const;
                 const term = byId.get(termId);
                 return term === undefined ? null : (
                   <span class="mr-3 inline-block">
-                    <Term client:visible pl={term.pl} ru={term.ru} note={term.note?.ru} />
+                    <Term pl={term.pl} ru={term.ru} note={term.note?.ru} />
                   </span>
                 );
               })}

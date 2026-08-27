@@ -39,18 +39,65 @@ body {
   }
 }
 
-/* Термин по-польски с переводом по нажатию: точечное подчёркивание
-   отличает его от обычной ссылки, чтобы не путать два разных жеста. */
-.term {
+/* Термин по-польски с переводом по нажатию. Точечное подчёркивание отличает
+   его от обычной ссылки, чтобы не путать два разных жеста. Раскрытие нативное,
+   поэтому работает и до загрузки скриптов. */
+details.term {
+  display: inline-block;
+  position: relative;
+}
+
+details.term > summary {
+  display: inline;
+  list-style: none;
   border-bottom: 1px dotted currentColor;
   cursor: help;
+}
+
+details.term > summary::-webkit-details-marker,
+details.term > summary::marker {
+  display: none;
+  content: '';
+}
+
+.term-panel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 20;
+  display: block;
+  width: 16rem;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  background: var(--color-ink-soft);
+  color: var(--color-paper);
+  font-size: 0.875rem;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.35);
+}
+
+.term-ru {
+  display: block;
+  font-weight: 500;
+}
+
+.term-note {
+  display: block;
+  margin-top: 0.25rem;
+  opacity: 0.8;
+}
+
+.term-speak {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.25rem;
   background: none;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
   color: inherit;
   font: inherit;
-  padding: 0;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {
