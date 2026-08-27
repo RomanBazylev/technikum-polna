@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import SqlSandbox from '../components/SqlSandbox';
+import ImageTool from '../components/ImageTool';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Warsztat"
+  tab="egzaminy"
+  lead="Ćwiczysz tu myślenie. Środowisko ćwiczysz na XAMPP-ie."
+>
+  <p class="mb-6 rounded-xl border-l-4 border-[var(--color-warn)] bg-[var(--color-ink-soft)]/60 p-4 text-sm">
+    Uczciwa granica, i lepiej przeczytać ją teraz niż odkryć na egzaminie. Tutaj drylujesz SQL,
+    logikę i przygotowanie plików, z telefonu, w autobusie. XAMPP, phpMyAdmin i Android Studio to
+    miejsce, gdzie ćwiczysz samą obsługę stanowiska. Potrzebne jest jedno i drugie. ·
+    Здесь отрабатывается думающая часть, а обстановка экзамена репетируется на XAMPP.
+  </p>
+
+  <div class="flex flex-col gap-4">
+    <SqlSandbox client:visible />
+    <ImageTool client:visible />
+  </div>
+
+  <section class="mt-8 rounded-xl border border-[var(--color-line)] p-4">
+    <h2 class="font-medium">Czego się tu nie da zrobić</h2>
+    <p class="mt-2 text-sm opacity-80">
+      Nie chowamy tego w przypisie, bo uczeń, który zaufa piaskownicy i przyjdzie na prawdziwe
+      stanowisko nieprzygotowany, jest w gorszej sytuacji niż ten, który nie ćwiczył wcale.
+    </p>
+    <ul class="mt-3 list-disc pl-5 text-sm opacity-90">
+      <li>
+        <strong>Aplikacja mobilna z INF.04.</strong> Zbudowanie APK wymaga JVM, Gradle, Android SDK
+        i emulatora ARM. Nic z tego nie działa w przeglądarce.
+      </li>
+      <li>
+        <strong>C++, C# i Java.</strong> Sam kompilator Clang w wasm waży 43 MB, więc do zadań
+        konsolowych prowadzimy do Compiler Explorer albo lokalnego toolchainu.
+      </li>
+      <li>
+        <strong>Import zrzutu przez phpMyAdmin.</strong> Zrzut z phpMyAdmin wykłada się na
+        pierwszych liniach, bo <code>AUTO_INCREMENT</code> i <code>ENGINE=InnoDB</code> to składnia
+        MySQL, której SQLite nie zna.
+      </li>
+      <li>
+        <strong>Prawdziwe PHP z mysqli.</strong> Da się to zrobić przez php-wasm z warstwą
+        zgodności MySQL, ale kosztuje 3,5–5 MB pobierania. Zaplanowane za ekranem z ostrzeżeniem o
+        rozmiarze, jeszcze nie wdrożone.
+      </li>
+    </ul>
+  </section>
+
+  <a class="mt-6 inline-block text-sm underline" href={`${base}egzaminy/`}>Wróć do „Egzaminy”</a>
+</Base>

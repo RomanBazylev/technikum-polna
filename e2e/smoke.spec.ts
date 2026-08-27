@@ -128,6 +128,24 @@ test('полка лектур собрана из Wolne Lektury и отмеча�
   await expect(page.getByText('audiobook').first()).toBeVisible();
 });
 
+test('песочница SQL реально выполняет запрос в браузере', async ({ page }) => {
+  await page.goto('./warsztat/');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Warsztat');
+
+  await page.getByRole('button', { name: /Uruchom/ }).click();
+
+  // Движок весит 640 КБ и грузится по требованию, поэтому ждём дольше обычного.
+  await expect(page.getByRole('table')).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole('cell', { name: 'Adamczyk' })).toBeVisible();
+});
+
+test('песочница честно предупреждает о расхождениях с MySQL', async ({ page }) => {
+  await page.goto('./warsztat/');
+  await page.getByText('Czym to się różni od egzaminu').click();
+  await expect(page.getByText('Sortowanie polskich liter')).toBeVisible();
+  await expect(page.getByText(/Dzielenie całkowite/)).toBeVisible();
+});
+
 test('карта программы показывает сетку часов и единицы efektów', async ({ page }) => {
   await page.goto('./nauka/');
   // Профессиональный блок: 11/12/13/13/7, всего 56 часов за цикл.

@@ -21,6 +21,19 @@ const { count, size, warnings } = await generateSW({
   swDest: 'dist/sw.js',
   modifyURLPrefix: { '': BASE },
   navigateFallback: `${BASE}index.html`,
+  // Движок SQLite не предзагружается, но кэшируется после первого запуска
+  // песочницы, чтобы второй заход работал офлайн и без повторной оплаты
+  // мегабайтов мобильного трафика.
+  runtimeCaching: [
+    {
+      urlPattern: /\.wasm$/,
+      handler: 'CacheFirst',
+      options: {
+        cacheName: 'wasm-on-demand',
+        expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 90 },
+      },
+    },
+  ],
   cleanupOutdatedCaches: true,
   clientsClaim: true,
   skipWaiting: false,
