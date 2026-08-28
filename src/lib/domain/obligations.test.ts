@@ -152,9 +152,12 @@ describe('якорь до школьного события', () => {
     expect(status).toEqual({ kind: 'overdue', to: '2027-06-04', daysSince: 6 });
   });
 
-  it('без даты события честно сообщает о нехватке данных', () => {
+  // Школа не публикует дату педсовета, поэтому это состояние - обычное, а не
+  // исключение. Ученику всё равно надо знать, что просьба подаётся за две
+  // недели, и правило показывается вместо жалобы на нехватку данных.
+  it('без даты события показывает само правило', () => {
     const status = resolveAnchor(anchor, { today: '2027-06-01', schoolEvents: {} });
-    expect(status).toEqual({ kind: 'needs-data', missing: 'rada-klasyfikacyjna' });
+    expect(status).toEqual({ kind: 'relative-rule', direction: 'before', days: 14 });
   });
 });
 
@@ -184,10 +187,11 @@ describe('оправдание пропуска, 7 дней после вызд�
     expect(status).toEqual({ kind: 'overdue', to: '2026-10-08', daysSince: 2 });
   });
 
-  it('без даты события просит данные', () => {
+  it('пока пропуска не было, показывает срок как правило', () => {
     expect(resolveAnchor(anchor, base)).toEqual({
-      kind: 'needs-data',
-      missing: 'absenceEndedOn',
+      kind: 'relative-rule',
+      direction: 'after',
+      days: 7,
     });
   });
 });
@@ -212,11 +216,8 @@ describe('правило, включающееся с возрастом', () =>
     expect(status).toEqual({ kind: 'not-yet', from: '2029-03-15', daysUntil: 1 });
   });
 
-  it('без даты рождения просит данные, а не молчит', () => {
-    expect(resolveAnchor(school, base)).toEqual({
-      kind: 'needs-data',
-      missing: 'birthDate',
-    });
+  it('без даты рождения просит именно её, а не молчит', () => {
+    expect(resolveAnchor(school, base)).toEqual({ kind: 'needs-birth-date' });
   });
 });
 

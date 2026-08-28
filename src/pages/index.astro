@@ -1,50 +1,65 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Destination from '../components/Destination.astro';
 import ObligationList from '../components/ObligationList';
+import TodayHero from '../components/TodayHero';
 import type { Obligation } from '../lib/domain/obligations';
 
 const entries = await getCollection('obligations');
 const obligations = entries.map((entry) => entry.data as Obligation);
+const lektury = await getCollection('lektury');
+const audiobooks = lektury.filter((entry) => entry.data.hasAudio).length;
 const base = import.meta.env.BASE_URL;
 ---
 
-<Base
-  title="Dziś"
-  tab="dzis"
-  lead="Terminy, o których nikt nie przypomni. Wszystko liczy się w Twojej przeglądarce i nigdzie nie jest wysyłane."
->
-  <a
-    href={`${base}plan/`}
-    class="mb-4 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
-  >
-    <span class="block font-medium">Plan</span>
-    <span class="block text-sm opacity-70">
-      Do której lekcji dzwonek, co wziąć na jutro, czy sprawdzian jest zapowiedziany zgodnie ze
-      statutem
-    </span>
-    <span class="mt-1 block text-xs opacity-60">
-      Сколько до звонка, что взять завтра и законна ли контрольная
-    </span>
-  </a>
+<Base title="Dziś" tab="dzis">
+  <header slot="header" class="mb-5">
+    <h1 class="text-label font-semibold uppercase tracking-[0.16em] text-[var(--color-faint)]">
+      TKK Polna · 1B
+    </h1>
+  </header>
 
-  <a
-    href={`${base}kalkulatory/`}
-    class="mb-4 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
-  >
-    <span class="block font-medium">Kalkulatory</span>
-    <span class="block text-sm opacity-70">
-      Ile godzin jeszcze możesz opuścić, jaka ocena jest potrzebna, punkty na ocenę
-    </span>
-    <span class="mt-1 block text-xs opacity-60">
-      Сколько ещё можно пропустить и какая оценка нужна
-    </span>
-  </a>
+  <TodayHero client:load />
 
+  <h2 class="mt-7 mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
+    Narzędzia
+  </h2>
+  <div class="flex flex-col gap-2">
+    <Destination
+      href={`${base}plan/`}
+      pl="Plan"
+      ru="Расписание"
+      hint="Do którego dzwonka, co wziąć na jutro, czy sprawdzian zapowiedziano legalnie"
+    />
+    <Destination
+      href={`${base}kalkulatory/`}
+      pl="Kalkulatory"
+      ru="Калькуляторы"
+      hint="Ile jeszcze możesz opuścić i jaka ocena jest potrzebna na koniec"
+    />
+    <Destination
+      href={`${base}warsztat/`}
+      pl="Warsztat"
+      ru="Мастерская"
+      hint="SQL na prawdziwym silniku, PHP 8 w przeglądarce, podgląd układu Androida"
+    />
+    <Destination
+      href={`${base}lektury/`}
+      pl="Lektury"
+      ru="Книги"
+      badge={`${audiobooks} ♪`}
+      hint="Pełne teksty za darmo, większość z audiobookiem"
+    />
+  </div>
+
+  <h2 class="mt-7 mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
+    Terminy i pieniądze
+  </h2>
   <ObligationList client:load obligations={obligations} />
 
-  <p class="mt-6 text-xs opacity-60">
-    Dane zostają na tym urządzeniu. Aplikacja nie ma serwera, więc nie ma dokąd ich wysłać. ·
-    Данные остаются на этом устройстве. У приложения нет сервера, отправлять их некуда.
+  <p class="mt-7 text-micro text-[var(--color-faint)]">
+    Aplikacja nie ma serwera, więc dane nie mają dokąd wyjechać. · У приложения нет сервера,
+    данным некуда уехать.
   </p>
 </Base>

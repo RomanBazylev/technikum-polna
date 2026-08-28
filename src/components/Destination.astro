@@ -1,0 +1,41 @@
+---
+/**
+ * Три лучших инструмента лежат на страницах, о которых нельзя догадаться, а
+ * пятой вкладки не будет. Значит, вход должен читаться как дверь, а не как
+ * абзац: одинаковая форма, вес заголовка, шеврон и правая метка со счётом.
+ *
+ * Русское название стоит в той же строке через точку, а не отдельным серым
+ * абзацем: короткая подпись переводится взглядом, а вторая строка удваивала
+ * высоту каждой карточки и превращала экран в стену текста.
+ */
+type Props = {
+  href: string;
+  pl: string;
+  ru: string;
+  hint?: string;
+  badge?: string;
+};
+
+const { href, pl, ru, hint, badge } = Astro.props;
+---
+
+<a
+  href={href}
+  class="flex items-center gap-3 rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] px-4 py-3.5 hover:border-[var(--color-line-strong)]"
+>
+  <span class="grow">
+    <span class="block">
+      <span class="text-body font-semibold">{pl}</span>
+      <span class="text-body text-[var(--color-faint)]"> · {ru}</span>
+      {
+        badge ? (
+          <span class="ml-1.5 whitespace-nowrap rounded-full bg-[var(--color-accent-soft)] px-2 py-0.5 text-micro font-semibold tabular-nums text-[var(--color-accent)]">
+            {badge}
+          </span>
+        ) : null
+      }
+    </span>
+    {hint ? <span class="mt-1 block text-label text-[var(--color-muted)]">{hint}</span> : null}
+  </span>
+  <span aria-hidden="true" class="shrink-0 text-[var(--color-faint)]">→</span>
+</a>

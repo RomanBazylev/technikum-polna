@@ -23,30 +23,26 @@ const tabs = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0b0f14" />
+    <meta name="theme-color" content="#0a0e14" />
     <meta name="description" content="Przewodnik i narzędzia dla uczniów TKK Polna, technik programista." />
     <title>{title}</title>
     <link rel="icon" href={`${base}icon.svg`} type="image/svg+xml" />
     <link rel="manifest" href={`${base}manifest.webmanifest`} />
   </head>
   <body>
-    <main class="mx-auto w-full max-w-2xl px-4 pt-6">
-      <header class="mb-6">
-        <h1 class="text-2xl font-semibold tracking-tight">{title}</h1>
-        {lead ? <p class="mt-2 text-sm opacity-80">{lead}</p> : null}
-      </header>
+    <main class="mx-auto w-full max-w-2xl px-4 pt-7">
+      <slot name="header">
+        <header class="mb-6">
+          <h1 class="text-display font-semibold">{title}</h1>
+          {lead ? <p class="mt-2 text-body text-[var(--color-muted)]">{lead}</p> : null}
+        </header>
+      </slot>
       <slot />
     </main>
 
-    {/*
-      Тёмный фон закреплён, поэтому цвет текста тоже приходится закреплять.
-      Унаследованный от html он переворачивается в светлой теме, и подписи
-      вкладок становятся почти невидимыми. Та же пара понадобилась всем
-      четырём редакторам кода в мастерской.
-    */}
     <nav
       aria-label="Główna nawigacja"
-      class="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--color-line)] bg-[var(--color-ink)]/95 text-[var(--color-paper)] backdrop-blur"
+      class="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--color-line)] bg-[var(--color-ink)]/95 backdrop-blur"
       style="padding-bottom: env(safe-area-inset-bottom)"
     >
       <ul class="mx-auto flex w-full max-w-2xl">
@@ -57,12 +53,15 @@ const tabs = [
                 href={item.href}
                 aria-current={item.id === tab ? 'page' : undefined}
                 class:list={[
-                  'flex flex-col items-center gap-0.5 py-3 text-xs',
-                  item.id === tab ? 'text-[var(--color-accent)]' : 'opacity-70',
+                  'relative flex flex-col items-center gap-0.5 py-3.5',
+                  item.id === tab ? 'text-[var(--color-accent)]' : 'text-[var(--color-muted)]',
                 ]}
               >
-                <span class="font-medium">{item.label}</span>
-                <span class="text-[10px] opacity-70">{item.ru}</span>
+                {item.id === tab ? (
+                  <span class="absolute inset-x-5 top-0 h-0.5 rounded-b bg-[var(--color-accent)]" />
+                ) : null}
+                <span class="text-label font-semibold">{item.label}</span>
+                <span class="text-micro text-[var(--color-muted)]">{item.ru}</span>
               </a>
             </li>
           ))

@@ -2,10 +2,12 @@ import type { IsoDate } from './types';
 import { daysBetween, parseIsoDate } from './obligations';
 
 /**
- * § 52 ust. 4 pkt 3-5 устава: письменная работа объявляется минимум за неделю,
- * и на класс не может приходиться больше одной в день и трёх в неделю.
- * Короткая kartkówka по трём последним темам под ограничение не попадает и
- * может быть без предупреждения.
+ * § 52 ust. 4: pkt 3 — praca klasowa zapowiadana i wpisywana do dziennika
+ * z co najmniej tygodniowym wyprzedzeniem; pkt 5 — nie więcej niż 1 w ciągu
+ * dnia i 3 w tygodniu prac klasowych/sprawdzianów dla oddziału lub grupy;
+ * pkt 4 — kartkówka z trzech ostatnich tematów może być niezapowiedziana
+ * i nie wchodzi w te limity. MIN_NOTICE_DAYS mierzy tydzień kalendarzowo,
+ * to nie cytat ze statutu.
  */
 
 export type AnnouncedTest = {
@@ -22,6 +24,7 @@ export type RuleViolation =
   | { rule: 'per-day'; date: IsoDate; count: number }
   | { rule: 'per-week'; weekStart: IsoDate; count: number };
 
+/** Kalendarzowy tydzień jako miara „tygodniowego wyprzedzenia”, pkt 3. */
 export const MIN_NOTICE_DAYS = 7;
 export const MAX_PER_DAY = 1;
 export const MAX_PER_WEEK = 3;

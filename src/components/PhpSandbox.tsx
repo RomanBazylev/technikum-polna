@@ -58,9 +58,9 @@ export default function PhpSandbox() {
   }, [code]);
 
   return (
-    <section className="rounded-xl border border-[var(--color-line)] p-4">
+    <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Piaskownica PHP · Песочница PHP</h2>
-      <p className="mt-1 text-sm opacity-70">
+      <p className="mt-1 text-label text-[var(--color-muted)]">
         Prawdziwy PHP 8.3 z funkcjami <code>mysqli_*</code> na tej samej bazie co piaskownica SQL.
         Zadanie praktyczne INF.03 to dokładnie ten układ: zapytanie, pętla, wynik w HTML.
       </p>
@@ -78,7 +78,7 @@ export default function PhpSandbox() {
                   setCode(task.starter);
                   setResult(null);
                 }}
-                className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-xs"
+                className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-micro"
               >
                 {task.label}
               </button>
@@ -91,14 +91,14 @@ export default function PhpSandbox() {
             spellcheck={false}
             rows={16}
             aria-label="Kod PHP"
-            className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-xs text-[var(--color-paper)]"
+            className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-micro text-[var(--color-paper)]"
           />
 
           <button
             type="button"
             onClick={() => void run()}
             disabled={running}
-            className="mt-2 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-sm text-[var(--color-accent)] disabled:opacity-50"
+            className="mt-2 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-label text-[var(--color-accent)] disabled:opacity-50"
           >
             {running ? 'Wykonuję…' : 'Uruchom PHP · Выполнить'}
           </button>
@@ -108,7 +108,7 @@ export default function PhpSandbox() {
               {result.errors === '' ? null : (
                 <pre
                   data-testid="php-errors"
-                  className="mb-3 overflow-x-auto rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-xs whitespace-pre-wrap"
+                  className="mb-3 overflow-x-auto rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-micro whitespace-pre-wrap"
                 >
                   {result.errors}
                 </pre>
@@ -120,7 +120,7 @@ export default function PhpSandbox() {
                 srcdoc={toDocument(result.output)}
                 className="h-64 w-full rounded-lg border border-[var(--color-line)] bg-white"
               />
-              <p className="mt-1 text-xs opacity-50">
+              <p className="mt-1 text-micro text-[var(--color-faint)]">
                 Wynik pokazany tak, jak zobaczyłaby go przeglądarka na XAMPP-ie.
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function PhpSandbox() {
         </>
       ) : null}
 
-      <details className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-sm">
+      <details className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-label">
         <summary className="cursor-pointer font-medium">
           Czego ta piaskownica nie umie · Чего эта песочница не умеет
         </summary>
@@ -136,11 +136,11 @@ export default function PhpSandbox() {
           {PHP_BOUNDARIES.map((item) => (
             <li key={item.title}>
               <span className="font-medium">{item.title}.</span>{' '}
-              <span className="opacity-80">{item.detail}</span>
+              <span className="text-[var(--color-muted)]">{item.detail}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-2 text-xs opacity-60">
+        <p className="mt-2 text-micro text-[var(--color-faint)]">
           Silnik: php-wasm {PHP_WASM_VERSION}, Apache-2.0, ładowany z jsDelivr.
         </p>
       </details>
@@ -154,7 +154,7 @@ function renderEngine(engine: Engine, download: () => Promise<void>) {
       return renderGate(download);
     case 'loading':
       return (
-        <p className="mt-4 rounded-lg border border-[var(--color-line)] p-3 text-sm opacity-70">
+        <p className="mt-4 rounded-lg border border-[var(--color-line)] p-3 text-label text-[var(--color-muted)]">
           Pobieram silnik: {engine.note} Pierwszy raz trwa to kilkanaście sekund, potem leży w
           pamięci przeglądarki.
         </p>
@@ -163,7 +163,7 @@ function renderEngine(engine: Engine, download: () => Promise<void>) {
       return null;
     case 'failed':
       return (
-        <p className="mt-4 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-sm">
+        <p className="mt-4 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-label">
           Nie udało się pobrać silnika: {engine.message}. Sprawdź połączenie i spróbuj ponownie.
         </p>
       );
@@ -180,22 +180,22 @@ function renderGate(download: () => Promise<void>) {
   return (
     <div
       data-testid="php-gate"
-      className="mt-4 rounded-lg border border-[var(--color-warn)] p-4 text-sm"
+      className="mt-4 rounded-lg border border-[var(--color-warn)] p-4 text-label"
     >
       <p>
         <strong>Ta sekcja pobiera {total} MB.</strong> Nic nie ściąga się samo, dopóki nie
         naciśniesz przycisku. Najlepiej włącz Wi-Fi. · Раздел скачивает {total} МБ и не начинает
         сам.
       </p>
-      <p className="mt-2 opacity-80">{connectionAdvice(connection)}</p>
+      <p className="mt-2 text-[var(--color-muted)]">{connectionAdvice(connection)}</p>
       <button
         type="button"
         onClick={() => void download()}
-        className="mt-3 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-sm text-[var(--color-accent)]"
+        className="mt-3 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-label text-[var(--color-accent)]"
       >
         Pobierz silnik PHP ({total} MB)
       </button>
-      <p className="mt-2 text-xs opacity-60">
+      <p className="mt-2 text-micro text-[var(--color-faint)]">
         Po pobraniu przeglądarka trzyma silnik w pamięci podręcznej, więc kolejny raz działa bez
         sieci.
       </p>

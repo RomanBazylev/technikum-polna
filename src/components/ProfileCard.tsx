@@ -34,21 +34,21 @@ export default function ProfileCard() {
   };
 
   return (
-    <section className="rounded-xl border border-[var(--color-line)] p-4">
+    <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Profil · Профиль</h2>
-      <p className="mt-1 text-sm opacity-70">
+      <p className="mt-1 text-label text-[var(--color-muted)]">
         Zostaje na tym urządzeniu. Остаётся на этом устройстве.
       </p>
 
       {recovered !== null ? (
-        <p className="mt-3 rounded-lg border border-[var(--color-warn)] p-3 text-sm">
+        <p className="mt-3 rounded-lg border border-[var(--color-warn)] p-3 text-label">
           Poprzednie dane nie dały się odczytać, więc zostały zachowane pod kluczem{' '}
           <code>{recovered.backupKey}</code>, a aplikacja zaczęła od pustych. Nic nie skasowano.
         </p>
       ) : null}
 
-      <label className="mt-4 block text-sm">
-        <span className="opacity-80">Data urodzenia · Дата рождения</span>
+      <label className="mt-4 block text-label">
+        <span className="text-[var(--color-muted)]">Data urodzenia · Дата рождения</span>
         <input
           type="date"
           value={state.profile.birthDate ?? ''}
@@ -62,14 +62,14 @@ export default function ProfileCard() {
           }}
           className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
         />
-        <span className="mt-1 block text-xs opacity-60">
+        <span className="mt-1 block text-micro text-[var(--color-faint)]">
           Potrzebna tylko do policzenia dwóch progów: obowiązkowej legitymacji od 16 lat i
           samodzielnego usprawiedliwiania od 18.
         </span>
       </label>
 
       <fieldset className="mt-4">
-        <legend className="text-sm opacity-80">Klasa · Класс</legend>
+        <legend className="text-label text-[var(--color-muted)]">Klasa · Класс</legend>
         <div className="mt-1 flex gap-2">
           {GRADES.map((grade) => (
             <button
@@ -82,10 +82,10 @@ export default function ProfileCard() {
                   profile: { ...previous.profile, grade },
                 }))
               }
-              className={`rounded-lg border px-3 py-1 text-sm ${
+              className={`rounded-lg border px-3 py-1 text-label ${
                 state.profile.grade === grade
                   ? 'border-[var(--color-accent)] text-[var(--color-accent)]'
-                  : 'border-[var(--color-line)] opacity-60'
+                  : 'border-[var(--color-line)] text-[var(--color-faint)]'
               }`}
             >
               {grade}
@@ -95,7 +95,7 @@ export default function ProfileCard() {
       </fieldset>
 
       <fieldset className="mt-4">
-        <legend className="text-sm opacity-80">Drugi język · Второй язык</legend>
+        <legend className="text-label text-[var(--color-muted)]">Drugi język · Второй язык</legend>
         <div className="mt-1 flex gap-2">
           {(['niemiecki', 'hiszpanski'] as const).map((group) => (
             <button
@@ -111,10 +111,10 @@ export default function ProfileCard() {
                   },
                 }))
               }
-              className={`rounded-lg border px-3 py-1 text-sm ${
+              className={`rounded-lg border px-3 py-1 text-label ${
                 state.profile.languageGroup === group
                   ? 'border-[var(--color-accent)] text-[var(--color-accent)]'
-                  : 'border-[var(--color-line)] opacity-60'
+                  : 'border-[var(--color-line)] text-[var(--color-faint)]'
               }`}
             >
               {group === 'niemiecki' ? '1Bn niemiecki' : '1Bh hiszpański'}
@@ -127,11 +127,11 @@ export default function ProfileCard() {
         <button
           type="button"
           onClick={download}
-          className="rounded-lg border border-[var(--color-line)] px-3 py-2 text-sm"
+          className="rounded-lg border border-[var(--color-line)] px-3 py-2 text-label"
         >
           Zapisz do pliku
         </button>
-        <label className="cursor-pointer rounded-lg border border-[var(--color-line)] px-3 py-2 text-sm">
+        <label className="cursor-pointer rounded-lg border border-[var(--color-line)] px-3 py-2 text-label">
           Wczytaj z pliku
           <input
             type="file"
@@ -144,9 +144,9 @@ export default function ProfileCard() {
           />
         </label>
       </div>
-      {message === null ? null : <p className="mt-3 text-sm opacity-80">{message}</p>}
+      {message === null ? null : <p className="mt-3 text-label text-[var(--color-muted)]">{message}</p>}
 
-      <p className="mt-4 text-xs opacity-60">
+      <p className="mt-4 text-micro text-[var(--color-faint)]">
         Synchronizacji między telefonem a komputerem nie ma, bo nie ma serwera. Plik przenosi
         dane ręcznie. · Синхронизации нет, потому что нет сервера. Файл переносит данные вручную.
       </p>

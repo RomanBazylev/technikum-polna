@@ -37,13 +37,13 @@ export default function GradeTools() {
 
   return (
     <>
-      <section className="rounded-xl border border-[var(--color-line)] p-4">
+      <section className="rounded-card border border-[var(--color-line)] p-4">
         <h2 className="font-medium">Punkty na ocenę · Баллы в оценку</h2>
-        <p className="mt-1 text-sm opacity-70">Skala z § 52 ust. 4 pkt 13 statutu TKK.</p>
+        <p className="mt-1 text-label text-[var(--color-muted)]">Skala z § 52 ust. 4 pkt 13 statutu TKK.</p>
 
-        <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+        <div className="mt-4 grid grid-cols-2 gap-3 text-label">
           <label className="block">
-            <span className="opacity-80">Zdobyte punkty</span>
+            <span className="text-[var(--color-muted)]">Zdobyte punkty</span>
             <input
               type="number"
               min={0}
@@ -53,7 +53,7 @@ export default function GradeTools() {
             />
           </label>
           <label className="block">
-            <span className="opacity-80">Maksimum</span>
+            <span className="text-[var(--color-muted)]">Maksimum</span>
             <input
               type="number"
               min={1}
@@ -64,21 +64,21 @@ export default function GradeTools() {
           </label>
         </div>
 
-        <p className="mt-4 text-2xl font-semibold">
-          {grade} <span className="text-base font-normal opacity-70">{GRADE_NAMES[grade]}</span>
+        <p className="mt-4 text-display font-semibold">
+          {grade} <span className="text-body font-normal text-[var(--color-muted)]">{GRADE_NAMES[grade]}</span>
         </p>
-        <p className="text-sm opacity-60">{percent.toFixed(1)}%</p>
+        <p className="text-label text-[var(--color-faint)]">{percent.toFixed(1)}%</p>
       </section>
 
-      <section className="mt-4 rounded-xl border border-[var(--color-line)] p-4">
+      <section className="mt-4 rounded-card border border-[var(--color-line)] p-4">
         <h2 className="font-medium">Jaka ocena jest potrzebna · Какая оценка нужна</h2>
-        <p className="mt-1 text-sm opacity-70">
+        <p className="mt-1 text-label text-[var(--color-muted)]">
           Librus liczy średnią, ale odwrotnego pytania nie zadaje.
         </p>
 
         <ul className="mt-3 flex flex-col gap-2">
           {entries.map((entry, index) => (
-            <li key={index} className="flex items-center gap-2 text-sm">
+            <li key={index} className="flex items-center gap-2 text-label">
               <select
                 value={String(entry.grade)}
                 onChange={(e) => {
@@ -95,7 +95,7 @@ export default function GradeTools() {
                   </option>
                 ))}
               </select>
-              <span className="opacity-60">waga</span>
+              <span className="text-[var(--color-faint)]">waga</span>
               <input
                 type="number"
                 min={1}
@@ -111,7 +111,7 @@ export default function GradeTools() {
               <button
                 type="button"
                 onClick={() => setEntries((prev) => prev.filter((_, i) => i !== index))}
-                className="ml-auto rounded border border-[var(--color-line)] px-2 py-1 text-xs"
+                className="ml-auto rounded border border-[var(--color-line)] px-2 py-1 text-micro"
               >
                 Usuń
               </button>
@@ -122,14 +122,14 @@ export default function GradeTools() {
         <button
           type="button"
           onClick={() => setEntries((prev) => [...prev, { grade: 4, weight: 1 }])}
-          className="mt-2 rounded-lg border border-[var(--color-line)] px-3 py-1 text-sm"
+          className="mt-2 rounded-lg border border-[var(--color-line)] px-3 py-1 text-label"
         >
           Dodaj ocenę
         </button>
 
-        <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+        <div className="mt-4 grid grid-cols-2 gap-3 text-label">
           <label className="block">
-            <span className="opacity-80">Cel średniej</span>
+            <span className="text-[var(--color-muted)]">Cel średniej</span>
             <input
               type="number"
               step="0.1"
@@ -141,7 +141,7 @@ export default function GradeTools() {
             />
           </label>
           <label className="block">
-            <span className="opacity-80">Waga przyszłej oceny</span>
+            <span className="text-[var(--color-muted)]">Waga przyszłej oceny</span>
             <input
               type="number"
               min={1}
@@ -155,12 +155,12 @@ export default function GradeTools() {
         </div>
 
         <div className="mt-4 rounded-lg border-l-4 border-[var(--color-accent)] p-3">
-          <p className="text-sm opacity-70">
+          <p className="text-label text-[var(--color-muted)]">
             Średnia ważona: {average === null ? 'brak ocen' : average.toFixed(2)}
           </p>
           <p className="mt-1 font-medium">{describeOutcome(outcome)}</p>
           {classification.ok ? null : (
-            <p className="mt-2 text-xs opacity-70">
+            <p className="mt-2 text-micro text-[var(--color-muted)]">
               § 53 ust. 2: do wystawienia oceny okresowej brakuje jeszcze {classification.missing}{' '}
               ocen cząstkowych.
             </p>

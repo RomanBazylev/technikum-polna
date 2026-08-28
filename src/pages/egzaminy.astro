@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Destination from '../components/Destination.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -37,31 +38,29 @@ const qualifications = [
   tab="egzaminy"
   lead="Dwie kwalifikacje i matura. Две квалификации и матура."
 >
-  <a
+  <Destination
     href={`${base}warsztat/`}
-    class="mb-6 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
-  >
-    <span class="block font-medium">Warsztat</span>
-    <span class="block text-sm opacity-70">
-      Piaskownica SQL na prawdziwym silniku i przygotowanie obrazów, jak w części praktycznej
-    </span>
-    <span class="mt-1 block text-xs opacity-60">Песочница SQL и подготовка изображений</span>
-  </a>
+    pl="Warsztat"
+    ru="Мастерская"
+    hint="SQL na prawdziwym silniku, PHP 8 w przeglądarce, podgląd układu Androida i obróbka obrazów"
+  />
 
-  <section class="flex flex-col gap-4">
+  <section class="mt-7 flex flex-col gap-2">
     {
       qualifications.map((item) => (
-        <article class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
-          <h2 class="font-mono text-lg">{item.code}</h2>
-          <p class="mt-1 text-sm opacity-80">{item.name}</p>
-          <dl class="mt-3 grid grid-cols-2 gap-2 text-sm">
-            <dt class="opacity-60">Termin</dt>
+        <article class="rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-4">
+          <h2 class="font-mono text-title font-semibold text-[var(--color-accent)]">{item.code}</h2>
+          <p class="mt-1 text-body">{item.name}</p>
+          <dl class="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-label">
+            <dt class="text-[var(--color-faint)]">Termin</dt>
             <dd>{item.when}</dd>
-            <dt class="opacity-60">Część praktyczna</dt>
+            <dt class="text-[var(--color-faint)]">Część praktyczna</dt>
             <dd>{item.practical}</dd>
           </dl>
-          <p class="mt-3 text-xs uppercase tracking-wide opacity-60">Oceniane rezultaty</p>
-          <ul class="mt-1 list-disc pl-5 text-sm opacity-90">
+          <p class="mt-3 text-micro uppercase tracking-[0.12em] text-[var(--color-faint)]">
+            Oceniane rezultaty
+          </p>
+          <ul class="mt-1 list-disc pl-5 text-label text-[var(--color-muted)]">
             {item.results.map((result) => (
               <li>{result}</li>
             ))}
@@ -71,24 +70,31 @@ const qualifications = [
     }
   </section>
 
-  <section class="mt-6 rounded-xl border border-[var(--color-line)] p-4">
-    <h2 class="font-medium">Progi</h2>
-    <p class="mt-2 text-sm opacity-90">
-      Część pisemna: 60 minut, 40 zadań zamkniętych, próg <strong>50%</strong>, czyli minimum 20
-      punktów. Egzamin odbywa się przy komputerze, pytania losowane są z centralnej bazy dla
-      każdego zdającego osobno. Część praktyczna: próg <strong>75%</strong>. Zdać trzeba obie.
+  <section class="mt-2 rounded-card border border-[var(--color-line)] p-4">
+    <h2 class="text-body font-semibold">Progi</h2>
+    <p class="mt-2 text-label text-[var(--color-muted)]">
+      Część pisemna: 60 minut, 40 zadań zamkniętych, próg <strong
+        class="font-semibold text-[var(--color-paper)]">50%</strong
+      >, czyli minimum 20 punktów. Egzamin odbywa się przy komputerze, pytania losowane są z
+      centralnej bazy dla każdego zdającego osobno. Część praktyczna: próg <strong
+        class="font-semibold text-[var(--color-paper)]">75%</strong
+      >. Zdać trzeba obie.
     </p>
   </section>
 
-  <section class="mt-6 rounded-xl border-l-4 border-[var(--color-good)] bg-[var(--color-ink-soft)]/60 p-4">
-    <h2 class="font-medium">To warto wiedzieć od pierwszej klasy</h2>
-    <p class="mt-2 text-sm opacity-90">
-      Zdanie <strong>obu</strong> kwalifikacji zwalnia z obowiązkowego przedmiotu dodatkowego na
-      maturze, art. 44zzd ust. 4b ustawy o systemie oświaty. Dla takiego absolwenta maturę zdaje
-      się przy 30% z każdego przedmiotu obowiązkowego, a przepis o progu na przedmiocie dodatkowym
-      po prostu go nie dotyczy.
+  <section
+    class="mt-2 rounded-card border border-[var(--color-good)]/40 bg-[var(--color-ink-soft)] p-4"
+  >
+    <h2 class="text-body font-semibold text-[var(--color-good)]">
+      To warto wiedzieć od pierwszej klasy
+    </h2>
+    <p class="mt-2 text-label text-[var(--color-muted)]">
+      Zdanie <strong class="font-semibold text-[var(--color-paper)]">obu</strong> kwalifikacji
+      zwalnia z obowiązkowego przedmiotu dodatkowego na maturze, art. 44zzd ust. 4b ustawy o
+      systemie oświaty. Dla takiego absolwenta maturę zdaje się przy 30% z każdego przedmiotu
+      obowiązkowego, a przepis o progu na przedmiocie dodatkowym po prostu go nie dotyczy.
     </p>
-    <p class="mt-2 text-sm opacity-70">
+    <p class="mt-2 text-label text-[var(--color-faint)]">
       Ale to plan awaryjny, nie strategia: jeśli INF.04 się nie uda, zwolnienie znika na kilka
       tygodni przed maturą. Jedno rozszerzenie i tak trzeba przygotować.
     </p>

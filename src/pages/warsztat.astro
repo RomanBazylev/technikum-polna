@@ -4,8 +4,6 @@ import SqlSandbox from '../components/SqlSandbox';
 import PhpSandbox from '../components/PhpSandbox';
 import LayoutPreview from '../components/LayoutPreview';
 import ImageTool from '../components/ImageTool';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -13,27 +11,29 @@ const base = import.meta.env.BASE_URL;
   tab="egzaminy"
   lead="Ćwiczysz tu myślenie. Środowisko ćwiczysz na XAMPP-ie."
 >
-  <p class="mb-6 rounded-xl border-l-4 border-[var(--color-warn)] bg-[var(--color-ink-soft)]/60 p-4 text-sm">
+  <p
+    class="mb-4 rounded-card border border-[var(--color-warn)]/40 bg-[var(--color-ink-soft)] p-4 text-label text-[var(--color-muted)]"
+  >
     Uczciwa granica, i lepiej przeczytać ją teraz niż odkryć na egzaminie. Tutaj drylujesz SQL,
     logikę i przygotowanie plików, z telefonu, w autobusie. XAMPP, phpMyAdmin i Android Studio to
-    miejsce, gdzie ćwiczysz samą obsługę stanowiska. Potrzebne jest jedno i drugie. ·
-    Здесь отрабатывается думающая часть, а обстановка экзамена репетируется на XAMPP.
+    miejsce, gdzie ćwiczysz samą obsługę stanowiska. Potrzebne jest jedno i drugie. · Здесь
+    отрабатывается думающая часть, а обстановка экзамена репетируется на XAMPP.
   </p>
 
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-2">
     <SqlSandbox client:visible />
     <PhpSandbox client:visible />
     <LayoutPreview client:visible />
     <ImageTool client:visible />
   </div>
 
-  <section class="mt-8 rounded-xl border border-[var(--color-line)] p-4">
-    <h2 class="font-medium">Czego się tu nie da zrobić</h2>
-    <p class="mt-2 text-sm opacity-80">
+  <section class="mt-7 rounded-card border border-[var(--color-line)] p-4">
+    <h2 class="text-body font-semibold">Czego się tu nie da zrobić</h2>
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Nie chowamy tego w przypisie, bo uczeń, który zaufa piaskownicy i przyjdzie na prawdziwe
       stanowisko nieprzygotowany, jest w gorszej sytuacji niż ten, który nie ćwiczył wcale.
     </p>
-    <ul class="mt-3 list-disc pl-5 text-sm opacity-90">
+    <ul class="mt-3 list-disc pl-5 text-label text-[var(--color-muted)]">
       <li>
         <strong>Zbudowanie APK z INF.04.</strong> Podgląd układu rysuje rozmieszczenie widgetów z
         XML-a i XAML-a, i to wyłapuje najczęstszy błąd, ale to rysunek, nie emulator. Kod w Javie i
@@ -62,6 +62,4 @@ const base = import.meta.env.BASE_URL;
       </li>
     </ul>
   </section>
-
-  <a class="mt-6 inline-block text-sm underline" href={`${base}egzaminy/`}>Wróć do „Egzaminy”</a>
 </Base>

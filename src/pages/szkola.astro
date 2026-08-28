@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Destination from '../components/Destination.astro';
 import TeacherDirectory from '../components/TeacherDirectory';
 import type { SubjectRef } from '../lib/domain/timetable';
 
@@ -22,29 +23,30 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Base title="Szkoła" tab="szkola" lead="Jak to tu działa. Как здесь всё устроено.">
-  <a
+  <Destination
     href={`${base}zasoby/`}
-    class="mb-6 block rounded-xl border-l-4 border-[var(--color-good)] bg-[var(--color-ink-soft)]/60 p-4"
-  >
-    <span class="block font-medium">Zasoby</span>
-    <span class="block text-sm opacity-70">
-      Skąd brać materiały do każdego przedmiotu i na jakich warunkach wolno z nich korzystać
-    </span>
-    <span class="mt-1 block text-xs opacity-60">
-      Откуда брать материалы и на каких условиях ими можно пользоваться
-    </span>
-  </a>
+    pl="Zasoby"
+    ru="Материалы"
+    hint="Skąd brać materiały do każdego przedmiotu i na jakich warunkach wolno z nich korzystać"
+  />
 
-  <section>
-    <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">Przewodnik</h2>
-    <ul class="flex flex-col gap-3">
+  <section class="mt-7">
+    <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
+      Przewodnik
+    </h2>
+    <ul class="flex flex-col gap-2">
       {
         russian.map((entry) => (
-          <li class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
-            <h3 class="font-medium">{entry.data.title}</h3>
-            <p class="mt-1 text-sm opacity-80">{entry.data.summary}</p>
+          <li
+            id={entry.id.split('/')[1]}
+            class="scroll-mt-4 rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-4 target:border-[var(--color-accent)]"
+          >
+            <h3 class="text-body font-semibold">{entry.data.title}</h3>
+            <p class="mt-1 text-label text-[var(--color-muted)]">{entry.data.summary}</p>
             {entry.data.legalBasis.length > 0 ? (
-              <p class="mt-2 text-xs opacity-60">{entry.data.legalBasis.join(' · ')}</p>
+              <p class="mt-2 text-micro text-[var(--color-faint)]">
+                {entry.data.legalBasis.join(' · ')}
+              </p>
             ) : null}
           </li>
         ))
@@ -52,18 +54,18 @@ const base = import.meta.env.BASE_URL;
     </ul>
   </section>
 
-  <section class="mt-8">
-    <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">
+  <section class="mt-7">
+    <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
       Słownik, {glossary.length} haseł
     </h2>
     <dl class="grid grid-cols-1 gap-2 sm:grid-cols-2">
       {
         glossary.map((entry) => (
-          <div class="rounded-lg border border-[var(--color-line)] p-3">
-            <dt class="font-medium">{entry.data.pl}</dt>
-            <dd class="text-sm opacity-80">{entry.data.ru}</dd>
+          <div class="rounded-card border border-[var(--color-line)] p-3">
+            <dt class="text-body font-semibold">{entry.data.pl}</dt>
+            <dd class="text-label text-[var(--color-muted)]">{entry.data.ru}</dd>
             {entry.data.note?.ru ? (
-              <dd class="mt-1 text-xs opacity-60">{entry.data.note.ru}</dd>
+              <dd class="mt-1 text-micro text-[var(--color-faint)]">{entry.data.note.ru}</dd>
             ) : null}
           </div>
         ))
@@ -71,50 +73,52 @@ const base = import.meta.env.BASE_URL;
     </dl>
   </section>
 
-  <section class="mt-8">
-    <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">Kto jest kim</h2>
-    <div class="rounded-xl border border-[var(--color-line)] p-4">
-      <p class="text-sm opacity-80">
+  <section class="mt-7">
+    <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
+      Kto jest kim
+    </h2>
+    <div class="rounded-card border border-[var(--color-line)] p-4">
+      <p class="text-label text-[var(--color-muted)]">
         Te trzy stanowiska szkoła podaje publicznie, więc stoją tu na stałe.
       </p>
-      <dl class="mt-3 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3">
+      <dl class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div>
-          <dt class="opacity-60">Dyrektor · Директор</dt>
-          <dd class="font-medium">Beata Markulis</dd>
+          <dt class="text-micro text-[var(--color-faint)]">Dyrektor · Директор</dt>
+          <dd class="text-body font-semibold">Beata Markulis</dd>
         </div>
         <div>
-          <dt class="opacity-60">Wicedyrektor · Заместитель</dt>
-          <dd class="font-medium">Marcin Łoziński</dd>
+          <dt class="text-micro text-[var(--color-faint)]">Wicedyrektor · Заместитель</dt>
+          <dd class="text-body font-semibold">Marcin Łoziński</dd>
         </div>
         <div>
-          <dt class="opacity-60">
+          <dt class="text-micro text-[var(--color-faint)]">
             Kierownik szkolenia praktycznego · Руководитель практического обучения
           </dt>
-          <dd class="font-medium">Ewa Ostrowska</dd>
+          <dd class="text-body font-semibold">Ewa Ostrowska</dd>
         </div>
       </dl>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-2">
       <TeacherDirectory client:load subjects={subjects} />
     </div>
   </section>
 
-  <section class="mt-8 rounded-xl border border-[var(--color-line)] p-4">
-    <h2 class="font-medium">Kontakt</h2>
-    <p class="mt-2 text-sm opacity-80">
+  <section class="mt-7 rounded-card border border-[var(--color-line)] p-4">
+    <h2 class="text-body font-semibold">Kontakt</h2>
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Technikum Kinematograficzno-Komputerowe im. Krzysztofa Kieślowskiego<br />
       ul. Polna 7, 00-625 Warszawa<br />
       22 825 02 52
     </p>
-    <p class="mt-2 text-sm opacity-80">
-      Metro <strong>Politechnika</strong>, linia M1. Numery tramwajów i autobusów zmieniają się,
-      dlatego prowadzimy do żywego rozkładu zamiast wpisywać je na stałe.
+    <p class="mt-2 text-label text-[var(--color-muted)]">
+      Metro <strong class="font-semibold text-[var(--color-paper)]">Politechnika</strong>, linia M1.
+      Numery tramwajów i autobusów zmieniają się, dlatego prowadzimy do żywego rozkładu zamiast
+      wpisywać je na stałe.
     </p>
-    <p class="mt-3 text-xs opacity-60">
+    <p class="mt-3 text-micro text-[var(--color-faint)]">
       Godziny sekretariatu podawane są rozbieżnie: 9:00–14:00 na stronie szkoły i 8:00–15:00 w BIP.
       Warto potwierdzić telefonicznie.
     </p>
-    <a class="mt-3 inline-block text-sm underline" href={`${base}`}>Wróć do „Dziś”</a>
   </section>
 </Base>

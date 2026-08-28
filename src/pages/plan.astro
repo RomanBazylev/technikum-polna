@@ -12,26 +12,22 @@ const subjects: SubjectRef[] = entries.map((entry) => ({
   ru: entry.data.name.ru,
   textbook: entry.data.textbook,
 }));
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <Base
   title="Plan"
   tab="dzis"
-  lead="Plan lekcji, co wziąć na jutro i czy sprawdzian jest legalny. Расписание, что взять завтра и законна ли контрольная."
+  lead="Do którego dzwonka, co wziąć na jutro i czy sprawdzian zapowiedziano legalnie."
 >
   <Timetable client:load subjects={subjects} />
 
-  <div class="mt-4">
+  <div class="mt-2">
     <TestRuleCheck client:load subjects={subjects} />
   </div>
 
-  <p class="mt-6 text-xs opacity-60">
+  <p class="mt-7 text-micro text-[var(--color-faint)]">
     Szkoła nie publikuje ani planu lekcji, ani rozkładu dzwonków, dlatego oba wpisujesz raz i
     zostają na tym urządzeniu. · Школа не публикует ни расписание уроков, ни расписание звонков,
     поэтому и то и другое вводится один раз и остаётся на этом устройстве.
   </p>
-
-  <a class="mt-4 inline-block text-sm underline" href={base}>Wróć do „Dziś”</a>
 </Base>

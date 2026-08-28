@@ -49,6 +49,13 @@ export type ResolutionContext = {
  */
 export type JustMissed = { to: IsoDate; daysSince: number };
 
+/**
+ * Событие, от которого отсчитывается срок, ещё не наступило. Это не нехватка
+ * данных: правило действует и его надо знать заранее. «Семь дней с возвращения»
+ * полезно ученику, который пока не болел, а «нужны данные: absenceEndedOn» -
+ * нет. Отдельный статус нужен, чтобы needs-data означал ровно одно: не хватает
+ * даты рождения, и её можно ввести прямо на экране.
+ */
 export type ObligationStatus =
   | { kind: 'upcoming'; from: IsoDate; to: IsoDate; daysUntilOpen: number; justMissed?: JustMissed }
   | { kind: 'open'; from: IsoDate | null; to: IsoDate; daysLeft: number }
@@ -56,7 +63,8 @@ export type ObligationStatus =
   | { kind: 'not-yet'; from: IsoDate; daysUntil: number }
   | { kind: 'in-force'; since: IsoDate }
   | { kind: 'standing' }
-  | { kind: 'needs-data'; missing: string };
+  | { kind: 'relative-rule'; direction: 'before' | 'after'; days: number }
+  | { kind: 'needs-birth-date' };
 
 const DAY_MS = 86_400_000;
 
@@ -189,21 +197,21 @@ export function resolveAnchor(
     case 'before-event': {
       const eventDate = context.schoolEvents[anchor.event];
       if (eventDate === undefined) {
-        return { kind: 'needs-data', missing: anchor.event };
+        return { kind: 'relative-rule', direction: 'before', days: anchor.days };
       }
       return statusForWindow(context.today, null, addDays(eventDate, -anchor.days));
     }
     case 'after-event': {
       const eventDate = context.absenceEndedOn;
       if (eventDate === null || eventDate === undefined) {
-        return { kind: 'needs-data', missing: 'absenceEndedOn' };
+        return { kind: 'relative-rule', direction: 'after', days: anchor.days };
       }
       return statusForWindow(context.today, eventDate, addDays(eventDate, anchor.days));
     }
     case 'from-age': {
       const birthDate = context.birthDate;
       if (birthDate === null || birthDate === undefined) {
-        return { kind: 'needs-data', missing: 'birthDate' };
+        return { kind: 'needs-birth-date' };
       }
       const since = addYears(birthDate, anchor.years);
       const daysUntil = daysBetween(context.today, since);

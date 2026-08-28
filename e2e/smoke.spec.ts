@@ -92,8 +92,46 @@ test('калькулятор считает бюджет пропусков по
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Kalkulatory');
 
   // 60 часов предмета, пропущено 8, значит до порога § 54 остаётся 22.
-  await expect(page.getByText('Możesz opuścić jeszcze 22 godz.')).toBeVisible();
+  await expect(page.getByText('22 godziny', { exact: true })).toBeVisible();
   await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
+});
+
+test('главная отвечает работающим числом до первого ввода', async ({ page }) => {
+  // Сторож против возврата к списку чужих заявлений: гость, который ничего не
+  // трогал, должен увидеть посчитанный ответ, а не приглашение заполнить анкету.
+  await page.goto('./');
+  const hero = page.getByRole('region').or(page.locator('section')).first();
+  await expect(hero.getByText('wzorowe')).toBeVisible();
+  await expect(page.getByText(/zbija na bardzo dobre, gdzie zapas to 7 godzin/)).toBeVisible();
+
+  // Шаг счётчика меняет ответ сразу, без перезагрузки и без сохранения.
+  await page.getByRole('button', { name: 'godziny bez usprawiedliwienia: więcej' }).click();
+  await expect(page.getByText('bardzo dobre', { exact: true })).toBeVisible();
+});
+
+test('дата рождения вводится прямо на главной и раскрывает правила', async ({ page }) => {
+  // Пустое состояние было тупиком: свёрнутый блок «нужны данные: 4» без единого
+  // поля. Ввод должен стоять там же, где о нём просят.
+  await page.goto('./');
+  const invite = page.locator('input[type="date"]');
+  await expect(invite).toBeVisible();
+  await invite.fill('2011-03-15');
+
+  await expect(
+    page.getByText('Legitymacja szkolna obowiązkowa w kontroli'),
+  ).toBeVisible();
+  await expect(invite).toHaveCount(0);
+});
+
+test('обратный отсчёт ведёт в статью о первом сентября', async ({ page }) => {
+  await page.goto('./');
+  const pill = page.getByRole('link', { name: /września|Dziś zaczyna się rok/ });
+
+  // Плашка сезонная: её нет большую часть года, и это не повод падать.
+  if ((await pill.count()) === 0) return;
+  await pill.click();
+  await page.waitForURL(/\/szkola\/#pierwszy-tydzien$/);
+  await expect(page.locator('#pierwszy-tydzien')).toBeVisible();
 });
 
 test('дата рождения сохраняется и раскрывает возрастные правила', async ({ page }) => {
@@ -103,11 +141,12 @@ test('дата рождения сохраняется и раскрывает �
   await expect(birthDate).toHaveValue('2011-03-15');
 
   // Состояние переживает переход между страницами, и правило с 16 лет
-  // перестаёт висеть в разделе «нужны данные».
+  // начинает считаться от даты, а не ждать её.
   await page.goto('./');
   await expect(
     page.getByRole('listitem').filter({ hasText: 'Legitymacja szkolna obowiązkowa' }),
   ).toBeVisible();
+  await expect(page.getByText('zależy od wieku')).toHaveCount(0);
 });
 
 test('справочник показывает статьи и словарь', async ({ page }) => {
@@ -132,8 +171,12 @@ test('полка лектур собрана из Wolne Lektury и отмеча�
 test('весь функционал доступен с главной за один переход', async ({ page }) => {
   // Сторож против «на сайте пара плашек»: если ссылка на раздел пропадёт или
   // раздел перестанет открываться, тест это поймает раньше пользователя.
+  // Пятой вкладки не будет, поэтому четыре инструмента обязаны стоять дверями
+  // на главной, а не текстовой сноской внутри чужой страницы.
   await page.goto('./');
-  await expect(page.getByRole('link', { name: /Kalkulatory/ })).toBeVisible();
+  for (const name of ['Plan', 'Kalkulatory', 'Warsztat', 'Lektury'] as const) {
+    await expect(page.getByRole('link', { name: new RegExp(`^${name} ·`) })).toBeVisible();
+  }
 
   for (const [path, heading] of [
     ['kalkulatory/', 'Kalkulatory'],
@@ -147,7 +190,47 @@ test('весь функционал доступен с главной за од
   }
 });
 
+const ROUTES = [
+  './',
+  './nauka/',
+  './egzaminy/',
+  './szkola/',
+  './plan/',
+  './kalkulatory/',
+  './lektury/',
+  './zasoby/',
+  './warsztat/',
+] as const;
+
+test('каждая внутренняя ссылка заканчивается слешем', async ({ page }) => {
+  // Это ломало продакшен: без слеша воркер не находит адрес среди
+  // закешированного, срабатывает navigateFallback, и вкладка отдаёт главную.
+  // Дисциплина уже один раз не сработала, поэтому теперь это ворота, а не
+  // договорённость. Ссылки собираются и в .astro, и в .tsx, поэтому проверять
+  // надо готовый DOM, а не исходники.
+  const offenders: string[] = [];
+
+  for (const route of ROUTES) {
+    await page.goto(route);
+    const bad = await page.evaluate(() =>
+      [...document.querySelectorAll('a[href]')]
+        .map((node) => node.getAttribute('href') ?? '')
+        .filter((href) => {
+          if (href === '' || /^(https?:|mailto:|tel:|#)/.test(href)) return false;
+          const path = href.split(/[?#]/)[0] ?? '';
+          return !path.endsWith('/');
+        }),
+    );
+    offenders.push(...bad.map((href) => `${route} -> ${href}`));
+  }
+
+  expect(offenders, `ссылки без слеша: ${offenders.join(', ')}`).toEqual([]);
+});
+
 test('песочница SQL реально выполняет запрос в браузере', async ({ page }) => {
+  // Ожидание таблицы уже стоит 30 секунд, столько же был весь тест, и под
+  // нагрузкой он падал по общему бюджету, не дождавшись движка.
+  test.setTimeout(90_000);
   await page.goto('./warsztat/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Warsztat');
 

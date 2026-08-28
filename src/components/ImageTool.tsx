@@ -60,14 +60,14 @@ export default function ImageTool() {
   }, [format, loaded, targetWidth]);
 
   return (
-    <section className="rounded-xl border border-[var(--color-line)] p-4">
+    <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Przygotowanie obrazu · Подготовка изображения</h2>
-      <p className="mt-1 text-sm opacity-70">
+      <p className="mt-1 text-label text-[var(--color-muted)]">
         Skalowanie do zadanej szerokości z zachowaniem proporcji, jak w zadaniu praktycznym INF.03.
         Plik nie opuszcza urządzenia.
       </p>
 
-      <label className="mt-4 inline-block cursor-pointer rounded-lg border border-[var(--color-line)] px-3 py-2 text-sm">
+      <label className="mt-4 inline-block cursor-pointer rounded-lg border border-[var(--color-line)] px-3 py-2 text-label">
         Wybierz obraz
         <input
           type="file"
@@ -81,18 +81,18 @@ export default function ImageTool() {
       </label>
 
       {error === null ? null : (
-        <p className="mt-3 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-sm">{error}</p>
+        <p className="mt-3 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-label">{error}</p>
       )}
 
       {loaded === null ? null : (
         <>
-          <p className="mt-3 text-sm opacity-70">
+          <p className="mt-3 text-label text-[var(--color-muted)]">
             {loaded.name}: {loaded.width} × {loaded.height} px
           </p>
 
-          <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+          <div className="mt-3 grid grid-cols-2 gap-3 text-label">
             <label className="block">
-              <span className="opacity-80">Szerokość docelowa, px</span>
+              <span className="text-[var(--color-muted)]">Szerokość docelowa, px</span>
               <input
                 type="number"
                 min={1}
@@ -107,7 +107,7 @@ export default function ImageTool() {
               />
             </label>
             <label className="block">
-              <span className="opacity-80">Format</span>
+              <span className="text-[var(--color-muted)]">Format</span>
               <select
                 value={format}
                 onChange={(event) =>
@@ -124,23 +124,23 @@ export default function ImageTool() {
             </label>
           </div>
 
-          <p className="mt-2 text-sm">
+          <p className="mt-2 text-label">
             Wynik: <strong>{targetWidth} × {targetHeight} px</strong>
-            <span className="opacity-60"> — proporcje zachowane automatycznie</span>
+            <span className="text-[var(--color-faint)]"> — proporcje zachowane automatycznie</span>
           </p>
 
           <div className="mt-3 flex gap-2">
             <button
               type="button"
               onClick={render}
-              className="rounded-lg border border-[var(--color-accent)] px-3 py-2 text-sm text-[var(--color-accent)]"
+              className="rounded-lg border border-[var(--color-accent)] px-3 py-2 text-label text-[var(--color-accent)]"
             >
               Przeskaluj
             </button>
             <button
               type="button"
               onClick={download}
-              className="rounded-lg border border-[var(--color-line)] px-3 py-2 text-sm"
+              className="rounded-lg border border-[var(--color-line)] px-3 py-2 text-label"
             >
               Pobierz
             </button>

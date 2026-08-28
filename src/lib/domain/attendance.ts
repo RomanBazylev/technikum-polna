@@ -21,7 +21,7 @@ export type BehaviourGrade =
   | 'naganne';
 
 /** § 58: верхняя граница неоправданных часов и опозданий за полугодие. */
-const BEHAVIOUR_LADDER: ReadonlyArray<{
+export const BEHAVIOUR_LADDER: ReadonlyArray<{
   grade: BehaviourGrade;
   maxUnexcusedHours: number;
   maxLateArrivals: number;

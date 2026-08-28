@@ -60,9 +60,9 @@ export default function SqlSandbox() {
   }, [ensureDatabase, sql]);
 
   return (
-    <section className="rounded-xl border border-[var(--color-line)] p-4">
+    <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Piaskownica SQL · Песочница SQL</h2>
-      <p className="mt-1 text-sm opacity-70">
+      <p className="mt-1 text-label text-[var(--color-muted)]">
         Baza ładuje się dopiero po pierwszym uruchomieniu zapytania, około 640 kB.
       </p>
 
@@ -75,7 +75,7 @@ export default function SqlSandbox() {
               setSql(task.starter);
               setResult({ kind: 'idle' });
             }}
-            className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-xs"
+            className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-micro"
           >
             {task.id}
           </button>
@@ -88,24 +88,24 @@ export default function SqlSandbox() {
         spellcheck={false}
         rows={8}
         aria-label="Zapytanie SQL"
-        className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-sm text-[var(--color-paper)]"
+        className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-label text-[var(--color-paper)]"
       />
 
       <button
         type="button"
         onClick={() => void run()}
-        className="mt-2 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-sm text-[var(--color-accent)]"
+        className="mt-2 rounded-lg border border-[var(--color-accent)] px-4 py-2 text-label text-[var(--color-accent)]"
       >
         Uruchom · Выполнить
       </button>
 
       <div className="mt-4">{renderResult(result)}</div>
 
-      <details className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-sm">
+      <details className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-label">
         <summary className="cursor-pointer font-medium">
           Czym to się różni od egzaminu · Чем это отличается от экзамена
         </summary>
-        <p className="mt-2 opacity-80">
+        <p className="mt-2 text-[var(--color-muted)]">
           Egzamin INF.03 odbywa się na MySQL w XAMPP, a w przeglądarce działa SQLite. Trzy różnice
           nie dają błędu, tylko zły wynik, więc warto je znać na pamięć.
         </p>
@@ -113,11 +113,11 @@ export default function SqlSandbox() {
           {SILENT_DIFFERENCES.map((item) => (
             <li key={item.title}>
               <span className="font-medium">{item.title}.</span>{' '}
-              <span className="opacity-80">{item.detail}</span>
+              <span className="text-[var(--color-muted)]">{item.detail}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-2 text-xs opacity-70">
+        <p className="mt-2 text-micro text-[var(--color-muted)]">
           Import dowolnego zrzutu z phpMyAdmin, obsługa samego phpMyAdmin i uruchamianie Apache
           nie dają się tu odtworzyć. To ćwiczy się na XAMPP-ie, i tego nie zastąpimy.
         </p>
@@ -129,14 +129,14 @@ export default function SqlSandbox() {
 function renderResult(result: QueryResult) {
   switch (result.kind) {
     case 'idle':
-      return <p className="text-sm opacity-60">Naciśnij „Uruchom”.</p>;
+      return <p className="text-label text-[var(--color-faint)]">Naciśnij „Uruchom”.</p>;
     case 'loading':
-      return <p className="text-sm opacity-60">Ładowanie silnika bazy…</p>;
+      return <p className="text-label text-[var(--color-faint)]">Ładowanie silnika bazy…</p>;
     case 'empty':
-      return <p className="text-sm opacity-70">Zapytanie wykonane, brak wyników do pokazania.</p>;
+      return <p className="text-label text-[var(--color-muted)]">Zapytanie wykonane, brak wyników do pokazania.</p>;
     case 'error':
       return (
-        <p className="rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-sm">
+        <p className="rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-label">
           {result.message}
         </p>
       );
@@ -144,8 +144,8 @@ function renderResult(result: QueryResult) {
       return (
         <>
           <div className="overflow-x-auto rounded-lg border border-[var(--color-line)]">
-            <table className="w-full text-sm">
-              <thead className="text-xs uppercase opacity-60">
+            <table className="w-full text-label">
+              <thead className="text-micro uppercase text-[var(--color-faint)]">
                 <tr>
                   {result.columns.map((column) => (
                     <th key={column} className="p-2 text-left">
@@ -167,7 +167,7 @@ function renderResult(result: QueryResult) {
               </tbody>
             </table>
           </div>
-          <p className="mt-2 text-xs opacity-60">
+          <p className="mt-2 text-micro text-[var(--color-faint)]">
             Wierszy: {result.rowCount}
             {result.rowCount > result.rows.length ? `, pokazano ${result.rows.length}` : ''}
           </p>

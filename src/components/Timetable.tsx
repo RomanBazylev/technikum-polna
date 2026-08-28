@@ -142,52 +142,52 @@ export default function Timetable({ subjects }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <section className="rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4">
+      <section className="rounded-card border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)] p-4">
         <h2 className="font-medium">Do dzwonka · До звонка</h2>
         {upNext === null ? (
-          <p className="mt-1 text-sm opacity-60">Liczymy…</p>
+          <p className="mt-1 text-label text-[var(--color-faint)]">Liczymy…</p>
         ) : (
           <>
             <p className="mt-1">{upNext.pl}</p>
-            <p className="text-sm opacity-70">{upNext.ru}</p>
+            <p className="text-label text-[var(--color-muted)]">{upNext.ru}</p>
           </>
         )}
       </section>
 
-      <section className="rounded-xl border border-[var(--color-line)] p-4">
+      <section className="rounded-card border border-[var(--color-line)] p-4">
         <h2 className="font-medium">
           {tomorrow === null
             ? 'Co wziąć · Что взять'
             : `Na ${WEEKDAY_NAME[tomorrow].plAcc} weź · На ${WEEKDAY_NAME[tomorrow].ruAcc} возьми`}
         </h2>
         {bring.length === 0 ? (
-          <p className="mt-1 text-sm opacity-70">
+          <p className="mt-1 text-label text-[var(--color-muted)]">
             Nic z podręczników. Albo plan na ten dzień jest pusty, albo te przedmioty nie mają
             wpisanej książki. · Из учебников ничего.
           </p>
         ) : (
           <ul className="mt-2 flex flex-col gap-2">
             {bring.map((item) => (
-              <li key={item.textbook} className="text-sm">
+              <li key={item.textbook} className="text-label">
                 <span className="font-medium">{item.textbook}</span>
-                <span className="block text-xs opacity-60">{item.subjects.join(' · ')}</span>
+                <span className="block text-micro text-[var(--color-faint)]">{item.subjects.join(' · ')}</span>
               </li>
             ))}
           </ul>
         )}
       </section>
 
-      <section className="rounded-xl border border-[var(--color-line)] p-4">
+      <section className="rounded-card border border-[var(--color-line)] p-4">
         <h2 className="font-medium">Plan lekcji · Расписание</h2>
-        <p className="mt-1 text-sm opacity-70">
+        <p className="mt-1 text-label text-[var(--color-muted)]">
           Szkoła nie publikuje rozkładu dzwonków, więc godziny liczymy z tych dwóch pól. Lekcja trwa
           45 minut, § 21 ust. 6 statutu. · Школа не публикует расписание звонков, поэтому время
           считается из этих двух полей.
         </p>
 
-        <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+        <div className="mt-3 grid grid-cols-2 gap-3 text-label">
           <label className="block">
-            <span className="opacity-80">Pierwsza lekcja o · Первый урок в</span>
+            <span className="text-[var(--color-muted)]">Pierwsza lekcja o · Первый урок в</span>
             <input
               type="time"
               value={timeInputValue(bells.firstLessonStart)}
@@ -201,7 +201,7 @@ export default function Timetable({ subjects }: Props) {
             />
           </label>
           <label className="block">
-            <span className="opacity-80">Przerwa, minut · Перемена</span>
+            <span className="text-[var(--color-muted)]">Przerwa, minut · Перемена</span>
             <input
               type="number"
               min={0}
@@ -222,7 +222,7 @@ export default function Timetable({ subjects }: Props) {
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-2">
           {WEEKDAYS.map((day) => (
             <div key={day}>
-              <h3 className="text-xs font-medium uppercase tracking-wide opacity-70">
+              <h3 className="text-micro font-medium uppercase tracking-wide text-[var(--color-muted)]">
                 <span className="sm:hidden">{WEEKDAY_NAME[day].pl}</span>
                 <span className="hidden sm:inline">{WEEKDAY_NAME[day].short}</span>
               </h3>
@@ -233,9 +233,9 @@ export default function Timetable({ subjects }: Props) {
                   return (
                     <div
                       key={slot}
-                      className="rounded-lg border border-[var(--color-line)] p-2 text-sm"
+                      className="rounded-lg border border-[var(--color-line)] p-2 text-label"
                     >
-                      <span className="block text-xs opacity-60">
+                      <span className="block text-micro text-[var(--color-faint)]">
                         {slot}. {formatMinutes(bell.start)}–{formatMinutes(bell.end)}
                       </span>
                       <select
@@ -268,7 +268,7 @@ export default function Timetable({ subjects }: Props) {
                                 (event.currentTarget as HTMLInputElement).value,
                               )
                             }
-                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-xs"
+                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
                           />
                           <input
                             aria-label={`Nauczyciel, ${WEEKDAY_NAME[day].pl} ${slot}`}
@@ -282,7 +282,7 @@ export default function Timetable({ subjects }: Props) {
                                 (event.currentTarget as HTMLInputElement).value,
                               )
                             }
-                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-xs"
+                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
                           />
                         </div>
                       )}
@@ -294,7 +294,7 @@ export default function Timetable({ subjects }: Props) {
           ))}
         </div>
 
-        <p className="mt-3 text-xs opacity-60">
+        <p className="mt-3 text-micro text-[var(--color-faint)]">
           Plan zostaje w tej przeglądarce. Nikt go nie widzi, my też nie. · Расписание остаётся в
           этом браузере, его не видит никто, включая нас.
         </p>

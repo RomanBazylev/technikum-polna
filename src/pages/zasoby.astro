@@ -182,15 +182,15 @@ const base = import.meta.env.BASE_URL;
   tab="szkola"
   lead="Skąd brać materiały i na jakich warunkach. Откуда брать материалы и на каких условиях."
 >
-  <section class="rounded-xl border-l-4 border-[var(--color-accent)] p-4">
+  <section class="rounded-card border-l-4 border-[var(--color-accent)] p-4">
     <h2 class="font-medium">Dlaczego prawie wszystko jest tylko odnośnikiem</h2>
-    <p class="mt-2 text-sm opacity-80">
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Te materiały nie są nasze. Większość z nich nie ma żadnej licencji na ponowne wykorzystanie,
       a Pi-stacja i Khan Academy mają licencję z członem NC, której nie wolno łączyć z naszą CC
       BY-SA na jednej stronie. Dlatego prowadzimy do oryginału zamiast go kopiować: kopia i tak
       zdezaktualizowałaby się szybciej niż źródło.
     </p>
-    <p class="mt-2 text-sm opacity-70">
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Материалы чужие. У большинства нет лицензии на переиспользование, а у Pi-stacja и Khan
       Academy лицензия с NC, которую нельзя смешивать с нашей CC BY-SA. Поэтому ведём на оригинал,
       а не копируем.
@@ -198,21 +198,21 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <section class="mt-8">
-    <h2 class="mb-3 text-sm font-medium uppercase tracking-wide opacity-70">
+    <h2 class="mb-3 text-label font-medium uppercase tracking-wide text-[var(--color-muted)]">
       Polecane, {curated.length} pozycji
     </h2>
     <ul class="flex flex-col gap-3">
       {
         curated.map((item) => (
-          <li class="rounded-xl border border-[var(--color-line)] bg-[var(--color-ink-soft)]/60 p-4">
+          <li class="rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-4">
             <a class="font-medium underline" href={item.url} rel="noopener">
               {item.name}
             </a>
-            <p class="mt-1 text-sm opacity-80">{item.pl}</p>
-            <p class="mt-1 text-sm opacity-60">{item.ru}</p>
-            <p class="mt-2 text-xs opacity-60">{item.license}</p>
+            <p class="mt-1 text-label text-[var(--color-muted)]">{item.pl}</p>
+            <p class="mt-1 text-label text-[var(--color-faint)]">{item.ru}</p>
+            <p class="mt-2 text-micro text-[var(--color-faint)]">{item.license}</p>
             {item.links ? (
-              <ul class="mt-2 flex flex-wrap gap-3 text-sm">
+              <ul class="mt-2 flex flex-wrap gap-3 text-label">
                 {item.links.map((link) => (
                   <li>
                     <a class="underline" href={link.url} rel="noopener">
@@ -229,33 +229,33 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <section class="mt-8">
-    <h2 class="mb-1 text-sm font-medium uppercase tracking-wide opacity-70">
+    <h2 class="mb-1 text-label font-medium uppercase tracking-wide text-[var(--color-muted)]">
       Źródła z tego serwisu, {byKey.size} pozycji
     </h2>
-    <p class="mb-3 text-xs opacity-60">
+    <p class="mb-3 text-micro text-[var(--color-faint)]">
       Wszystko, na co powołuje się przewodnik, tematy i terminy, zebrane w jednym miejscu. ·
       Всё, на что ссылаются справочник, темы и сроки, собрано в одном месте.
     </p>
     <div class="flex flex-col gap-4">
       {
         providers.map((provider) => (
-          <div class="rounded-xl border border-[var(--color-line)] p-4">
+          <div class="rounded-card border border-[var(--color-line)] p-4">
             <h3 class="font-medium">{provider}</h3>
             <ul class="mt-2 flex flex-col gap-3">
               {(byProvider.get(provider) ?? []).map((row) => (
                 <li>
                   {row.url === null ? (
-                    <span class="text-sm font-medium">{row.title}</span>
+                    <span class="text-label font-medium">{row.title}</span>
                   ) : (
-                    <a class="text-sm underline" href={row.url} rel="noopener">
+                    <a class="text-label underline" href={row.url} rel="noopener">
                       {row.title}
                     </a>
                   )}
-                  <p class="mt-1 text-xs opacity-60">
+                  <p class="mt-1 text-micro text-[var(--color-faint)]">
                     {row.usage.pl} · {row.usage.ru} · {row.license}
                   </p>
                   {row.why === null ? null : (
-                    <p class="mt-1 text-xs opacity-50">{row.why}</p>
+                    <p class="mt-1 text-micro text-[var(--color-faint)]">{row.why}</p>
                   )}
                 </li>
               ))}
@@ -266,19 +266,19 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <section class="mt-8 rounded-xl border border-[var(--color-line)] p-4">
+  <section class="mt-8 rounded-card border border-[var(--color-line)] p-4">
     <h2 class="font-medium">Czego tu nie znajdziesz</h2>
-    <p class="mt-2 text-sm opacity-80">
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Nie prowadzimy do serwisów z gotowymi odpowiedziami do tych samych podręczników, których
       używa ta szkoła. Ich prawa do treści są wątpliwe, a istnieją po to, żeby przepisać, a nie
       zrozumieć. Na egzaminie zawodowym nie ma z czego przepisać.
     </p>
-    <p class="mt-2 text-sm opacity-70">
+    <p class="mt-2 text-label text-[var(--color-muted)]">
       Мы не ведём на сайты с готовыми ответами к тем же учебникам, по которым учится эта школа.
       Права на их содержимое сомнительны, а нужны они, чтобы списать, а не понять. На экзамене
       списывать будет не у кого.
     </p>
   </section>
 
-  <a class="mt-6 inline-block text-sm underline" href={`${base}szkola/`}>Wróć do „Szkoła”</a>
+  <a class="mt-6 inline-block text-label underline" href={`${base}szkola/`}>Wróć do „Szkoła”</a>
 </Base>

@@ -22,7 +22,7 @@ describe('начало недели', () => {
   });
 });
 
-describe('§ 52 ust. 4 pkt 3, объявление минимум за неделю', () => {
+describe('§ 52 ust. 4 pkt 3, tygodniowe wyprzedzenie', () => {
   it('девять дней предупреждения нарушением не является', () => {
     expect(findViolations([test1])).toEqual([]);
   });
@@ -34,7 +34,7 @@ describe('§ 52 ust. 4 pkt 3, объявление минимум за неде�
     ]);
   });
 
-  it('ровно семь дней ещё допустимо', () => {
+  it('równe siedem dni kalendarzowych jeszcze spełnia tygodniowe wyprzedzenie', () => {
     const exact = { ...test1, announcedOn: '2026-10-07' };
     expect(findViolations([exact])).toEqual([]);
   });

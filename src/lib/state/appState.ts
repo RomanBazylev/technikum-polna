@@ -71,6 +71,12 @@ export const appStateSchema = z.object({
   announcedTests: z.array(announcedTestSchema),
   progress: z.record(z.string(), z.enum(['new', 'learning', 'known'])),
   teachers: z.array(teacherSchema),
+  /**
+   * Из настроек читаются только bells. Тема мертва: приложение тёмное, светлая
+   * половина media-запроса удалена. Переключателя языка тоже нет, интерфейс
+   * двуязычный по построению. Поля оставлены, потому что их удаление стоит
+   * миграции на версию 3 и риска для сохранённого расписания, а пользы не даёт.
+   */
   settings: z.object({
     theme: z.enum(['system', 'light', 'dark']),
     showRussian: z.boolean(),

@@ -23,9 +23,9 @@ export default function LayoutPreview() {
   const parsed = useMemo(() => (mounted ? parseLayout(source) : null), [mounted, source]);
 
   return (
-    <section className="rounded-xl border border-[var(--color-line)] p-4">
+    <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Podgląd układu · Предпросмотр разметки</h2>
-      <p className="mt-1 text-sm opacity-70">
+      <p className="mt-1 text-label text-[var(--color-muted)]">
         Wklej layout z Android Studio albo XAML z Visual Studio i zobacz rozmieszczenie od razu.
         Nic się nie pobiera, wszystko liczy się na urządzeniu.
       </p>
@@ -36,9 +36,9 @@ export default function LayoutPreview() {
             key={preset.id}
             type="button"
             onClick={() => setSource(preset.source)}
-            className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-xs"
+            className="rounded-lg border border-[var(--color-line)] px-3 py-1 text-micro"
           >
-            {preset.label} <span className="opacity-50">{preset.dialect}</span>
+            {preset.label} <span className="text-[var(--color-faint)]">{preset.dialect}</span>
           </button>
         ))}
       </div>
@@ -50,7 +50,7 @@ export default function LayoutPreview() {
           spellcheck={false}
           rows={18}
           aria-label="Kod układu"
-          className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-xs text-[var(--color-paper)]"
+          className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-micro text-[var(--color-paper)]"
         />
         <div>
           <div
@@ -58,29 +58,29 @@ export default function LayoutPreview() {
             className="mx-auto h-[520px] w-[300px] overflow-hidden rounded-[1.75rem] border-[6px] border-[var(--color-line)] bg-[var(--color-ink)] text-[var(--color-paper)]"
           >
             {parsed === null ? (
-              <p className="m-3 text-xs opacity-50">Podgląd rysuje się po wczytaniu strony.</p>
+              <p className="m-3 text-micro text-[var(--color-faint)]">Podgląd rysuje się po wczytaniu strony.</p>
             ) : (
               renderFrame(parsed)
             )}
           </div>
-          <p className="mt-2 text-center text-xs opacity-50">Ekran 300 × 520, skala 1 dp = 1 px</p>
+          <p className="mt-2 text-center text-micro text-[var(--color-faint)]">Ekran 300 × 520, skala 1 dp = 1 px</p>
         </div>
       </div>
 
       {parsed !== null && parsed.kind === 'ok' && parsed.warnings.length > 0 ? (
         <ul
           data-testid="layout-warnings"
-          className="mt-3 rounded-lg border border-[var(--color-warn)] p-3 text-xs"
+          className="mt-3 rounded-lg border border-[var(--color-warn)] p-3 text-micro"
         >
           {parsed.warnings.map((warning) => (
-            <li key={warning} className="opacity-80">
+            <li key={warning} className="text-[var(--color-muted)]">
               {warning}
             </li>
           ))}
         </ul>
       ) : null}
 
-      <div className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-sm">
+      <div className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-label">
         <p className="font-medium">{GRAVITY_QUIZ.question}</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {GRAVITY_QUIZ.options.map((option) => (
@@ -88,7 +88,7 @@ export default function LayoutPreview() {
               key={option.id}
               type="button"
               onClick={() => setAnswered(option.id)}
-              className="rounded-lg border border-[var(--color-line)] px-3 py-1 font-mono text-xs"
+              className="rounded-lg border border-[var(--color-line)] px-3 py-1 font-mono text-micro"
             >
               {option.label}
             </button>
@@ -99,7 +99,7 @@ export default function LayoutPreview() {
           .map((option) => (
             <p
               key={option.id}
-              className={`mt-2 border-l-4 pl-3 text-sm ${
+              className={`mt-2 border-l-4 pl-3 text-label ${
                 option.correct ? 'border-[var(--color-accent)]' : 'border-[var(--color-bad)]'
               }`}
             >
@@ -108,7 +108,7 @@ export default function LayoutPreview() {
           ))}
       </div>
 
-      <p className="mt-4 text-xs opacity-70">
+      <p className="mt-4 text-micro text-[var(--color-muted)]">
         To rysunek rozmieszczenia, nie emulator. Themes, style z <code>res/values</code>, prawdziwe
         ograniczenia ConstraintLayout i cokolwiek z Javy ani Kotlina tu nie działa. Zbudowanie APK
         wymaga Android Studio. · Это схема раскладки, а не эмулятор.
@@ -123,7 +123,7 @@ function renderFrame(parsed: LayoutParse): JSX.Element {
       return (
         <p
           data-testid="layout-error"
-          className="m-3 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-xs"
+          className="m-3 rounded-lg border-l-4 border-[var(--color-bad)] p-3 text-micro"
         >
           {parsed.message}
         </p>
@@ -157,24 +157,24 @@ function renderWidget(widget: Widget): JSX.Element | null {
       return <>{widget.text}</>;
     case 'button':
       return (
-        <span className="rounded bg-[var(--color-accent)] px-3 py-1 text-xs text-[var(--color-ink)]">
+        <span className="rounded bg-[var(--color-accent)] px-3 py-1 text-micro text-[var(--color-ink)]">
           {widget.text}
         </span>
       );
     case 'field':
       return (
-        <span className="block w-full border-b border-current pb-1 text-xs opacity-60">
+        <span className="block w-full border-b border-current pb-1 text-micro text-[var(--color-faint)]">
           {widget.text === '' ? widget.hint : widget.text}
         </span>
       );
     case 'image':
       return (
-        <span className="grid h-16 w-16 place-items-center border border-dashed border-current text-[10px] opacity-60">
+        <span className="grid h-16 w-16 place-items-center border border-dashed border-current text-micro text-[var(--color-faint)]">
           {widget.source === '' ? 'obraz' : widget.source}
         </span>
       );
     case 'unknown':
-      return <span className="text-[10px] opacity-60">nieznany element {widget.tag}</span>;
+      return <span className="text-micro text-[var(--color-faint)]">nieznany element {widget.tag}</span>;
     default: {
       const exhaustive: never = widget;
       throw new Error(`Необработанный виджет: ${JSON.stringify(exhaustive)}`);
