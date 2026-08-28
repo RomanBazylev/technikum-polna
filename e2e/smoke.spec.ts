@@ -228,16 +228,23 @@ test('каждая внутренняя ссылка заканчивается 
 });
 
 test('песочница SQL реально выполняет запрос в браузере', async ({ page }) => {
-  // Ожидание таблицы уже стоит 30 секунд, столько же был весь тест, и под
-  // нагрузкой он падал по общему бюджету, не дождавшись движка.
+  // Остров client:visible. Клик до гидратации попадает в мёртвую разметку,
+  // таблица не появляется, и 30 секунд уходят в пустую. Повторяем запуск,
+  // пока не начнётся загрузка движка.
   test.setTimeout(90_000);
   await page.goto('./warsztat/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Warsztat');
 
-  await page.getByRole('button', { name: /Uruchom/ }).click();
+  const run = page.getByRole('button', { name: /Uruchom ·/ });
+  await run.scrollIntoViewIfNeeded();
+  await expect(async () => {
+    await run.click();
+    await expect(
+      page.getByText('Ładowanie silnika bazy').or(page.getByRole('table')),
+    ).toBeVisible({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
 
-  // Движок весит 640 КБ и грузится по требованию, поэтому ждём дольше обычного.
-  await expect(page.getByRole('table')).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole('table')).toBeVisible({ timeout: 60_000 });
   await expect(page.getByRole('cell', { name: 'Adamczyk' })).toBeVisible();
 });
 
