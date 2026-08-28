@@ -242,8 +242,14 @@ export function formatMinutes(minutesOfDay: number): string {
   return `${Math.floor(wrapped / 60)}:${String(wrapped % 60).padStart(2, '0')}`;
 }
 
+/** День недели из локальных часов ученика, либо null для выходных. */
+export function weekdayOf(now: Date): Weekday | null {
+  return WEEKDAYS[now.getDay() - 1] ?? null;
+}
+
 /** Учебный день через offset суток от now, либо null для субботы и воскресенья. */
 function weekdayAfter(now: Date, offset: number): Weekday | null {
+  if (offset === 0) return weekdayOf(now);
   return WEEKDAYS[((now.getDay() + offset) % 7) - 1] ?? null;
 }
 

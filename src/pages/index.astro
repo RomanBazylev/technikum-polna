@@ -5,9 +5,17 @@ import Destination from '../components/Destination.astro';
 import ObligationList from '../components/ObligationList';
 import TodayHero from '../components/TodayHero';
 import type { Obligation } from '../lib/domain/obligations';
+import type { SubjectRef } from '../lib/domain/timetable';
 
 const entries = await getCollection('obligations');
 const obligations = entries.map((entry) => entry.data as Obligation);
+const subjectEntries = await getCollection('subjects');
+const subjects: SubjectRef[] = subjectEntries.map((entry) => ({
+  id: entry.data.id,
+  pl: entry.data.name.pl,
+  ru: entry.data.name.ru,
+  textbook: entry.data.textbook,
+}));
 const lektury = await getCollection('lektury');
 const audiobooks = lektury.filter((entry) => entry.data.hasAudio).length;
 const base = import.meta.env.BASE_URL;
@@ -20,7 +28,7 @@ const base = import.meta.env.BASE_URL;
     </h1>
   </header>
 
-  <TodayHero client:load />
+  <TodayHero client:load subjects={subjects} />
 
   <h2 class="mt-7 mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
     Narzędzia

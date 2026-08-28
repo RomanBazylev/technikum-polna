@@ -109,6 +109,52 @@ test('главная отвечает работающим числом до п�
   await expect(page.getByText('bardzo dobre', { exact: true })).toBeVisible();
 });
 
+test('заполненный план превращает главную в сводку конкретного дня', async ({ page }) => {
+  await page.clock.setFixedTime(new Date(2026, 8, 9, 7, 30));
+  await page.goto('./');
+  await page.evaluate(() => {
+    window.localStorage.setItem(
+      'tkk-polna:state',
+      JSON.stringify({
+        version: 2,
+        profile: { grade: 1, languageGroup: null, uiLocale: 'pl', birthDate: null },
+        timetable: [
+          { id: 'sr-1', day: 'sr', slot: 1, subjectId: 'fizyka', room: '204' },
+          { id: 'czw-1', day: 'czw', slot: 1, subjectId: 'matematyka' },
+        ],
+        attendance: [],
+        grades: [],
+        homework: [],
+        announcedTests: [
+          {
+            id: 'mat-test',
+            subject: 'matematyka',
+            date: '2026-09-09',
+            announcedOn: '2026-09-06',
+          },
+        ],
+        progress: {},
+        teachers: [],
+        settings: {
+          theme: 'system',
+          showRussian: true,
+          bells: { firstLessonStart: 480, breakMinutes: 10 },
+        },
+      }),
+    );
+  });
+
+  await page.reload();
+  const hero = page.locator('section').first();
+  await expect(hero.getByText('Następna lekcja · Следующий урок')).toBeVisible();
+  await expect(hero.getByText('Fizyka', { exact: true })).toBeVisible();
+  await expect(hero.getByText(/8:00 · sala 204/)).toBeVisible();
+  await expect(hero.getByText(/Na czwartek · На четверг/)).toBeVisible();
+  await expect(hero.getByText(/Matematyka i przykłady jej zastosowań/)).toBeVisible();
+  await expect(hero.getByText(/Może naruszać § 52 ust. 4 pkt 3/)).toBeVisible();
+  await expect(hero.getByText('wzorowe')).toHaveCount(0);
+});
+
 test('дата рождения вводится прямо на главной и раскрывает правила', async ({ page }) => {
   // Пустое состояние было тупиком: свёрнутый блок «нужны данные: 4» без единого
   // поля. Ввод должен стоять там же, где о нём просят.
