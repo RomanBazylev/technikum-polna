@@ -75,6 +75,163 @@ export function lessonsOn(week: Week, day: Weekday): Lesson[] {
   return week.filter((lesson) => lesson.day === day).sort((a, b) => a.slot - b.slot);
 }
 
+export type UnknownTimetableCell = {
+  day: Weekday;
+  slot: number;
+  value: string;
+};
+
+export type TimetableImport =
+  | { kind: 'empty' }
+  | { kind: 'error'; message: string }
+  | { kind: 'preview'; lessons: Lesson[]; unknown: UnknownTimetableCell[] };
+
+const DAY_ALIASES: Readonly<Record<string, Weekday>> = {
+  pon: 'pon',
+  poniedzialek: 'pon',
+  понедельник: 'pon',
+  monday: 'pon',
+  wt: 'wt',
+  wtorek: 'wt',
+  вторник: 'wt',
+  tuesday: 'wt',
+  sr: 'sr',
+  sroda: 'sr',
+  среда: 'sr',
+  wednesday: 'sr',
+  czw: 'czw',
+  czwartek: 'czw',
+  четверг: 'czw',
+  thursday: 'czw',
+  pt: 'pt',
+  piatek: 'pt',
+  пятница: 'pt',
+  friday: 'pt',
+};
+
+const SUBJECT_ALIASES: Readonly<Record<string, string>> = {
+  polski: 'jezyk-polski',
+  angielski: 'jezyk-angielski',
+  niemiecki: 'jezyk-niemiecki',
+  hiszpanski: 'jezyk-hiszpanski',
+  wf: 'wychowanie-fizyczne',
+  wuef: 'wychowanie-fizyczne',
+  edb: 'edukacja-dla-bezpieczenstwa',
+  biz: 'biznes-i-zarzadzanie',
+  zawodowe: 'ksztalcenie-zawodowe',
+};
+
+function normalized(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLocaleLowerCase('pl')
+    .replaceAll('ł', 'l')
+    .replace(/[._/\\()[\]{}:]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function splitGridLine(line: string): string[] {
+  if (line.includes('\t')) return line.split('\t');
+  if (line.includes('|')) return line.split('|');
+  if (line.includes(';')) return line.split(';');
+  if ((line.match(/,/g) ?? []).length >= 4) return line.split(',');
+  return line.split(/\s{2,}/);
+}
+
+function subjectIndex(subjects: readonly SubjectRef[]): Map<string, string> {
+  const result = new Map<string, string>();
+  for (const subject of subjects) {
+    result.set(normalized(subject.id), subject.id);
+    result.set(normalized(subject.pl), subject.id);
+    result.set(normalized(subject.ru), subject.id);
+  }
+  for (const [alias, subjectId] of Object.entries(SUBJECT_ALIASES)) {
+    if (subjects.some((subject) => subject.id === subjectId)) result.set(alias, subjectId);
+  }
+  return result;
+}
+
+function matchSubject(value: string, index: ReadonlyMap<string, string>): string | null {
+  const cell = normalized(value);
+  const exact = index.get(cell);
+  if (exact !== undefined) return exact;
+
+  const candidates = [...index.entries()]
+    .filter(([name]) => cell.startsWith(`${name} `))
+    .sort(([left], [right]) => right.length - left.length);
+  return candidates[0]?.[1] ?? null;
+}
+
+/**
+ * Разбирает сетку, скопированную из таблицы или школьного экспорта. Замена
+ * расписания остаётся решением интерфейса: результат отдельно перечисляет
+ * непонятные клетки, чтобы частичный разбор нельзя было принять молча.
+ */
+export function parseTimetableGrid(
+  payload: string,
+  subjects: readonly SubjectRef[],
+): TimetableImport {
+  const rows = payload
+    .split(/\r?\n/)
+    .map((line) => splitGridLine(line).map((cell) => cell.trim()))
+    .filter((cells) => cells.some((cell) => cell !== ''));
+  if (rows.length === 0) return { kind: 'empty' };
+
+  const headerRow = rows.findIndex((cells) => {
+    const days = cells.flatMap((cell) => {
+      const day = DAY_ALIASES[normalized(cell)];
+      return day === undefined ? [] : [day];
+    });
+    return new Set(days).size === WEEKDAYS.length;
+  });
+  if (headerRow < 0) {
+    return {
+      kind: 'error',
+      message: 'Nie znaleziono nagłówka z pięcioma dniami tygodnia.',
+    };
+  }
+
+  const header = rows[headerRow] ?? [];
+  const columns = new Map<Weekday, number>();
+  header.forEach((cell, column) => {
+    const day = DAY_ALIASES[normalized(cell)];
+    if (day !== undefined) columns.set(day, column);
+  });
+  const firstDayColumn = Math.min(...columns.values());
+  const index = subjectIndex(subjects);
+  const lessons: Lesson[] = [];
+  const unknown: UnknownTimetableCell[] = [];
+
+  rows.slice(headerRow + 1).forEach((cells, rowIndex) => {
+    const slotCell = cells.slice(0, firstDayColumn).find((cell) => /^\s*\d{1,2}\b/.test(cell));
+    const parsedSlot = slotCell === undefined ? rowIndex + 1 : Number.parseInt(slotCell, 10);
+    if (!Number.isInteger(parsedSlot) || parsedSlot < 1 || parsedSlot > MAX_SLOT) return;
+
+    for (const day of WEEKDAYS) {
+      const column = columns.get(day);
+      const value = column === undefined ? '' : (cells[column] ?? '').trim();
+      if (value === '' || /^[-–—]+$/.test(value)) continue;
+      const subjectId = matchSubject(value, index);
+      if (subjectId === null) {
+        unknown.push({ day, slot: parsedSlot, value });
+      } else {
+        lessons.push({
+          id: lessonId(day, parsedSlot),
+          day,
+          slot: parsedSlot,
+          subjectId,
+        });
+      }
+    }
+  });
+
+  return lessons.length === 0 && unknown.length === 0
+    ? { kind: 'error', message: 'Tabela nie zawiera żadnych lekcji.' }
+    : { kind: 'preview', lessons, unknown };
+}
+
 export function slotWindow(slot: number, bells: BellConfig): { start: number; end: number } {
   const start = bells.firstLessonStart + (slot - 1) * (LESSON_MINUTES + bells.breakMinutes);
   return { start, end: start + LESSON_MINUTES };

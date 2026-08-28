@@ -420,16 +420,30 @@ test('карта программы показывает сетку часов �
   await expect(page.getByText('INF.04.7').first()).toBeVisible();
 });
 
-test('расписание переживает переход между страницами', async ({ page }) => {
+test('вставленная сетка запускает план и переживает переход', async ({ page }) => {
   await page.goto('./plan/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Plan');
 
-  // Поле включается только после загрузки состояния, поэтому ожидание
-  // гидратации острова обеспечено самим селектором.
-  await page.getByLabel('Poniedziałek, lekcja 1').selectOption('fizyka');
+  const grid = [
+    'Nr\tPon\tWt\tŚr\tCzw\tPt',
+    '1\tFizyka\tFizyka\tFizyka\tFizyka\tFizyka',
+    '2\tMatematyka\tPolski\tChemia\tMatematyka\tWF',
+  ].join('\n');
+  await page.getByLabel(/Tabela planu/).fill(grid);
+  await expect(page.getByText(/Rozpoznano lekcji: 10/)).toBeVisible();
+  await page.getByRole('button', { name: /Wczytaj plan/ }).click();
+  await expect(page.getByText(/Wczytano 10 lekcji/)).toBeVisible();
+  await expect(page.getByText(/Plan jest jeszcze pusty/)).toHaveCount(0);
 
   await page.goto('./');
   await page.goto('./plan/');
+  await page.getByText(/Popraw pojedynczo/).click();
+  await expect(page.getByLabel('Poniedziałek, lekcja 1')).toHaveValue('fizyka');
+
+  // Непонятная ячейка блокирует замену целиком, а не тихо исчезает.
+  await page.getByLabel(/Tabela planu/).fill('Nr\tPon\tWt\tŚr\tCzw\tPt\n1\tRobotyka\t\t\t\t');
+  await expect(page.getByText(/Wt 1: Robotyka|Pon 1: Robotyka/)).toBeVisible();
+  await expect(page.getByRole('button', { name: /Zastąp zapisany plan/ })).toBeDisabled();
   await expect(page.getByLabel('Poniedziałek, lekcja 1')).toHaveValue('fizyka');
 });
 
@@ -479,6 +493,7 @@ test('состояние версии 1 доезжает до версии 2 б�
   });
 
   await page.goto('./plan/');
+  await page.getByText(/Popraw pojedynczo/).click();
   await page.getByLabel('Poniedziałek, lekcja 1').selectOption('chemia');
 
   const stored = await page.evaluate(() =>

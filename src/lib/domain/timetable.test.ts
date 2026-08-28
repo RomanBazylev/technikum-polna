@@ -6,6 +6,7 @@ import {
   lessonId,
   lessonsOn,
   nextLesson,
+  parseTimetableGrid,
   schoolDayAfter,
   slotWindow,
   whatToBring,
@@ -69,6 +70,78 @@ describe('поиск урока в клетке', () => {
   it('уроки дня возвращаются по возрастанию номера', () => {
     const shuffled = [lesson('wt', 5, 'chemia'), lesson('wt', 2, 'fizyka')];
     expect(lessonsOn(shuffled, 'wt').map((item) => item.slot)).toEqual([2, 5]);
+  });
+});
+
+describe('импорт недельной сетки', () => {
+  it('разбирает TSV из электронной таблицы с номерами и временем', () => {
+    const payload = [
+      'Nr\tGodzina\tPoniedziałek\tWtorek\tŚroda\tCzwartek\tPiątek',
+      '1\t8:00–8:45\tMatematyka\tJęzyk polski\tFizyka\tChemia\tWF',
+      '2\t8:55–9:40\tPolski\t—\tматематика\t\tWychowanie fizyczne',
+    ].join('\n');
+
+    expect(parseTimetableGrid(payload, subjects)).toEqual({
+      kind: 'preview',
+      lessons: [
+        lesson('pon', 1, 'matematyka'),
+        lesson('wt', 1, 'jezyk-polski'),
+        lesson('sr', 1, 'fizyka'),
+        lesson('czw', 1, 'chemia'),
+        lesson('pt', 1, 'wychowanie-fizyczne'),
+        lesson('pon', 2, 'jezyk-polski'),
+        lesson('sr', 2, 'matematyka'),
+        lesson('pt', 2, 'wychowanie-fizyczne'),
+      ],
+      unknown: [],
+    });
+  });
+
+  it('разбирает сетку с точкой с запятой и номером в первом столбце', () => {
+    const payload = [
+      ';Pon;Wt;Śr;Czw;Pt',
+      '1.;Matematyka;Fizyka;;;Chemia',
+    ].join('\n');
+    const result = parseTimetableGrid(payload, subjects);
+
+    expect(result.kind).toBe('preview');
+    if (result.kind !== 'preview') throw new Error('ожидался предпросмотр');
+    expect(result.lessons).toEqual([
+      lesson('pon', 1, 'matematyka'),
+      lesson('wt', 1, 'fizyka'),
+      lesson('pt', 1, 'chemia'),
+    ]);
+  });
+
+  it('принимает markdown-таблицу с русскими заголовками', () => {
+    const payload = [
+      '| № | Понедельник | Вторник | Среда | Четверг | Пятница |',
+      '|---|---|---|---|---|---|',
+      '| 1 | Математика | Физика | Польский | Химия | Физкультура |',
+    ].join('\n');
+    const result = parseTimetableGrid(payload, subjects);
+
+    expect(result.kind).toBe('preview');
+    if (result.kind !== 'preview') throw new Error('ожидался предпросмотр');
+    expect(result.lessons).toHaveLength(5);
+    expect(result.unknown).toEqual([]);
+  });
+
+  it('не скрывает непонятную клетку за частично успешным разбором', () => {
+    const payload = [
+      'Nr\tPon\tWt\tŚr\tCzw\tPt',
+      '1\tMatematyka\tRobotyka\t\t\t',
+    ].join('\n');
+    const result = parseTimetableGrid(payload, subjects);
+
+    expect(result.kind).toBe('preview');
+    if (result.kind !== 'preview') throw new Error('ожидался предпросмотр');
+    expect(result.lessons).toEqual([lesson('pon', 1, 'matematyka')]);
+    expect(result.unknown).toEqual([{ day: 'wt', slot: 1, value: 'Robotyka' }]);
+  });
+
+  it('отвергает список без заголовка пяти дней, чтобы не сдвинуть колонки', () => {
+    expect(parseTimetableGrid('1\tMatematyka\tFizyka', subjects).kind).toBe('error');
   });
 });
 

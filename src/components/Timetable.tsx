@@ -7,6 +7,7 @@ import {
   lessonAt,
   lessonId,
   nextLesson,
+  parseTimetableGrid,
   schoolDayAfter,
   slotWindow,
   whatToBring,
@@ -83,6 +84,8 @@ export default function Timetable({ subjects }: Props) {
   // Отрисовка на сборке не знает времени визита, поэтому часы включаются
   // только в браузере: иначе в HTML запеклась бы дата сборки.
   const [now, setNow] = useState<Date | null>(null);
+  const [pastedGrid, setPastedGrid] = useState('');
+  const [importedCount, setImportedCount] = useState<number | null>(null);
 
   useEffect(() => {
     setNow(new Date());
@@ -97,6 +100,10 @@ export default function Timetable({ subjects }: Props) {
 
   const bells = state.settings.bells;
   const week = state.timetable;
+  const timetableImport = useMemo(
+    () => parseTimetableGrid(pastedGrid, subjects),
+    [pastedGrid, subjects],
+  );
 
   const visibleSlots = useMemo(() => {
     const highest = week.reduce((max, lesson) => Math.max(max, lesson.slot), 0);
@@ -138,6 +145,13 @@ export default function Timetable({ subjects }: Props) {
       ...previous,
       settings: { ...previous.settings, bells: { ...previous.settings.bells, ...patch } },
     }));
+  };
+
+  const importTimetable = () => {
+    if (timetableImport.kind !== 'preview' || timetableImport.unknown.length > 0) return;
+    update((previous) => ({ ...previous, timetable: timetableImport.lessons }));
+    setImportedCount(timetableImport.lessons.length);
+    setPastedGrid('');
   };
 
   return (
@@ -185,114 +199,191 @@ export default function Timetable({ subjects }: Props) {
           считается из этих двух полей.
         </p>
 
-        <div className="mt-3 grid grid-cols-2 gap-3 text-label">
-          <label className="block">
-            <span className="text-[var(--color-muted)]">Pierwsza lekcja o · Первый урок в</span>
-            <input
-              type="time"
-              value={timeInputValue(bells.firstLessonStart)}
+        <div className="mt-4 rounded-card border border-[var(--color-line-strong)] bg-[var(--color-ink-raised)] p-4">
+          <h3 className="font-medium">Wklej cały plan · Вставь всё расписание</h3>
+          <p className="mt-1 text-label text-[var(--color-muted)]">
+            Skopiuj tabelę z wiadomości, arkusza albo pliku. Pierwszy wiersz musi zawierać Pon–Pt;
+            tabulatory, średniki i pionowe kreski działają. Najpierw pokażemy wynik, nic nie
+            zniknie przez nieczytelną komórkę. · Скопируй таблицу с Пн–Пт — сначала увидишь
+            результат.
+          </p>
+          <label className="mt-3 block">
+            <span className="text-label font-medium">Tabela planu · Таблица расписания</span>
+            <textarea
+              value={pastedGrid}
               disabled={!ready}
               onInput={(event) => {
-                const [hours, minutes] = (event.currentTarget as HTMLInputElement).value.split(':');
-                const parsed = Number(hours) * 60 + Number(minutes);
-                if (Number.isFinite(parsed)) setBells({ firstLessonStart: parsed });
+                setPastedGrid((event.currentTarget as HTMLTextAreaElement).value);
+                setImportedCount(null);
               }}
-              className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
+              placeholder={'Nr\tPon\tWt\tŚr\tCzw\tPt\n1\tMatematyka\tPolski\tFizyka\tChemia\tWF'}
+              className="mt-1 min-h-36 w-full resize-y rounded-lg border border-[var(--color-line-strong)] bg-[var(--color-ink)] p-3 text-label"
             />
           </label>
-          <label className="block">
-            <span className="text-[var(--color-muted)]">Przerwa, minut · Перемена</span>
-            <input
-              type="number"
-              min={0}
-              max={60}
-              value={bells.breakMinutes}
-              disabled={!ready}
-              onInput={(event) => {
-                const raw = Number((event.currentTarget as HTMLInputElement).value);
-                if (Number.isFinite(raw)) {
-                  setBells({ breakMinutes: Math.min(60, Math.max(0, Math.round(raw))) });
-                }
-              }}
-              className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
-            />
-          </label>
+
+          <div aria-live="polite" className="mt-3">
+            {importedCount === null ? null : (
+              <p className="text-label text-[var(--color-good)]">
+                Wczytano {importedCount} lekcji. Plan działa od razu. · Загружено уроков:{' '}
+                {importedCount}.
+              </p>
+            )}
+            {timetableImport.kind === 'error' ? (
+              <p className="text-label text-[var(--color-bad)]">{timetableImport.message}</p>
+            ) : null}
+            {timetableImport.kind === 'preview' ? (
+              <>
+                <p className="text-label">
+                  Rozpoznano lekcji: <strong>{timetableImport.lessons.length}</strong>.
+                </p>
+                {timetableImport.unknown.length === 0 ? (
+                  <p className="mt-1 text-label text-[var(--color-good)]">
+                    Wszystkie niepuste komórki są czytelne. · Все ячейки распознаны.
+                  </p>
+                ) : (
+                  <div className="mt-2 rounded-lg border-l-4 border-[var(--color-bad)] bg-[var(--color-ink)] p-3">
+                    <p className="text-label">
+                      Nie zmienimy planu, dopóki te komórki są niejasne:
+                    </p>
+                    <ul className="mt-1 text-micro text-[var(--color-muted)]">
+                      {timetableImport.unknown.map((cell) => (
+                        <li key={`${cell.day}-${cell.slot}`}>
+                          {WEEKDAY_NAME[cell.day].short} {cell.slot}: {cell.value}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <button
+                  type="button"
+                  disabled={!ready || timetableImport.unknown.length > 0}
+                  onClick={importTimetable}
+                  className="mt-3 min-h-11 w-full rounded-lg bg-[var(--color-accent)] px-4 py-2 font-medium text-[var(--color-ink)] disabled:cursor-not-allowed disabled:opacity-45"
+                >
+                  {week.length === 0
+                    ? 'Wczytaj plan · Загрузить'
+                    : 'Zastąp zapisany plan · Заменить сохранённый'}
+                </button>
+              </>
+            ) : null}
+          </div>
         </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-2">
-          {WEEKDAYS.map((day) => (
-            <div key={day}>
-              <h3 className="text-micro font-medium uppercase tracking-wide text-[var(--color-muted)]">
-                <span className="sm:hidden">{WEEKDAY_NAME[day].pl}</span>
-                <span className="hidden sm:inline">{WEEKDAY_NAME[day].short}</span>
-              </h3>
-              <div className="mt-2 flex flex-col gap-2">
-                {visibleSlots.map((slot) => {
-                  const lesson = lessonAt(week, day, slot);
-                  const bell = slotWindow(slot, bells);
-                  return (
-                    <div
-                      key={slot}
-                      className="rounded-lg border border-[var(--color-line)] p-2 text-label"
-                    >
-                      <span className="block text-micro text-[var(--color-faint)]">
-                        {slot}. {formatMinutes(bell.start)}–{formatMinutes(bell.end)}
-                      </span>
-                      <select
-                        aria-label={`${WEEKDAY_NAME[day].pl}, lekcja ${slot}`}
-                        value={lesson?.subjectId ?? ''}
-                        disabled={!ready}
-                        onChange={(event) =>
-                          setSubject(day, slot, (event.currentTarget as HTMLSelectElement).value)
-                        }
-                        className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-1"
-                      >
-                        <option value="">—</option>
-                        {subjects.map((subject) => (
-                          <option key={subject.id} value={subject.id}>
-                            {subject.pl}
-                          </option>
-                        ))}
-                      </select>
-                      {lesson === null ? null : (
-                        <div className="mt-1 flex gap-1">
-                          <input
-                            aria-label={`Sala, ${WEEKDAY_NAME[day].pl} ${slot}`}
-                            placeholder="sala"
-                            value={lesson.room ?? ''}
-                            onInput={(event) =>
-                              setField(
-                                day,
-                                slot,
-                                'room',
-                                (event.currentTarget as HTMLInputElement).value,
-                              )
-                            }
-                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
-                          />
-                          <input
-                            aria-label={`Nauczyciel, ${WEEKDAY_NAME[day].pl} ${slot}`}
-                            placeholder="nauczyciel"
-                            value={lesson.teacher ?? ''}
-                            onInput={(event) =>
-                              setField(
-                                day,
-                                slot,
-                                'teacher',
-                                (event.currentTarget as HTMLInputElement).value,
-                              )
-                            }
-                            className="w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+        <details className="mt-4 rounded-lg border border-[var(--color-line)]">
+          <summary className="flex min-h-11 cursor-pointer items-center px-4 py-2 text-label font-medium">
+            Popraw pojedynczo lub ustaw dzwonki · Редактировать вручную
+          </summary>
+          <div className="border-t border-[var(--color-line)] p-3">
+            <div className="grid grid-cols-2 gap-3 text-label">
+              <label className="block">
+                <span className="text-[var(--color-muted)]">Pierwsza lekcja o · Первый урок в</span>
+                <input
+                  type="time"
+                  value={timeInputValue(bells.firstLessonStart)}
+                  disabled={!ready}
+                  onInput={(event) => {
+                    const [hours, minutes] = (event.currentTarget as HTMLInputElement).value.split(':');
+                    const parsed = Number(hours) * 60 + Number(minutes);
+                    if (Number.isFinite(parsed)) setBells({ firstLessonStart: parsed });
+                  }}
+                  className="mt-1 min-h-11 w-full rounded-lg border border-[var(--color-line-strong)] bg-transparent p-2"
+                />
+              </label>
+              <label className="block">
+                <span className="text-[var(--color-muted)]">Przerwa, minut · Перемена</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={60}
+                  value={bells.breakMinutes}
+                  disabled={!ready}
+                  onInput={(event) => {
+                    const raw = Number((event.currentTarget as HTMLInputElement).value);
+                    if (Number.isFinite(raw)) {
+                      setBells({ breakMinutes: Math.min(60, Math.max(0, Math.round(raw))) });
+                    }
+                  }}
+                  className="mt-1 min-h-11 w-full rounded-lg border border-[var(--color-line-strong)] bg-transparent p-2"
+                />
+              </label>
             </div>
-          ))}
-        </div>
+
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-2">
+              {WEEKDAYS.map((day) => (
+                <div key={day}>
+                  <h3 className="text-micro font-medium uppercase tracking-wide text-[var(--color-muted)]">
+                    <span className="sm:hidden">{WEEKDAY_NAME[day].pl}</span>
+                    <span className="hidden sm:inline">{WEEKDAY_NAME[day].short}</span>
+                  </h3>
+                  <div className="mt-2 flex flex-col gap-2">
+                    {visibleSlots.map((slot) => {
+                      const lesson = lessonAt(week, day, slot);
+                      const bell = slotWindow(slot, bells);
+                      return (
+                        <div
+                          key={slot}
+                          className="rounded-lg border border-[var(--color-line)] p-2 text-label"
+                        >
+                          <span className="block text-micro text-[var(--color-faint)]">
+                            {slot}. {formatMinutes(bell.start)}–{formatMinutes(bell.end)}
+                          </span>
+                          <select
+                            aria-label={`${WEEKDAY_NAME[day].pl}, lekcja ${slot}`}
+                            value={lesson?.subjectId ?? ''}
+                            disabled={!ready}
+                            onChange={(event) =>
+                              setSubject(day, slot, (event.currentTarget as HTMLSelectElement).value)
+                            }
+                            className="mt-1 min-h-11 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-1"
+                          >
+                            <option value="">—</option>
+                            {subjects.map((subject) => (
+                              <option key={subject.id} value={subject.id}>
+                                {subject.pl}
+                              </option>
+                            ))}
+                          </select>
+                          {lesson === null ? null : (
+                            <div className="mt-1 flex gap-1">
+                              <input
+                                aria-label={`Sala, ${WEEKDAY_NAME[day].pl} ${slot}`}
+                                placeholder="sala"
+                                value={lesson.room ?? ''}
+                                onInput={(event) =>
+                                  setField(
+                                    day,
+                                    slot,
+                                    'room',
+                                    (event.currentTarget as HTMLInputElement).value,
+                                  )
+                                }
+                                className="min-h-11 w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
+                              />
+                              <input
+                                aria-label={`Nauczyciel, ${WEEKDAY_NAME[day].pl} ${slot}`}
+                                placeholder="nauczyciel"
+                                value={lesson.teacher ?? ''}
+                                onInput={(event) =>
+                                  setField(
+                                    day,
+                                    slot,
+                                    'teacher',
+                                    (event.currentTarget as HTMLInputElement).value,
+                                  )
+                                }
+                                className="min-h-11 w-full min-w-0 rounded border border-[var(--color-line)] bg-transparent p-1 text-micro"
+                              />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </details>
 
         <p className="mt-3 text-micro text-[var(--color-faint)]">
           Plan zostaje w tej przeglądarce. Nikt go nie widzi, my też nie. · Расписание остаётся в
