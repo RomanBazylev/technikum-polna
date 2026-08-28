@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { DEFAULT_BELLS, MAX_SLOT, WEEKDAYS } from '../domain/timetable';
 
 /**
  * Единственный владелец localStorage. Шесть подсистем получают срезы, а не
@@ -6,18 +7,54 @@ import { z } from 'zod';
  * ключей разъехались бы при первом же изменении формата.
  */
 
-export const APP_STATE_VERSION = 1;
+export const APP_STATE_VERSION = 2;
 export const STORAGE_KEY = 'tkk-polna:state';
 export const BACKUP_PREFIX = 'tkk-polna:state-backup:';
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
 /**
- * Элементами этих коллекций владеет спецификация П2 «Калькуляторы».
- * Фундамент фиксирует только имена срезов и требует идентификатор, а
- * остальные поля пропускает, чтобы добавление поля в П2 не требовало миграции.
+ * Форма записей посещаемости, оценок и домашних заданий пока не определена:
+ * ими владеет спецификация П2 «Калькуляторы». До тех пор схема требует только
+ * идентификатор, чтобы добавление поля не требовало миграции. Расписание,
+ * учителя и контрольные из этой группы уже вышли: у них есть свои схемы ниже.
  */
 const opaqueRecord = z.object({ id: z.string().min(1) }).catchall(z.unknown());
+
+const lessonSchema = z.object({
+  id: z.string().min(1),
+  day: z.enum(WEEKDAYS),
+  slot: z.number().int().min(1).max(MAX_SLOT),
+  subjectId: z.string().min(1),
+  room: z.string().optional(),
+  teacher: z.string().optional(),
+});
+
+/**
+ * Ни имя, ни почта не проверяются на содержимое намеренно. Запись идёт на
+ * каждое нажатие клавиши, поэтому наполовину стёртое имя или недописанный
+ * адрес попали бы в хранилище и при следующей загрузке уронили бы разбор всего
+ * состояния в резервный ключ. Схема здесь отвечает за форму, а не за смысл.
+ */
+const teacherSchema = z.object({
+  id: z.string().min(1),
+  name: z.string(),
+  subjectId: z.string().min(1),
+  room: z.string().optional(),
+  email: z.string().optional(),
+});
+
+const announcedTestSchema = z.object({
+  id: z.string().min(1),
+  subject: z.string().min(1),
+  date: isoDate,
+  announcedOn: isoDate,
+});
+
+const bellsSchema = z.object({
+  firstLessonStart: z.number().int().min(0).max(1439),
+  breakMinutes: z.number().int().min(0).max(120),
+});
 
 export const appStateSchema = z.object({
   version: z.literal(APP_STATE_VERSION),
@@ -27,19 +64,22 @@ export const appStateSchema = z.object({
     uiLocale: z.enum(['pl', 'ru']),
     birthDate: isoDate.nullable(),
   }),
-  timetable: z.array(opaqueRecord),
+  timetable: z.array(lessonSchema),
   attendance: z.array(opaqueRecord),
   grades: z.array(opaqueRecord),
   homework: z.array(opaqueRecord),
+  announcedTests: z.array(announcedTestSchema),
   progress: z.record(z.string(), z.enum(['new', 'learning', 'known'])),
-  teachers: z.array(opaqueRecord),
+  teachers: z.array(teacherSchema),
   settings: z.object({
     theme: z.enum(['system', 'light', 'dark']),
     showRussian: z.boolean(),
+    bells: bellsSchema,
   }),
 });
 
 export type AppState = z.infer<typeof appStateSchema>;
+export type TeacherEntry = z.infer<typeof teacherSchema>;
 
 export function defaultState(): AppState {
   return {
@@ -49,19 +89,50 @@ export function defaultState(): AppState {
     attendance: [],
     grades: [],
     homework: [],
+    announcedTests: [],
     progress: {},
     teachers: [],
-    settings: { theme: 'system', showRussian: true },
+    settings: { theme: 'system', showRussian: true, bells: { ...DEFAULT_BELLS } },
   };
 }
 
 /**
- * Миграции с версии N на N+1. Пока пусто: версия одна. Точка расширения
- * оставлена намеренно, чтобы первая же смена формата не потребовала
- * переделывать загрузку.
+ * Оставляет только те элементы, которые разбираются новой схемой. Версия 1
+ * требовала от элемента лишь идентификатор, поэтому строгая проверка уронила бы
+ * загрузку целиком, а вместе с ней и отметки, и прогресс по темам, и дату
+ * рождения. Потеря строки расписания стоит одного нажатия, потеря состояния -
+ * полугода.
  */
+function keepParsable<T>(value: unknown, schema: z.ZodType<T>): T[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((item) => {
+    const parsed = schema.safeParse(item);
+    return parsed.success ? [parsed.data] : [];
+  });
+}
+
+function withBells(settings: unknown): unknown {
+  if (typeof settings !== 'object' || settings === null || Array.isArray(settings)) {
+    return settings;
+  }
+  const existing = (settings as Record<string, unknown>)['bells'];
+  return bellsSchema.safeParse(existing).success
+    ? settings
+    : { ...settings, bells: { ...DEFAULT_BELLS } };
+}
+
+/** Миграции с версии N на N+1. */
 export const migrations: Record<number, (state: Record<string, unknown>) => Record<string, unknown>> =
-  {};
+  {
+    1: (state) => ({
+      ...state,
+      version: 2,
+      timetable: keepParsable(state['timetable'], lessonSchema),
+      teachers: keepParsable(state['teachers'], teacherSchema),
+      announcedTests: keepParsable(state['announcedTests'], announcedTestSchema),
+      settings: withBells(state['settings']),
+    }),
+  };
 
 export type LoadOutcome =
   | { kind: 'loaded'; state: AppState }

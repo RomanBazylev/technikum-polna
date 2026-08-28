@@ -33,6 +33,18 @@ const { count, size, warnings } = await generateSW({
         expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 90 },
       },
     },
+    // Движок PHP приезжает с jsDelivr, и без его обвязки закешированный wasm
+    // бесполезен: во второй заход песочница всё равно пошла бы в сеть за
+    // мегабайтами. Правило стоит после wasm, чтобы сам бинарник остался
+    // в своём кэше со своим сроком жизни.
+    {
+      urlPattern: /^https:\/\/cdn\.jsdelivr\.net\//,
+      handler: 'CacheFirst',
+      options: {
+        cacheName: 'php-engine-on-demand',
+        expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 90 },
+      },
+    },
   ],
   cleanupOutdatedCaches: true,
   clientsClaim: true,

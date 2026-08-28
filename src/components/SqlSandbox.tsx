@@ -87,7 +87,8 @@ export default function SqlSandbox() {
         onInput={(event) => setSql((event.currentTarget as HTMLTextAreaElement).value)}
         spellcheck={false}
         rows={8}
-        className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-sm"
+        aria-label="Zapytanie SQL"
+        className="mt-3 w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-ink)] p-3 font-mono text-sm text-[var(--color-paper)]"
       />
 
       <button

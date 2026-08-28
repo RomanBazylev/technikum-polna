@@ -105,11 +105,92 @@ describe('схема', () => {
     expect(appStateSchema.safeParse(state).success).toBe(false);
   });
 
-  it('пропускает дополнительные поля в срезах, которыми владеет П2', () => {
+  it('пропускает дополнительные поля в срезах, которыми ещё владеет П2', () => {
     const state = {
       ...defaultState(),
-      timetable: [{ id: 'mon-1', subject: 'matematyka', room: '204' }],
+      grades: [{ id: 'mat-1', value: 4, weight: 2 }],
     };
     expect(appStateSchema.safeParse(state).success).toBe(true);
+  });
+
+  it('расписание разбирается по настоящей форме урока', () => {
+    const state = {
+      ...defaultState(),
+      timetable: [{ id: 'sr-3', day: 'sr', slot: 3, subjectId: 'fizyka', room: '204' }],
+    };
+    expect(appStateSchema.safeParse(state).success).toBe(true);
+  });
+
+  it('шестой день недели расписанием не является', () => {
+    const state = {
+      ...defaultState(),
+      timetable: [{ id: 'sob-1', day: 'sob', slot: 1, subjectId: 'fizyka' }],
+    };
+    expect(appStateSchema.safeParse(state).success).toBe(false);
+  });
+});
+
+describe('миграция с версии 1 на 2', () => {
+  /** Состояние в том виде, в каком его писала версия 1. */
+  const version1 = {
+    version: 1,
+    profile: {
+      grade: 1,
+      languageGroup: null,
+      uiLocale: 'pl',
+      birthDate: '2011-03-15',
+    },
+    timetable: [
+      { id: 'sr-3', day: 'sr', slot: 3, subjectId: 'fizyka' },
+      { id: 'mon-1', subject: 'matematyka', room: '204' },
+    ],
+    attendance: [],
+    grades: [{ id: 'mat-1', value: 4 }],
+    homework: [],
+    progress: { 'inf-03-3': 'learning' },
+    teachers: [{ id: 'stary-wpis' }],
+    settings: { theme: 'system', showRussian: true },
+  };
+
+  it('поднимает версию и достраивает недостающие срезы', () => {
+    storage.setItem(STORAGE_KEY, JSON.stringify(version1));
+    const outcome = loadState(storage);
+
+    expect(outcome.kind).toBe('loaded');
+    expect(outcome.state.version).toBe(2);
+    expect(outcome.state.announcedTests).toEqual([]);
+    expect(outcome.state.settings.bells).toEqual({ firstLessonStart: 480, breakMinutes: 10 });
+  });
+
+  it('выбрасывает нечитаемые записи, но не всё состояние', () => {
+    storage.setItem(STORAGE_KEY, JSON.stringify(version1));
+    const outcome = loadState(storage);
+
+    // Запись без дня и номера уроком стать не может, поэтому уходит. Оценки,
+    // прогресс и дата рождения к ней отношения не имеют и остаются на месте.
+    expect(outcome.state.timetable).toEqual([
+      { id: 'sr-3', day: 'sr', slot: 3, subjectId: 'fizyka' },
+    ]);
+    expect(outcome.state.teachers).toEqual([]);
+    expect(outcome.state.grades).toEqual([{ id: 'mat-1', value: 4 }]);
+    expect(outcome.state.progress).toEqual({ 'inf-03-3': 'learning' });
+    expect(outcome.state.profile.birthDate).toBe('2011-03-15');
+  });
+
+  it('ничего не кладёт в резервный ключ: терять было нечего', () => {
+    storage.setItem(STORAGE_KEY, JSON.stringify(version1));
+    loadState(storage);
+    expect(storage.keys().some((key) => key.startsWith(BACKUP_PREFIX))).toBe(false);
+  });
+
+  it('уже настроенные звонки миграция не трогает', () => {
+    const tuned = {
+      ...version1,
+      settings: { theme: 'dark', showRussian: false, bells: { firstLessonStart: 495, breakMinutes: 15 } },
+    };
+    storage.setItem(STORAGE_KEY, JSON.stringify(tuned));
+    const outcome = loadState(storage);
+
+    expect(outcome.state.settings.bells).toEqual({ firstLessonStart: 495, breakMinutes: 15 });
   });
 });

@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import SqlSandbox from '../components/SqlSandbox';
+import PhpSandbox from '../components/PhpSandbox';
+import LayoutPreview from '../components/LayoutPreview';
 import ImageTool from '../components/ImageTool';
 
 const base = import.meta.env.BASE_URL;
@@ -20,6 +22,8 @@ const base = import.meta.env.BASE_URL;
 
   <div class="flex flex-col gap-4">
     <SqlSandbox client:visible />
+    <PhpSandbox client:visible />
+    <LayoutPreview client:visible />
     <ImageTool client:visible />
   </div>
 
@@ -31,22 +35,30 @@ const base = import.meta.env.BASE_URL;
     </p>
     <ul class="mt-3 list-disc pl-5 text-sm opacity-90">
       <li>
-        <strong>Aplikacja mobilna z INF.04.</strong> Zbudowanie APK wymaga JVM, Gradle, Android SDK
-        i emulatora ARM. Nic z tego nie działa w przeglądarce.
+        <strong>Zbudowanie APK z INF.04.</strong> Podgląd układu rysuje rozmieszczenie widgetów z
+        XML-a i XAML-a, i to wyłapuje najczęstszy błąd, ale to rysunek, nie emulator. Kod w Javie i
+        Kotlinie się tu nie wykonuje, a APK wymaga JVM, Gradle i Android SDK.
       </li>
       <li>
         <strong>C++, C# i Java.</strong> Sam kompilator Clang w wasm waży 43 MB, więc do zadań
         konsolowych prowadzimy do Compiler Explorer albo lokalnego toolchainu.
       </li>
       <li>
-        <strong>Import zrzutu przez phpMyAdmin.</strong> Zrzut z phpMyAdmin wykłada się na
-        pierwszych liniach, bo <code>AUTO_INCREMENT</code> i <code>ENGINE=InnoDB</code> to składnia
-        MySQL, której SQLite nie zna.
+        <strong>Prawdziwy MySQL.</strong> PHP wykonuje się naprawdę, ale zapytania obsługuje
+        SQLite, bo MySQL do przeglądarki nie wchodzi w żadnej postaci. Dlatego zrzut z phpMyAdmin
+        wykłada się na pierwszych liniach: <code>AUTO_INCREMENT</code> i
+        <code>ENGINE=InnoDB</code> to składnia, której SQLite nie zna.
       </li>
       <li>
-        <strong>Prawdziwe PHP z mysqli.</strong> Da się to zrobić przez php-wasm z warstwą
-        zgodności MySQL, ale kosztuje 3,5–5 MB pobierania. Zaplanowane za ekranem z ostrzeżeniem o
-        rozmiarze, jeszcze nie wdrożone.
+        <strong>Przygotowane zapytania.</strong> <code>mysqli_prepare</code> i
+        <code>bind_param</code> zgłoszą błąd zamiast po cichu nie zadziałać. Do rozwiązań INF.03 to
+        wystarcza, bo one składają SQL i wołają <code>mysqli_query</code>, ale w prawdziwym
+        projekcie tylko przygotowane zapytania bronią przed SQL injection.
+      </li>
+      <li>
+        <strong>Reszta stanowiska: Apache, formularze, sesje.</strong> Nie ma
+        <code>$_POST</code>, <code>$_SESSION</code> ani uploadu plików, bo nie ma serwera. Obsługi
+        XAMPP-a i phpMyAdmina uczysz się na własnym komputerze, i tego nie zastąpimy.
       </li>
     </ul>
   </section>

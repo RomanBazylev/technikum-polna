@@ -15,6 +15,20 @@ const base = import.meta.env.BASE_URL;
   lead="Terminy, o których nikt nie przypomni. Wszystko liczy się w Twojej przeglądarce i nigdzie nie jest wysyłane."
 >
   <a
+    href={`${base}plan/`}
+    class="mb-4 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
+  >
+    <span class="block font-medium">Plan</span>
+    <span class="block text-sm opacity-70">
+      Do której lekcji dzwonek, co wziąć na jutro, czy sprawdzian jest zapowiedziany zgodnie ze
+      statutem
+    </span>
+    <span class="mt-1 block text-xs opacity-60">
+      Сколько до звонка, что взять завтра и законна ли контрольная
+    </span>
+  </a>
+
+  <a
     href={`${base}kalkulatory/`}
     class="mb-4 block rounded-xl border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)]/60 p-4"
   >
