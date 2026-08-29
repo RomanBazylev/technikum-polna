@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { classificationRisk } from '../lib/domain/attendance';
+import { browserStorage, loadState } from '../lib/state/appState';
+import { useAppState } from '../lib/state/useAppState';
 import { godzin } from '../lib/pl';
 
 /**
@@ -10,8 +12,21 @@ import { godzin } from '../lib/pl';
  * счёт требует числа часов по предмету и потому остаётся калькулятором.
  */
 export default function AbsenceBudget() {
-  const [plannedHours, setPlannedHours] = useState(60);
-  const [missedHours, setMissedHours] = useState(8);
+  const { state, ready, update } = useAppState();
+  const { plannedHours, missedHours } = state.calculators.absenceBudget;
+  const setValue = (patch: Partial<typeof state.calculators.absenceBudget>) => {
+    update((previous) => {
+      const storage = browserStorage();
+      const current = storage === null ? previous : loadState(storage).state;
+      return {
+        ...current,
+        calculators: {
+          ...current.calculators,
+          absenceBudget: { ...current.calculators.absenceBudget, ...patch },
+        },
+      };
+    });
+  };
 
   const risk = useMemo(() => {
     if (plannedHours <= 0) return null;
@@ -24,8 +39,19 @@ export default function AbsenceBudget() {
       <p className="mt-0.5 text-micro text-[var(--color-faint)]">Сколько ещё можно пропустить</p>
 
       <div className="mt-4 grid grid-cols-2 gap-3">
-        <Field label="Godzin przedmiotu" value={plannedHours} onChange={setPlannedHours} min={1} />
-        <Field label="Opuszczono razem" value={missedHours} onChange={setMissedHours} />
+        <Field
+          label="Godzin przedmiotu"
+          value={plannedHours}
+          onChange={(value) => setValue({ plannedHours: value })}
+          min={1}
+          disabled={!ready}
+        />
+        <Field
+          label="Opuszczono razem"
+          value={missedHours}
+          onChange={(value) => setValue({ missedHours: value })}
+          disabled={!ready}
+        />
       </div>
 
       {risk === null ? null : (
@@ -56,11 +82,13 @@ function Field({
   value,
   onChange,
   min = 0,
+  disabled = false,
 }: {
   label: string;
   value: number;
   onChange: (value: number) => void;
   min?: number;
+  disabled?: boolean;
 }) {
   return (
     <label className="block">
@@ -69,6 +97,7 @@ function Field({
         type="number"
         min={min}
         value={value}
+        disabled={disabled}
         onInput={(event) => {
           const raw = Number((event.currentTarget as HTMLInputElement).value);
           onChange(Number.isFinite(raw) ? Math.max(min, raw) : min);

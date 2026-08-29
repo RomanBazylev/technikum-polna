@@ -120,10 +120,11 @@ function rank(status: ObligationStatus): number {
  * машине гость успевает вписать дату раньше, чем она приедет. Тогда ответ
  * хранилища затирал только что введённое, и поле рождалось заново пустым.
  */
-type BirthDateState = { loaded: false } | { loaded: true; value: string | null };
+type DateState = { loaded: false } | { loaded: true; value: string | null };
 
 export default function ObligationList({ obligations }: Props) {
-  const [birthDate, setBirthDate] = useState<BirthDateState>({ loaded: false });
+  const [birthDate, setBirthDate] = useState<DateState>({ loaded: false });
+  const [absenceEndedOn, setAbsenceEndedOn] = useState<DateState>({ loaded: false });
 
   useEffect(() => {
     // Модуль состояния тянет zod, поэтому грузим его после отрисовки:
@@ -131,8 +132,13 @@ export default function ObligationList({ obligations }: Props) {
     void import('../lib/state/appState').then(({ browserStorage, loadState }) => {
       const storage = browserStorage();
       if (storage === null) return;
-      const stored = loadState(storage).state.profile.birthDate;
-      setBirthDate((previous) => (previous.loaded ? previous : { loaded: true, value: stored }));
+      const profile = loadState(storage).state.profile;
+      setBirthDate((previous) =>
+        previous.loaded ? previous : { loaded: true, value: profile.birthDate },
+      );
+      setAbsenceEndedOn((previous) =>
+        previous.loaded ? previous : { loaded: true, value: profile.absenceEndedOn },
+      );
     });
   }, []);
 
@@ -140,6 +146,7 @@ export default function ObligationList({ obligations }: Props) {
   // берётся из ссылки в момент записи, иначе поздно приехавший ранний вызов
   // затёр бы более свежий тем, что закрыл в замыкании.
   const pending = useRef<string | null>(null);
+  const pendingAbsence = useRef<string | null>(null);
   const saveBirthDate = useCallback((raw: string) => {
     const value = raw === '' ? null : raw;
     pending.current = value;
@@ -155,12 +162,27 @@ export default function ObligationList({ obligations }: Props) {
     });
   }, []);
 
+  const saveAbsenceEndedOn = useCallback((raw: string) => {
+    const value = raw === '' ? null : raw;
+    pendingAbsence.current = value;
+    setAbsenceEndedOn({ loaded: true, value });
+    void import('../lib/state/appState').then(({ browserStorage, loadState, saveState }) => {
+      const storage = browserStorage();
+      if (storage === null) return;
+      const current = loadState(storage).state;
+      saveState(storage, {
+        ...current,
+        profile: { ...current.profile, absenceEndedOn: pendingAbsence.current },
+      });
+    });
+  }, []);
+
   const rows = useMemo(() => {
     const context: ResolutionContext = {
       today: toIsoDate(Date.now()),
       schoolEvents: {},
       birthDate: birthDate.loaded ? birthDate.value : null,
-      absenceEndedOn: null,
+      absenceEndedOn: absenceEndedOn.loaded ? absenceEndedOn.value : null,
     };
     return obligations
       .map((obligation) => ({ obligation, status: resolveAnchor(obligation.anchor, context) }))
@@ -168,9 +190,10 @@ export default function ObligationList({ obligations }: Props) {
         (a, b) =>
           rank(a.status) - rank(b.status) || urgency(a.status) - urgency(b.status),
       );
-  }, [obligations, birthDate]);
+  }, [obligations, birthDate, absenceEndedOn]);
 
   const locked = rows.filter(({ status }) => status.kind === 'needs-birth-date').length;
+  const hasAfterEvent = obligations.some(({ anchor }) => anchor.kind === 'after-event');
 
   return (
     <>
@@ -228,6 +251,26 @@ export default function ObligationList({ obligations }: Props) {
           </span>
         </label>
       )}
+
+      {hasAfterEvent ? (
+        <label className="mt-3 flex items-center gap-3 rounded-card border border-dashed border-[var(--color-line-strong)] p-3">
+          <span className="grow">
+            <span className="block text-label font-semibold">Koniec ostatniej nieobecności</span>
+            <span className="block text-micro text-[var(--color-faint)]">
+              Potrzebny do policzenia terminu usprawiedliwienia.
+            </span>
+          </span>
+          <input
+            aria-label="Koniec ostatniej nieobecności"
+            type="date"
+            value={absenceEndedOn.loaded ? (absenceEndedOn.value ?? '') : ''}
+            onInput={(event) =>
+              saveAbsenceEndedOn((event.currentTarget as HTMLInputElement).value)
+            }
+            className="w-36 shrink-0 rounded-lg border border-[var(--color-line-strong)] bg-[var(--color-ink-raised)] p-2 text-label"
+          />
+        </label>
+      ) : null}
     </>
   );
 }

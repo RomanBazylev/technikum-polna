@@ -122,7 +122,7 @@ function BehaviourHero({ now }: { now: Date | null }) {
         // и что взять с собой. Он лежит четвёртой вкладкой, куда никто не
         // полезет, поэтому плашка ведёт прямо в статью и исчезает вместе с ней.
         <a
-          href={`${import.meta.env.BASE_URL}szkola/#pierwszy-tydzien`}
+          href={`${import.meta.env.BASE_URL}szkola/pierwszy-tydzien/`}
           className="mb-4 inline-flex items-center gap-2 rounded-full bg-[var(--color-accent-soft)] px-3.5 py-1.5 text-micro font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)]"
         >
           {countdown === 0 ? 'Dziś zaczyna się rok' : `1 września za ${dni(countdown)}`}

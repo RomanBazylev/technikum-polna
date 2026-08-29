@@ -20,6 +20,6 @@ const { pl, ru, note } = Astro.props;
   <span class="term-panel" role="note">
     <span class="term-ru">{ru}</span>
     {note ? <span class="term-note">{note}</span> : null}
-    <Speak client:visible pl={pl} />
+    <Speak client:idle pl={pl} />
   </span>
 </details>

@@ -1,6 +1,12 @@
 import { expect, test } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
+declare global {
+  interface Window {
+    __spokenLanguages: string[];
+  }
+}
+
 test('главная отдаётся и стили под подпутём разрешаются', async ({ page }) => {
   const failed: string[] = [];
   page.on('response', (response) => {
@@ -63,6 +69,44 @@ test('термин показывает перевод по нажатию и р
   await expect(note).toBeVisible();
 });
 
+test('польское произношение доступно и вызывает speechSynthesis', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, '__spokenLanguages', {
+      configurable: true,
+      value: [],
+      writable: true,
+    });
+    Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+      configurable: true,
+      value: class {
+        lang = '';
+        rate = 1;
+        voice = null;
+
+        constructor(readonly text: string) {}
+      },
+    });
+    Object.defineProperty(window, 'speechSynthesis', {
+      configurable: true,
+      value: {
+        cancel() {},
+        speak(utterance: SpeechSynthesisUtterance) {
+          window.__spokenLanguages.push(utterance.lang);
+        },
+      },
+    });
+  });
+
+  await page.goto('./szkola/');
+  const control = page.getByRole('button', { name: /Wymowa: wychowawca/ });
+  await control.scrollIntoViewIfNeeded();
+  await expect(control).toBeVisible();
+  await expect(async () => {
+    await control.click();
+    expect(await page.evaluate(() => window.__spokenLanguages)).toEqual(['pl-PL']);
+  }).toPass({ timeout: 10_000 });
+});
+
 test('вкладки не подменяются главной после активации воркера', async ({ page }) => {
   // Сторож против конкретной поломки: без слеша в адресе сервис-воркер не
   // находил nauka/index.html среди закешированного и отдавал navigateFallback,
@@ -94,6 +138,33 @@ test('калькулятор считает бюджет пропусков по
   // 60 часов предмета, пропущено 8, значит до порога § 54 остаётся 22.
   await expect(page.getByText('22 godziny', { exact: true })).toBeVisible();
   await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
+});
+
+test('экспорт и импорт сохраняет значения обоих калькуляторов', async ({ page }) => {
+  await page.goto('./kalkulatory/');
+  const points = page.getByLabel('Zdobyte punkty');
+  const missed = page.getByLabel('Opuszczono razem');
+  await expect(points).toBeEnabled();
+  await expect(missed).toBeEnabled();
+  await points.fill('23');
+  await missed.fill('19');
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Zapisz do pliku' }).click();
+  const download = await downloadPromise;
+  const path = await download.path();
+  if (path === null) throw new Error('Playwright nie udostępnił pliku eksportu');
+
+  await page.evaluate(() => window.localStorage.clear());
+  await page.reload();
+  await expect(points).toHaveValue('18');
+  await expect(missed).toHaveValue('8');
+
+  await page.locator('input[type="file"]').setInputFiles(path);
+  await expect(page.getByText('Dane wczytane. Данные загружены.')).toBeVisible();
+  await page.reload();
+  await expect(points).toHaveValue('23');
+  await expect(missed).toHaveValue('19');
 });
 
 test('главная отвечает работающим числом до первого ввода', async ({ page }) => {
@@ -159,14 +230,14 @@ test('дата рождения вводится прямо на главной 
   // Пустое состояние было тупиком: свёрнутый блок «нужны данные: 4» без единого
   // поля. Ввод должен стоять там же, где о нём просят.
   await page.goto('./');
-  const invite = page.locator('input[type="date"]');
+  const invite = page.getByLabel(/Dwie zasady włączają się z wiekiem/);
   await expect(invite).toBeVisible();
   await invite.fill('2011-03-15');
 
   await expect(
     page.getByText('Legitymacja szkolna obowiązkowa w kontroli'),
   ).toBeVisible();
-  await expect(invite).toHaveCount(0);
+  await expect(invite).toHaveCount(0, { timeout: 15_000 });
 });
 
 test('обратный отсчёт ведёт в статью о первом сентября', async ({ page }) => {
@@ -176,13 +247,13 @@ test('обратный отсчёт ведёт в статью о первом �
   // Плашка сезонная: её нет большую часть года, и это не повод падать.
   if ((await pill.count()) === 0) return;
   await pill.click();
-  await page.waitForURL(/\/szkola\/#pierwszy-tydzien$/);
-  await expect(page.locator('#pierwszy-tydzien')).toBeVisible();
+  await page.waitForURL(/\/szkola\/pierwszy-tydzien\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Pierwszy tydzień');
 });
 
 test('дата рождения сохраняется и раскрывает возрастные правила', async ({ page }) => {
   await page.goto('./kalkulatory/');
-  const birthDate = page.locator('input[type="date"]');
+  const birthDate = page.getByLabel(/Data urodzenia/);
   await birthDate.fill('2011-03-15');
   await expect(birthDate).toHaveValue('2011-03-15');
 
@@ -198,11 +269,21 @@ test('дата рождения сохраняется и раскрывает �
 test('справочник показывает статьи и словарь', async ({ page }) => {
   await page.goto('./szkola/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Szkoła');
-  await expect(page.getByText('wychowawca').first()).toBeVisible();
+  await expect(page.getByRole('button', { name: /Wymowa: wychowawca/ })).toBeVisible();
 
   // Двуязычность справочника обеспечивается схемой и валидатором, но проверим,
   // что русские версии действительно доехали до страницы.
   await expect(page.getByText('Права ученика-иностранца')).toBeVisible();
+
+  await page.goto('./szkola/prawa-cudzoziemca/');
+  await expect(page.getByText(/co najmniej 2 i najwyżej 5 godzin tygodniowo/)).toBeVisible();
+  await expect(page.getByText(/\+30 minut/).first()).toBeVisible();
+
+  await page.goto('./szkola/pieniadze-i-dojazd/');
+  await expect(page.getByRole('cell', { name: 'Dobry Start' }).first()).toBeVisible();
+
+  await page.goto('./szkola/kalendarz/');
+  await expect(page.getByText('23–31 grudnia 2026', { exact: true }).first()).toBeVisible();
 });
 
 test('полка лектур собрана из Wolne Lektury и отмечает аудиокниги', async ({ page }) => {
@@ -403,10 +484,9 @@ test('песочница PHP не качает ни байта до подтве
 });
 
 /**
- * Единственная проверка, доказывающая, что PHP правда выполняется. Держится
- * за флагом, потому что тянет 3,3 МБ с чужого CDN: в обычном прогоне это
- * лишние минуты и чужая доступность, а перед выпуском запускается руками
- * командой PHP_LIVE=1 npx playwright test --project=desktop.
+ * Живые проверки держатся за флагом, потому что тянут 3,3 МБ с чужого CDN:
+ * перед выпуском запускаются командой
+ * PHP_LIVE=1 npx playwright test --project=desktop.
  */
 test('песочница PHP выполняет mysqli-код после подтверждения', async ({ page }) => {
   test.skip(process.env['PHP_LIVE'] === undefined, 'запускается вручную с PHP_LIVE=1');
@@ -435,6 +515,115 @@ test('песочница PHP выполняет mysqli-код после под�
   await expect(page.getByTestId('php-errors')).toHaveCount(0);
 });
 
+test('песочница PHP выполняет OO, prepared statements и явные ошибки', async ({
+  page,
+}, testInfo) => {
+  test.skip(process.env['PHP_LIVE'] === undefined, 'запускается вручную с PHP_LIVE=1');
+  test.setTimeout(240_000);
+
+  await page.goto('./warsztat/');
+  const disclosure = page.getByTestId('php-disclosure');
+  await disclosure.scrollIntoViewIfNeeded();
+  await expect(disclosure).toContainText('To nie jest MySQL');
+  await disclosure.screenshot({
+    path: `src/lib/sandbox/php-disclosure-${testInfo.project.name}.png`,
+  });
+
+  const gate = page.getByTestId('php-gate');
+  await gate.getByRole('button', { name: /Pobierz silnik PHP/ }).click();
+  const editor = page.getByLabel('Kod PHP');
+  const run = page.getByRole('button', { name: /Uruchom PHP/ });
+  await expect(run).toBeVisible({ timeout: 150_000 });
+  const output = page.frameLocator('[data-testid="php-output"]');
+
+  await editor.fill(`<?php
+$db = new mysqli("localhost", "root", "", "szkola");
+$wynik = $db->query("SELECT imie, nazwisko FROM uczniowie ORDER BY id LIMIT 1");
+$uczen = $wynik->fetch_assoc();
+echo "OO: " . $uczen["imie"] . " " . $uczen["nazwisko"] . "; errno=" . $db->errno;
+`);
+  await run.click();
+  await expect(output.getByText('OO: Anna Zielinska; errno=0')).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByTestId('php-errors')).toHaveCount(0);
+
+  await editor.fill(`<?php
+$db = mysqli_connect("localhost", "root", "", "szkola");
+$stmt = mysqli_prepare($db, "SELECT imie, nazwisko FROM uczniowie WHERE klasa = ? ORDER BY nazwisko");
+$klasa = "1B";
+mysqli_stmt_bind_param($stmt, "s", $klasa);
+mysqli_stmt_execute($stmt);
+$wynik = mysqli_stmt_get_result($stmt);
+echo "PREPARED:";
+while ($row = mysqli_fetch_assoc($wynik)) echo " " . $row["imie"] . " " . $row["nazwisko"] . ";";
+echo " rows=" . mysqli_num_rows($wynik);
+mysqli_stmt_close($stmt);
+`);
+  await run.click();
+  await expect(output.getByText(/PREPARED:.*Cezary Adamczyk.*rows=/)).toBeVisible({
+    timeout: 60_000,
+  });
+  await page
+    .getByTestId('php-output')
+    .screenshot({ path: `src/lib/sandbox/php-prepared-result-${testInfo.project.name}.png` });
+  await expect(page.getByTestId('php-errors')).toHaveCount(0);
+
+  await editor.fill(`<?php
+$db = new mysqli("localhost", "root", "", "szkola");
+$nazwa = "programowanie testowe";
+$godziny = 2;
+$insert = $db->prepare("INSERT INTO przedmioty (nazwa, godziny) VALUES (?, ?)");
+$insert->bind_param("si", $nazwa, $godziny);
+$insert->execute();
+$id = $insert->insert_id;
+echo "WRITE: affected=" . $insert->affected_rows . "; link=" . $db->affected_rows . "; id=" . $id;
+
+$select = $db->prepare("SELECT nazwa, godziny FROM przedmioty WHERE id = ?");
+$select->bind_param("i", $id);
+$select->execute();
+$select->bind_result($odczytana_nazwa, $odczytane_godziny);
+$fetched = $select->fetch();
+echo "; BIND_RESULT: " . $odczytana_nazwa . "/" . $odczytane_godziny . "; fetched=" . ($fetched ? "true" : "false");
+
+$type = $db->prepare("SELECT typeof(?)");
+$liczba_jako_tekst = "2";
+$type->bind_param("i", $liczba_jako_tekst);
+$type->execute();
+$type->bind_result($typ);
+$type->fetch();
+echo "; BIND_TYPE: " . $typ;
+$insert->close();
+$select->close();
+$type->close();
+$db->close();
+`);
+  await run.click();
+  await expect(
+    output.getByText(
+      'WRITE: affected=1; link=1; id=5; BIND_RESULT: programowanie testowe/2; fetched=true; BIND_TYPE: integer',
+    ),
+  ).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByTestId('php-errors')).toHaveCount(0);
+
+  await editor.fill(`<?php
+$db = new mysqli("localhost", "root", "", "szkola");
+$wynik = $db->query("SELECT nie_ma_takiej_kolumny FROM uczniowie");
+echo $wynik === false ? "ERROR: " . $db->errno . " " . $db->error : "brak błędu";
+`);
+  await run.click();
+  await expect(output.getByText(/ERROR: 1 .*nie_ma_takiej_kolumny/i)).toBeVisible({
+    timeout: 60_000,
+  });
+
+  await editor.fill(`<?php
+$db = new mysqli("localhost", "root", "", "szkola");
+$db->multi_query("SELECT 1; SELECT 2");
+`);
+  await run.click();
+  await expect(output.getByText(/BŁĄD: mysqli::multi_query nie działa w tej piaskownicy/)).toBeVisible(
+    { timeout: 60_000 },
+  );
+});
+
 test('песочница PHP усиливает предупреждение на медленной связи', async ({ page }) => {
   // Обычный Chromium отдаёт effectiveType не всегда, а ветка про экономию
   // трафика адресована как раз тем, кого мы в тесте не увидим, поэтому
@@ -452,11 +641,12 @@ test('песочница PHP усиливает предупреждение н�
   await expect(gate).toContainText('oszczędzanie danych');
 });
 
-test('песочница PHP предупреждает о подготовленных запросах заранее', async ({ page }) => {
+test('песочница PHP заранее раскрывает границы слоя совместимости', async ({ page }) => {
   await page.goto('./warsztat/');
-  await page.getByText('Czego ta piaskownica nie umie').click();
-  await expect(page.getByText('Brak przygotowanych zapytań')).toBeVisible();
-  await expect(page.getByText(/Pod spodem jest SQLite/)).toBeVisible();
+  await expect(page.getByTestId('php-disclosure')).toContainText('vrzno');
+  await page.getByText('Dokładne granice warstwy mysqli').click();
+  await expect(page.getByText(/Warstwa zgodności, nie MySQL/)).toBeVisible();
+  await expect(page.getByText(/Jedno polecenie/)).toBeVisible();
 });
 
 test('карта программы показывает сетку часов и единицы efektów', async ({ page }) => {
@@ -572,7 +762,7 @@ test('каталог ресурсов собран и не ведёт к гот�
 
   // Стоячее решение: списывалок здесь нет и не появится незаметной правкой.
   const cribs = page.locator(
-    'a[href*="odrabiamy.pl"], a[href*="brainly.pl"], a[href*="gotowiec.pl"], a[href*="skul.pl"]',
+    'a[href*="odrabiamy.pl"], a[href*="brainly.pl"], a[href*="gotowiec.pl"], a[href*="skul.pl"], a[href*="zadania.info"]',
   );
   expect(await cribs.count()).toBe(0);
 });

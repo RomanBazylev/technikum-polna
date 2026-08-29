@@ -61,8 +61,20 @@ export default function PhpSandbox() {
     <section className="rounded-card border border-[var(--color-line)] p-4">
       <h2 className="font-medium">Piaskownica PHP · Песочница PHP</h2>
       <p className="mt-1 text-label text-[var(--color-muted)]">
-        Prawdziwy PHP 8.3 z funkcjami <code>mysqli_*</code> na tej samej bazie co piaskownica SQL.
-        Zadanie praktyczne INF.03 to dokładnie ten układ: zapytanie, pętla, wynik w HTML.
+        PHP 8.3 wykonuje kod, a warstwa zgodności <code>mysqli</code> kieruje SQL do tej samej bazy
+        co piaskownica SQL.
+      </p>
+      <p
+        data-testid="php-disclosure"
+        className="mt-3 rounded-lg border border-[var(--color-warn)] bg-[var(--color-ink-soft)] p-3 text-label text-[var(--color-muted)]"
+      >
+        <strong className="text-[var(--color-paper)]">To nie jest MySQL.</strong> To zgodna z
+        podstawowym <code>mysqli</code> warstwa vrzno → JavaScript → sql.js. Prepared statements,
+        styl proceduralny i <code>new mysqli</code> działają, ale składnia pozostaje SQLite;
+        multi-query, serwer MySQL, Apache, sesje, formularze i uploady nie działają. ·{' '}
+        <strong className="text-[var(--color-paper)]">Это не MySQL.</strong> PHP работает через
+        совместимый слой mysqli к sql.js; multi-query, сервер, Apache, сессии, формы и загрузки не
+        поддерживаются.
       </p>
 
       {renderEngine(engine, download)}
@@ -121,7 +133,7 @@ export default function PhpSandbox() {
                 className="h-64 w-full rounded-lg border border-[var(--color-line)] bg-white"
               />
               <p className="mt-1 text-micro text-[var(--color-faint)]">
-                Wynik pokazany tak, jak zobaczyłaby go przeglądarka na XAMPP-ie.
+                HTML jest renderowany w osobnej ramce; żądania HTTP i Apache nie są emulowane.
               </p>
             </div>
           )}
@@ -130,7 +142,7 @@ export default function PhpSandbox() {
 
       <details className="mt-5 rounded-lg border border-[var(--color-warn)] p-3 text-label">
         <summary className="cursor-pointer font-medium">
-          Czego ta piaskownica nie umie · Чего эта песочница не умеет
+          Dokładne granice warstwy mysqli · Точные ограничения слоя mysqli
         </summary>
         <ul className="mt-2 flex flex-col gap-2">
           {PHP_BOUNDARIES.map((item) => (

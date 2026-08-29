@@ -11,11 +11,12 @@ const [topics, glossary, effects, subjects] = await Promise.all([
   getCollection('subjects'),
 ]);
 
-const termById = new Map(glossary.map((entry) => [entry.data.id, entry.data]));
-const topicsByEffect = new Map<string, typeof topics>();
+const unitIdOf = (detailedId: string): string => detailedId.replace(/\.\d+$/, '');
+const topicsByUnit = new Map<string, typeof topics>();
 for (const topic of topics) {
   for (const code of topic.data.effects) {
-    topicsByEffect.set(code, [...(topicsByEffect.get(code) ?? []), topic]);
+    const unitId = unitIdOf(code);
+    topicsByUnit.set(unitId, [...(topicsByUnit.get(unitId) ?? []), topic]);
   }
 }
 
@@ -106,7 +107,7 @@ const hoursTotal = (hours: number[] | null): number | null =>
           {effects
             .filter((effect) => effect.data.qualification === qualification)
             .map((effect) => {
-              const related = topicsByEffect.get(effect.data.id) ?? [];
+              const related = topicsByUnit.get(effect.data.id) ?? [];
               return (
                 <li class="rounded-card border border-[var(--color-line)] p-3.5">
                   <p class="font-mono text-micro text-[var(--color-accent)]">{effect.data.id}</p>
@@ -129,44 +130,23 @@ const hoursTotal = (hours: number[] | null): number | null =>
     ))
   }
 
-  {
-    topics.length > 0 ? (
-      <section class="mt-7">
-        <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
-          Tematy
-        </h2>
-        <ul class="flex flex-col gap-2">
-          {topics.map((topic) => (
-            <li class="rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-4">
-              <p class="font-mono text-micro text-[var(--color-accent)]">
-                {topic.data.effects.join(' · ')}
-              </p>
-              <h3 class="mt-1 text-body font-semibold">{topic.data.title}</h3>
-              <p class="mt-0.5 text-micro text-[var(--color-faint)]">
-                {topic.data.subject} · klasa {topic.data.grade}
-              </p>
-              {topic.data.terms.length > 0 ? (
-                <p class="mt-3 text-label">
-                  {topic.data.terms.map((termId) => {
-                    const term = termById.get(termId);
-                    return term === undefined ? null : (
-                      <span class="mr-3 inline-block">
-                        <Term pl={term.pl} ru={term.ru} note={term.note?.ru} />
-                      </span>
-                    );
-                  })}
-                </p>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
-    ) : null
-  }
+  <section class="mt-7">
+    <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
+      Słownik, {glossary.length} haseł
+    </h2>
+    <p class="mb-3 text-micro text-[var(--color-faint)]">
+      Polskie hasło, po naciśnięciu rosyjski i wymowa. · Польский термин, по нажатию русский и озвучка.
+    </p>
+    <div class="flex flex-wrap gap-2">
+      {glossary.map((entry) => (
+        <Term pl={entry.data.pl} ru={entry.data.ru} note={entry.data.note?.ru} />
+      ))}
+    </div>
+  </section>
 
   <p class="mt-7 text-micro text-[var(--color-faint)]">
     Własnej teorii nie piszemy tam, gdzie poprawności nie da się sprawdzić uruchomieniem kodu.
-    Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację, zadania.info i Wolne Lektury. ·
+    Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację i Wolne Lektury. ·
     Свою теорию пишем только там, где правильность проверяется запуском кода.
   </p>
 </Base>

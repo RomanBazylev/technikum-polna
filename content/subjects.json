@@ -1,166 +1,816 @@
 [
   {
     "id": "jezyk-polski",
-    "name": { "pl": "Język polski", "ru": "Польский язык" },
+    "name": {
+      "pl": "Język polski",
+      "ru": "Польский язык"
+    },
     "track": "ogolny",
-    "hoursByGrade": [3, 3, 3, 3, 4],
-    "textbook": "Przeszłość i dziś. Literatura – język – kultura. Klasa 1, cz. 1 i 2, Stentor"
+    "hoursByGrade": [
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "textbook": "Przeszłość i dziś. Literatura – język – kultura. Klasa 1, cz. 1 i 2, Stentor",
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "matematyka",
-    "name": { "pl": "Matematyka", "ru": "Математика" },
+    "name": {
+      "pl": "Matematyka",
+      "ru": "Математика"
+    },
     "track": "rozszerzony",
-    "hoursByGrade": [2, 3, 3, 3, 3],
+    "hoursByGrade": [
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
     "textbook": "Matematyka i przykłady jej zastosowań 1, zakres rozszerzony, Podkowa",
     "note": {
       "pl": "Rozszerzenie obowiązkowe, dodatkowe 8 godzin w cyklu.",
       "ru": "Обязательное расширение, дополнительно 8 часов за цикл."
-    }
+    },
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Technik programista",
+        "url": "https://technikumpolna.pl/offer/programmer-technician/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "track",
+        "status": "confirmed"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "jezyk-angielski",
-    "name": { "pl": "Język angielski", "ru": "Английский язык" },
+    "name": {
+      "pl": "Język angielski",
+      "ru": "Английский язык"
+    },
     "track": "rozszerzony",
     "hoursByGrade": null,
     "textbook": "New Password B1+ lub B2, Macmillan",
     "note": {
       "pl": "Podręcznik zależy od wyniku testu poziomującego z 1 września.",
       "ru": "Учебник зависит от результата теста на уровень 1 сентября."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Technik programista",
+        "url": "https://technikumpolna.pl/offer/programmer-technician/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "track",
+        "status": "confirmed"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "jezyk-niemiecki",
-    "name": { "pl": "Język niemiecki", "ru": "Немецкий язык" },
+    "name": {
+      "pl": "Język niemiecki",
+      "ru": "Немецкий язык"
+    },
     "track": "jezyk",
     "hoursByGrade": null,
     "textbook": "Effekt Neu cz. 1, WSiP",
-    "note": { "pl": "Grupa 1Bn.", "ru": "Группа 1Bn." }
+    "note": {
+      "pl": "Grupa 1Bn.",
+      "ru": "Группа 1Bn."
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Technik programista",
+        "url": "https://technikumpolna.pl/offer/programmer-technician/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "track",
+        "status": "confirmed"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "jezyk-hiszpanski",
-    "name": { "pl": "Język hiszpański", "ru": "Испанский язык" },
+    "name": {
+      "pl": "Język hiszpański",
+      "ru": "Испанский язык"
+    },
     "track": "jezyk",
     "hoursByGrade": null,
     "textbook": "Ya lo sé 1 A1, Draco",
-    "note": { "pl": "Grupa 1Bh.", "ru": "Группа 1Bh." }
+    "note": {
+      "pl": "Grupa 1Bh.",
+      "ru": "Группа 1Bh."
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Technik programista",
+        "url": "https://technikumpolna.pl/offer/programmer-technician/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "track",
+        "status": "confirmed"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "historia",
-    "name": { "pl": "Historia", "ru": "История" },
+    "name": {
+      "pl": "Historia",
+      "ru": "История"
+    },
     "track": "ogolny",
-    "hoursByGrade": [1, 1, 2, 2, 1],
+    "hoursByGrade": [
+      1,
+      1,
+      2,
+      2,
+      1
+    ],
     "textbook": "Poznać przeszłość 1, edycja 2024, Nowa Era",
     "note": {
       "pl": "W klasie V zajęcia trwają tylko do końca stycznia.",
       "ru": "В пятом классе занятия идут только до конца января."
-    }
+    },
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "edukacja-obywatelska",
-    "name": { "pl": "Edukacja obywatelska", "ru": "Гражданское образование" },
+    "name": {
+      "pl": "Edukacja obywatelska",
+      "ru": "Гражданское образование"
+    },
     "track": "ogolny",
-    "hoursByGrade": [0, 1, 1, 1, 0],
+    "hoursByGrade": null,
     "note": {
       "pl": "Zastąpiła HiT od roku 2025/2026.",
       "ru": "Заменила HiT с 2025/2026 года."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   },
   {
     "id": "informatyka",
-    "name": { "pl": "Informatyka", "ru": "Информатика" },
+    "name": {
+      "pl": "Informatyka",
+      "ru": "Информатика"
+    },
     "track": "ogolny",
-    "hoursByGrade": [2, 1, 0, 0, 0],
+    "hoursByGrade": [
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
     "note": {
       "pl": "Informatyka ogólna kończy się w klasie II; dalej tylko przedmioty zawodowe.",
       "ru": "Общая информатика заканчивается во втором классе, дальше только профессиональные предметы."
-    }
+    },
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   },
   {
     "id": "fizyka",
-    "name": { "pl": "Fizyka", "ru": "Физика" },
+    "name": {
+      "pl": "Fizyka",
+      "ru": "Физика"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "textbook": "Fizyka 1, nowa edycja, WSiP",
     "note": {
       "pl": "4 godziny w całym cyklu, rozłożenie ustala dyrektor.",
       "ru": "4 часа за весь цикл, распределение определяет директор."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "chemia",
-    "name": { "pl": "Chemia", "ru": "Химия" },
+    "name": {
+      "pl": "Chemia",
+      "ru": "Химия"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "textbook": "NOWA To jest chemia 1, Nowa Era",
     "note": {
       "pl": "4 godziny w całym cyklu.",
       "ru": "4 часа за весь цикл."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "biologia",
-    "name": { "pl": "Biologia", "ru": "Биология" },
+    "name": {
+      "pl": "Biologia",
+      "ru": "Биология"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "textbook": "NOWA Biologia na czasie 1, Nowa Era",
-    "note": { "pl": "4 godziny w całym cyklu.", "ru": "4 часа за весь цикл." }
+    "note": {
+      "pl": "4 godziny w całym cyklu.",
+      "ru": "4 часа за весь цикл."
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "geografia",
-    "name": { "pl": "Geografia", "ru": "География" },
+    "name": {
+      "pl": "Geografia",
+      "ru": "География"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "textbook": "NOWE Oblicza geografii 1, Nowa Era",
-    "note": { "pl": "4 godziny w całym cyklu.", "ru": "4 часа за весь цикл." }
+    "note": {
+      "pl": "4 godziny w całym cyklu.",
+      "ru": "4 часа за весь цикл."
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "biznes-i-zarzadzanie",
-    "name": { "pl": "Biznes i zarządzanie", "ru": "Бизнес и управление" },
+    "name": {
+      "pl": "Biznes i zarządzanie",
+      "ru": "Бизнес и управление"
+    },
     "track": "ogolny",
-    "hoursByGrade": [1, 1, 0, 0, 0],
-    "textbook": "Krok w biznes i zarządzanie 1, Nowa Era"
+    "hoursByGrade": null,
+    "textbook": "Krok w biznes i zarządzanie 1, Nowa Era",
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "edukacja-dla-bezpieczenstwa",
-    "name": { "pl": "Edukacja dla bezpieczeństwa", "ru": "Основы безопасности" },
+    "name": {
+      "pl": "Edukacja dla bezpieczeństwa",
+      "ru": "Основы безопасности"
+    },
     "track": "ogolny",
-    "hoursByGrade": [1, 0, 0, 0, 0],
-    "textbook": "Edukacja dla bezpieczeństwa, WSiP"
+    "hoursByGrade": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "textbook": "Edukacja dla bezpieczeństwa, WSiP",
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      },
+      {
+        "title": "Podręczniki i programy nauczania na rok szkolny 2026/2027",
+        "url": "https://technikumpolna.pl/for-student/textbooks/",
+        "documentDate": null,
+        "retrievedAt": "2026-08-29",
+        "scope": "textbook",
+        "status": "confirmed"
+      }
+    ]
   },
   {
     "id": "edukacja-zdrowotna",
-    "name": { "pl": "Edukacja zdrowotna", "ru": "Здоровье" },
+    "name": {
+      "pl": "Edukacja zdrowotna",
+      "ru": "Здоровье"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "note": {
       "pl": "Od 1 września 2026 przedmiot obowiązkowy, 1 godzina tygodniowo w dwóch klasach wybranych przez dyrektora.",
       "ru": "С 1 сентября 2026 обязательный предмет, час в неделю в двух классах на выбор директора."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   },
   {
     "id": "wychowanie-fizyczne",
-    "name": { "pl": "Wychowanie fizyczne", "ru": "Физкультура" },
+    "name": {
+      "pl": "Wychowanie fizyczne",
+      "ru": "Физкультура"
+    },
     "track": "ogolny",
-    "hoursByGrade": [3, 3, 3, 3, 3]
+    "hoursByGrade": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   },
   {
     "id": "religia-etyka",
-    "name": { "pl": "Religia albo etyka", "ru": "Религия или этика" },
+    "name": {
+      "pl": "Religia albo etyka",
+      "ru": "Религия или этика"
+    },
     "track": "ogolny",
     "hoursByGrade": null,
     "note": {
       "pl": "Ocena nie wlicza się do średniej, § 56 ust. 5 statutu.",
       "ru": "Оценка не идёт в средний балл, § 56 уст. 5 устава."
-    }
+    },
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Szkoła potwierdza przedmiot lub program, ale nie publikuje jego rozkładu godzin między klasami.",
+      "ru": "Школа подтверждает предмет или программу, но не публикует распределение часов по классам."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   },
   {
     "id": "ksztalcenie-zawodowe",
-    "name": { "pl": "Kształcenie zawodowe", "ru": "Профессиональные предметы" },
+    "name": {
+      "pl": "Kształcenie zawodowe",
+      "ru": "Профессиональные предметы"
+    },
     "track": "zawodowy",
-    "hoursByGrade": [11, 12, 13, 13, 7],
+    "hoursByGrade": [
+      11,
+      12,
+      13,
+      13,
+      7
+    ],
     "note": {
       "pl": "56 godzin tygodniowych w całym cyklu, podzielone na przedmioty INF.03 i INF.04.",
       "ru": "56 недельных часов за цикл, разделённых на предметы INF.03 и INF.04."
-    }
+    },
+    "mappingStatus": "framework",
+    "mappingNote": {
+      "pl": "Wymiar wynika z ramowego planu dla technikum, nie z opublikowanego planu oddziału Polnej.",
+      "ru": "Объём взят из рамочного плана техникума, а не из опубликованного плана класса Polna."
+    },
+    "sources": [
+      {
+        "title": "Szkolny zestaw programów nauczania obowiązujący od roku szkolnego 2026/2027",
+        "url": "https://technikumpolna.pl/wp-content/uploads/2026/07/Szkolny-zestaw-programow-nauczania-2026.pdf",
+        "documentDate": null,
+        "retrievedAt": "2026-08-28",
+        "scope": "subject",
+        "status": "confirmed"
+      },
+      {
+        "title": "Rozporządzenie Ministra Edukacji z dnia 22 lipca 2026 r. w sprawie ramowych planów nauczania dla publicznych szkół",
+        "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/1028/text.pdf",
+        "documentDate": "2026-07-22",
+        "retrievedAt": "2026-08-29",
+        "scope": "hours",
+        "status": "framework"
+      }
+    ]
   }
 ]

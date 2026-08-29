@@ -1,0 +1,53 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const handbook = await getCollection('handbook');
+  const polish = handbook.filter((entry) => entry.id.startsWith('pl/'));
+  const russian = handbook.filter((entry) => entry.id.startsWith('ru/'));
+  const russianBySection = new Map(russian.map((entry) => [entry.data.section, entry]));
+
+  return Promise.all(
+    polish.map(async (pl) => {
+      const ru = russianBySection.get(pl.data.section);
+      if (ru === undefined) {
+        throw new Error(`Brak rosyjskiej wersji artykułu ${pl.data.section}`);
+      }
+      const [{ Content: PlContent }, { Content: RuContent }] = await Promise.all([
+        render(pl),
+        render(ru),
+      ]);
+      return {
+        params: { section: pl.data.section },
+        props: { pl, ru, PlContent, RuContent },
+      };
+    }),
+  );
+}
+
+const { pl, ru, PlContent, RuContent } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title={pl.data.title} tab="szkola" lead={`${pl.data.summary} · ${ru.data.title}`}>
+  <p class="mb-5">
+    <a href={`${base}szkola/`} class="text-label font-semibold text-[var(--color-accent)]">
+      ← Szkoła
+    </a>
+  </p>
+  <article class="handbook-body mt-5">
+    <PlContent />
+  </article>
+  <details class="mt-6 rounded-card border border-[var(--color-line)] p-4">
+    <summary class="cursor-pointer text-label font-semibold">Читать по-русски</summary>
+    <article class="handbook-body mt-3 text-[var(--color-muted)]">
+      <RuContent />
+    </article>
+  </details>
+  {
+    pl.data.legalBasis.length > 0 ? (
+      <p class="mt-4 text-micro text-[var(--color-faint)]">{pl.data.legalBasis.join(' · ')}</p>
+    ) : null
+  }
+</Base>

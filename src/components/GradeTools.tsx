@@ -1,18 +1,25 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { GRADE_NAMES, percentToGrade, type PolishGrade } from '../lib/domain/grading';
-import { canBeClassified, gradeNeededFor, weightedAverage, type GradeEntry } from '../lib/domain/weighted';
-
-const DEFAULT_ENTRIES: GradeEntry[] = [
-  { grade: 3, weight: 1 },
-  { grade: 4, weight: 3 },
-];
+import { canBeClassified, gradeNeededFor, weightedAverage } from '../lib/domain/weighted';
+import { browserStorage, loadState } from '../lib/state/appState';
+import { useAppState } from '../lib/state/useAppState';
 
 export default function GradeTools() {
-  const [points, setPoints] = useState(18);
-  const [maxPoints, setMaxPoints] = useState(24);
-  const [entries, setEntries] = useState<GradeEntry[]>(DEFAULT_ENTRIES);
-  const [target, setTarget] = useState(4);
-  const [futureWeight, setFutureWeight] = useState(2);
+  const { state, ready, update } = useAppState();
+  const { points, maxPoints, entries, target, futureWeight } = state.calculators.gradeTools;
+  const setTools = (patch: Partial<typeof state.calculators.gradeTools>) => {
+    update((previous) => {
+      const storage = browserStorage();
+      const current = storage === null ? previous : loadState(storage).state;
+      return {
+        ...current,
+        calculators: {
+          ...current.calculators,
+          gradeTools: { ...current.calculators.gradeTools, ...patch },
+        },
+      };
+    });
+  };
 
   const percent = maxPoints > 0 ? (points / maxPoints) * 100 : 0;
   const grade = maxPoints > 0 ? percentToGrade(Math.min(100, Math.max(0, percent))) : 1;
@@ -48,7 +55,12 @@ export default function GradeTools() {
               type="number"
               min={0}
               value={points}
-              onInput={(e) => setPoints(Math.max(0, Number((e.currentTarget as HTMLInputElement).value)))}
+              disabled={!ready}
+              onInput={(e) =>
+                setTools({
+                  points: Math.max(0, Number((e.currentTarget as HTMLInputElement).value)),
+                })
+              }
               className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
             />
           </label>
@@ -58,7 +70,12 @@ export default function GradeTools() {
               type="number"
               min={1}
               value={maxPoints}
-              onInput={(e) => setMaxPoints(Math.max(1, Number((e.currentTarget as HTMLInputElement).value)))}
+              disabled={!ready}
+              onInput={(e) =>
+                setTools({
+                  maxPoints: Math.max(1, Number((e.currentTarget as HTMLInputElement).value)),
+                })
+              }
               className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
             />
           </label>
@@ -81,11 +98,14 @@ export default function GradeTools() {
             <li key={index} className="flex items-center gap-2 text-label">
               <select
                 value={String(entry.grade)}
+                disabled={!ready}
                 onChange={(e) => {
                   const value = Number((e.currentTarget as HTMLSelectElement).value) as PolishGrade;
-                  setEntries((prev) =>
-                    prev.map((item, i) => (i === index ? { ...item, grade: value } : item)),
-                  );
+                  setTools({
+                    entries: entries.map((item, i) =>
+                      i === index ? { ...item, grade: value } : item,
+                    ),
+                  });
                 }}
                 className="rounded-lg border border-[var(--color-line)] bg-transparent p-2"
               >
@@ -100,17 +120,21 @@ export default function GradeTools() {
                 type="number"
                 min={1}
                 value={entry.weight}
+                disabled={!ready}
                 onInput={(e) => {
                   const value = Math.max(1, Number((e.currentTarget as HTMLInputElement).value));
-                  setEntries((prev) =>
-                    prev.map((item, i) => (i === index ? { ...item, weight: value } : item)),
-                  );
+                  setTools({
+                    entries: entries.map((item, i) =>
+                      i === index ? { ...item, weight: value } : item,
+                    ),
+                  });
                 }}
                 className="w-20 rounded-lg border border-[var(--color-line)] bg-transparent p-2"
               />
               <button
                 type="button"
-                onClick={() => setEntries((prev) => prev.filter((_, i) => i !== index))}
+                disabled={!ready}
+                onClick={() => setTools({ entries: entries.filter((_, i) => i !== index) })}
                 className="ml-auto rounded border border-[var(--color-line)] px-2 py-1 text-micro"
               >
                 Usuń
@@ -121,7 +145,8 @@ export default function GradeTools() {
 
         <button
           type="button"
-          onClick={() => setEntries((prev) => [...prev, { grade: 4, weight: 1 }])}
+          disabled={!ready}
+          onClick={() => setTools({ entries: [...entries, { grade: 4, weight: 1 }] })}
           className="mt-2 rounded-lg border border-[var(--color-line)] px-3 py-1 text-label"
         >
           Dodaj ocenę
@@ -136,7 +161,10 @@ export default function GradeTools() {
               min={1}
               max={6}
               value={target}
-              onInput={(e) => setTarget(Number((e.currentTarget as HTMLInputElement).value))}
+              disabled={!ready}
+              onInput={(e) =>
+                setTools({ target: Number((e.currentTarget as HTMLInputElement).value) })
+              }
               className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
             />
           </label>
@@ -146,8 +174,14 @@ export default function GradeTools() {
               type="number"
               min={1}
               value={futureWeight}
+              disabled={!ready}
               onInput={(e) =>
-                setFutureWeight(Math.max(1, Number((e.currentTarget as HTMLInputElement).value)))
+                setTools({
+                  futureWeight: Math.max(
+                    1,
+                    Number((e.currentTarget as HTMLInputElement).value),
+                  ),
+                })
               }
               className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent p-2"
             />

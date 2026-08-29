@@ -3,133 +3,2081 @@
     "id": "INF.03.1",
     "qualification": "INF.03",
     "name": "Bezpieczeństwo i higiena pracy",
-    "subjects": ["podstawy informatyki"],
-    "grades": [1]
+    "subjects": [
+      "podstawy informatyki"
+    ],
+    "grades": [
+      1
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.1.1",
+        "text": "określa warunki i organizację pracy zapewniające wymagany poziom ochrony zdrowia i życia przed zagrożeniami występującymi w środowisku pracy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.1.2",
+        "text": "opisuje zadania i uprawnienia instytucji oraz służb działających w zakresie ochrony pracy i ochrony środowiska",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.1.3",
+        "text": "opisuje prawa i obowiązki pracownika oraz pracodawcy w zakresie bezpieczeństwa i higieny pracy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.1.4",
+        "text": "określa skutki oddziaływania czynników szkodliwych na organizm człowieka",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.1.5",
+        "text": "stosuje środki ochrony indywidualnej i zbiorowej podczas wykonywania zadań zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.1.6",
+        "text": "udziela pierwszej pomocy w stanach nagłego zagrożenia zdrowotnego",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.2",
     "qualification": "INF.03",
     "name": "Podstawy informatyki",
-    "subjects": ["podstawy informatyki"],
-    "grades": [1, 2]
+    "subjects": [
+      "podstawy informatyki"
+    ],
+    "grades": [
+      1,
+      2
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.2.1",
+        "text": "charakteryzuje parametry sprzętu komputerowego",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.2",
+        "text": "definiuje elementy architektury systemów komputerowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.3",
+        "text": "charakteryzuje systemy informatyczne oraz rozróżnia systemy informatyczne pod względem funkcjonalności",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.4",
+        "text": "stosuje zalecenia dotyczące ułatwień dostępności serwisów internetowych dla osób niepełnosprawnych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.5",
+        "text": "posługuje się terminologią dotyczącą sieci komputerowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.6",
+        "text": "stosuje pozycyjne systemy liczbowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.7",
+        "text": "stosuje zasady cyberbezpieczeństwa",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.2.8",
+        "text": "rozpoznaje właściwe normy i procedury oceny zgodności podczas realizacji zadań zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.3",
     "qualification": "INF.03",
     "name": "Projektowanie stron internetowych",
-    "subjects": ["witryny internetowe", "pracownia programowania aplikacji internetowych"],
-    "grades": [1, 2]
+    "subjects": [
+      "witryny internetowe",
+      "pracownia programowania aplikacji internetowych"
+    ],
+    "grades": [
+      1,
+      2
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.3.1",
+        "text": "posługuje się hipertekstowymi językami znaczników (HTML − HyperText Markup Language)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.2",
+        "text": "stosuje kaskadowe arkusze stylów do tworzenia responsywnych stron internetowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.3",
+        "text": "stosuje systemy zarządzania treścią CMS (Content Management System)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.4",
+        "text": "projektuje grafikę komputerową",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.5",
+        "text": "wykorzystuje elementy multimedialne na stronach internetowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.6",
+        "text": "wykonuje strony internetowe zgodnie z projektami",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.7",
+        "text": "stosuje reguły testowania, walidacji i optymalizacji stron internetowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.3.8",
+        "text": "publikuje witryny i aplikacje internetowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.4",
     "qualification": "INF.03",
     "name": "Projektowanie i administrowanie bazami danych",
-    "subjects": ["bazy danych", "pracownia baz danych"],
-    "grades": [1, 2]
+    "subjects": [
+      "bazy danych",
+      "pracownia baz danych"
+    ],
+    "grades": [
+      1,
+      2
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.4.1",
+        "text": "posługuje się pojęciami dotyczącymi baz danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.2",
+        "text": "tworzy diagramy E/R (Entity-Relationship Diagram)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.3",
+        "text": "korzysta z systemów zarządzania bazami danych SZBD (Database Management System)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.4",
+        "text": "stosuje strukturalny język zapytań SQL (Structured Query Language)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.5",
+        "text": "tworzy relacyjne bazy danych zgodnie z projektem",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.6",
+        "text": "tworzy formularze, zapytania i raporty do przetwarzania danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.7",
+        "text": "modyfikuje struktury baz danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.4.8",
+        "text": "zarządza systemem bazy danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.5",
     "qualification": "INF.03",
     "name": "Programowanie aplikacji internetowych",
-    "subjects": ["pracownia programowania aplikacji internetowych"],
-    "grades": [2, 3]
+    "subjects": [
+      "pracownia programowania aplikacji internetowych"
+    ],
+    "grades": [
+      2,
+      3
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.5.1",
+        "text": "stosuje zasady programowania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.2",
+        "text": "stosuje skryptowe języki programowania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.3",
+        "text": "programuje skrypty wykonywane po stronie klienta",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.4",
+        "text": "programuje skrypty wykonywane po stronie serwera",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.5",
+        "text": "stosuje środowisko programistyczne i uruchomieniowe aplikacji internetowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.6",
+        "text": "przeprowadza walidację kodu programu",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.5.7",
+        "text": "dokumentuje tworzoną aplikację",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.6",
     "qualification": "INF.03",
     "name": "Język obcy zawodowy",
-    "subjects": ["język angielski zawodowy"],
-    "grades": [2, 3]
+    "subjects": [
+      "język angielski zawodowy"
+    ],
+    "grades": [
+      2,
+      3
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.6.1",
+        "text": "uczeń posługuje się podstawowym zasobem środków językowych w języku obcym nowożytnym (ze szczególnym uwzględnieniem środków leksykalnych) umożliwiającym realizację czynności zawodowych w zakresie tematów związanych: a) ze stanowiskiem pracy i jego wyposażeniem b) z głównymi technologiami stosowanymi w danym zawodzie c) z dokumentacją związaną z danym zawodem d) z usługami świadczonymi w danym zawodzie",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.6.2",
+        "text": "rozumie proste wypowiedzi ustne artykułowane wyraźnie, w standardowej odmianie języka obcego nowożytnego, a także proste wypowiedzi pisemne w języku obcym nowożytnym, w zakresie umożliwiającym realizację zadań zawodowych: a) rozumie proste wypowiedzi ustne dotyczące czynności zawodowych (np. rozmowy, wiadomości, komunikaty, instrukcje lub filmy instruktażowe, prezentacje), artykułowane wyraźnie, w standardowej odmianie języka b) rozumie proste wypowiedzi pisemne dotyczące czynności zawodowych (np. napisy, broszury, instrukcje obsługi, przewodniki, dokumentację zawodową)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.6.3",
+        "text": "samodzielnie tworzy krótkie, proste, spójne i logiczne wypowiedzi ustne i pisemne w języku obcym nowożytnym, w zakresie umożliwiającym realizację zadań zawodowych: a) tworzy krótkie, proste, spójne i logiczne wypowiedzi ustne dotyczące czynności zawodowych (np. polecenie, komunikat, instrukcję) b) tworzy krótkie, proste, spójne i logiczne wypowiedzi pisemne dotyczące czynności zawodowych (np. komunikat, e-mail, instrukcję, wiadomość, CV, list motywacyjny, dokument związany z wykonywanym zawodem – według wzoru)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.6.4",
+        "text": "uczestniczy w rozmowie w typowych sytuacjach związanych z realizacją zadań zawodowych – reaguje w języku obcym nowożytnym w sposób zrozumiały, adekwatnie do sytuacji komunikacyjnej, ustnie lub w formie prostego tekstu: a) reaguje ustnie (np. podczas rozmowy z innym pracownikiem, klientem, kontrahentem, w tym podczas rozmowy telefonicznej) w typowych sytuacjach związanych z wykonywaniem czynności zawodowych b) reaguje w formie prostego tekstu pisanego (np. wiadomość, formularz, e-mail, dokument związany z wykonywanym zawodem) w typowych sytuacjach związanych z wykonywaniem czynności zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.6.5",
+        "text": "zmienia formę przekazu ustnego lub pisemnego w języku obcym nowożytnym w typowych sytuacjach związanych z wykonywaniem czynności zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.6.6",
+        "text": "wykorzystuje strategie służące doskonaleniu własnych umiejętności językowych oraz podnoszące świadomość językową: a) wykorzystuje techniki samodzielnej nauki języka b) współdziała w grupie c) korzysta ze źródeł informacji w języku obcym nowożytnym d) stosuje strategie komunikacyjne i kompensacyjne",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.7",
     "qualification": "INF.03",
     "name": "Kompetencje personalne i społeczne",
-    "subjects": ["podstawy informatyki"],
-    "grades": [1, 2, 3]
+    "subjects": [
+      "podstawy informatyki"
+    ],
+    "grades": [
+      1,
+      2,
+      3
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.7.1",
+        "text": "przestrzega zasad kultury osobistej i etyki zawodowej",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.2",
+        "text": "planuje wykonanie zadania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.3",
+        "text": "ponosi odpowiedzialność za podejmowane działania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.4",
+        "text": "wykazuje się kreatywnością i otwartością na zmiany",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.5",
+        "text": "stosuje techniki radzenia sobie ze stresem",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.6",
+        "text": "doskonali umiejętności zawodowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.7",
+        "text": "stosuje zasady komunikacji interpersonalnej",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.8",
+        "text": "negocjuje warunki porozumień",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.9",
+        "text": "stosuje metody i techniki rozwiązywania problemów",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.7.10",
+        "text": "współpracuje w zespole",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.03.8",
     "qualification": "INF.03",
     "name": "Organizacja pracy małych zespołów",
-    "subjects": ["pracownia programowania aplikacji internetowych"],
-    "grades": [2, 3]
+    "subjects": [
+      "pracownia programowania aplikacji internetowych"
+    ],
+    "grades": [
+      2,
+      3
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.03.8.1",
+        "text": "planuje i organizuje pracę zespołu w celu wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.8.2",
+        "text": "dobiera osoby do wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.8.3",
+        "text": "kieruje wykonaniem przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.8.4",
+        "text": "ocenia jakość wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.03.8.5",
+        "text": "wprowadza rozwiązania techniczne i organizacyjne wpływające na poprawę warunków i jakości pracy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.1",
     "qualification": "INF.04",
     "name": "Bezpieczeństwo i higiena pracy",
-    "subjects": ["projektowanie oprogramowania"],
-    "grades": [2]
+    "subjects": [
+      "projektowanie oprogramowania"
+    ],
+    "grades": [
+      2
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.1.1",
+        "text": "określa skutki oddziaływania czynników szkodliwych na organizm człowieka",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.1.2",
+        "text": "stosuje środki ochrony indywidualnej i zbiorowej podczas wykonywania zadań zawodowych na stanowisku pracy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.1.3",
+        "text": "udziela pierwszej pomocy w stanach nagłego zagrożenia zdrowotnego",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.2",
     "qualification": "INF.04",
     "name": "Podstawy informatyki",
-    "subjects": ["projektowanie oprogramowania"],
-    "grades": [2, 3]
+    "subjects": [
+      "projektowanie oprogramowania"
+    ],
+    "grades": [
+      2,
+      3
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.2.1",
+        "text": "charakteryzuje parametry sprzętu komputerowego",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.2",
+        "text": "definiuje elementy architektury systemów komputerowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.3",
+        "text": "charakteryzuje systemy informatyczne oraz rozróżnia systemy informatyczne pod względem funkcjonalności",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.4",
+        "text": "stosuje zalecenia dotyczące ułatwień dostępności serwisów internetowych dla osób niepełnosprawnych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.5",
+        "text": "posługuje się terminologią dotyczącą sieci komputerowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.6",
+        "text": "stosuje pozycyjne systemy liczbowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.7",
+        "text": "stosuje zasady cyberbezpieczeństwa",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.2.8",
+        "text": "rozpoznaje właściwe normy i procedury oceny zgodności podczas realizacji zadań zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.3",
     "qualification": "INF.04",
     "name": "Projektowanie oprogramowania",
-    "subjects": ["projektowanie oprogramowania"],
-    "grades": [3, 4]
+    "subjects": [
+      "projektowanie oprogramowania"
+    ],
+    "grades": [
+      3,
+      4
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.3.1",
+        "text": "posługuje się prostymi typami danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.2",
+        "text": "posługuje się złożonymi typami danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.3",
+        "text": "stosuje metody rozwiązywania problemów za pomocą algorytmów",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.4",
+        "text": "stosuje algorytmy sortowania i wyszukiwania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.5",
+        "text": "dobiera narzędzia i metodologie do planowania i zarządzania projektem",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.6",
+        "text": "projektuje aplikację",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.7",
+        "text": "planuje przedsięwzięcie programistyczne",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.8",
+        "text": "stosuje wzorce projektowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.3.9",
+        "text": "stosuje zagadnienia prawa autorskiego w dziedzinie programowania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.4",
     "qualification": "INF.04",
     "name": "Programowanie obiektowe",
-    "subjects": ["programowanie obiektowe"],
-    "grades": [3, 4]
+    "subjects": [
+      "programowanie obiektowe"
+    ],
+    "grades": [
+      3,
+      4
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.4.1",
+        "text": "wykorzystuje środowisko programistyczne dla obiektowych aplikacji konsolowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.2",
+        "text": "przestrzega zasad programowania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.3",
+        "text": "korzysta z typów danych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.4",
+        "text": "stosuje wyrażenia, instrukcje i biblioteki",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.5",
+        "text": "stosuje zasady programowania obiektowego",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.6",
+        "text": "definiuje klasy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.7",
+        "text": "definiuje klasy pochodne",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.8",
+        "text": "programuje szablony (wzorce) klas",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.4.9",
+        "text": "programuje obsługę wyjątków",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.5",
     "qualification": "INF.04",
     "name": "Programowanie aplikacji desktopowych",
-    "subjects": ["pracownia programowania aplikacji desktopowych"],
-    "grades": [3, 4]
+    "subjects": [
+      "pracownia programowania aplikacji desktopowych"
+    ],
+    "grades": [
+      3,
+      4
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.5.1",
+        "text": "wykorzystuje środowisko programistyczne dla aplikacji desktopowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.5.2",
+        "text": "wykorzystuje frameworki do programowania aplikacji desktopowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.5.3",
+        "text": "programuje desktopowe aplikacje okienkowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.6",
     "qualification": "INF.04",
     "name": "Programowanie aplikacji mobilnych",
-    "subjects": ["pracownia programowania aplikacji mobilnych"],
-    "grades": [4, 5]
+    "subjects": [
+      "pracownia programowania aplikacji mobilnych"
+    ],
+    "grades": [
+      4,
+      5
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.6.1",
+        "text": "wykorzystuje środowisko programistyczne dla aplikacji mobilnych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.6.2",
+        "text": "programuje aplikacje mobilne",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.7",
     "qualification": "INF.04",
     "name": "Programowanie aplikacji zaawansowanych webowych",
-    "subjects": ["pracownia programowania zaawansowanych aplikacji webowych"],
-    "grades": [4, 5]
+    "subjects": [
+      "pracownia programowania zaawansowanych aplikacji webowych"
+    ],
+    "grades": [
+      4,
+      5
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.7.1",
+        "text": "wykorzystuje środowisko programistyczne dla aplikacji zaawansowanych webowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.7.2",
+        "text": "wykorzystuje frameworki do programowania aplikacji webowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.7.3",
+        "text": "programuje zaawansowane aplikacje webowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.8",
     "qualification": "INF.04",
     "name": "Testowanie i dokumentowanie aplikacji",
-    "subjects": ["pracownia programowania zaawansowanych aplikacji webowych"],
-    "grades": [4, 5]
+    "subjects": [
+      "pracownia programowania zaawansowanych aplikacji webowych"
+    ],
+    "grades": [
+      4,
+      5
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.8.1",
+        "text": "przeprowadza walidację kodu programu",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.8.2",
+        "text": "dokumentuje tworzoną aplikację",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.8.3",
+        "text": "przeprowadza testy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.9",
     "qualification": "INF.04",
     "name": "Język obcy zawodowy",
-    "subjects": ["język angielski zawodowy"],
-    "grades": [3, 4]
+    "subjects": [
+      "język angielski zawodowy"
+    ],
+    "grades": [
+      3,
+      4
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.9.1",
+        "text": "posługuje się podstawowym zasobem środków językowych w języku obcym nowożytnym (ze szczególnym uwzględnieniem środków leksykalnych) umożliwiającym realizację czynności zawodowych w zakresie tematów związanych: a) ze stanowiskiem pracy i jego wyposażeniem b) z głównymi technologiami stosowanymi w danym zawodzie c) z dokumentacją związaną z danym zawodem d) z usługami świadczonymi w danym zawodzie",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.9.2",
+        "text": "rozumie proste wypowiedzi ustne artykułowane wyraźnie, w standardowej odmianie języka obcego nowożytnego, a także proste wypowiedzi pisemne w języku obcym nowożytnym w zakresie umożliwiającym realizację zadań zawodowych: a) rozumie proste wypowiedzi ustne dotyczące czynności zawodowych (np. rozmowy, wiadomości, komunikaty, instrukcje czy filmy instruktażowe, prezentacje), artykułowane wyraźnie, w standardowej odmianie języka b) rozumie proste wypowiedzi pisemne dotyczące czynności zawodowych (np. napisy, broszury, instrukcje obsługi, przewodniki, dokumentację zawodową)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.9.3",
+        "text": "samodzielnie tworzy krótkie, proste, spójne i logiczne wypowiedzi ustne i pisemne w języku obcym nowożytnym w zakresie umożliwiającym realizację zadań zawodowych: a) tworzy krótkie, proste, spójne i logiczne wypowiedzi ustne dotyczące czynności zawodowych (np. polecenie, komunikat, instrukcję) b) tworzy krótkie, proste, spójne i logiczne wypowiedzi pisemne dotyczące czynności zawodowych (np. komunikat, e-mail, instrukcję, wiadomość, CV, list motywacyjny, dokument związany z wykonywanym zawodem – według wzoru)",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.9.4",
+        "text": "uczestniczy w rozmowie w typowych sytuacjach związanych z realizacją zadań zawodowych – reaguje w języku obcym nowożytnym w sposób zrozumiały, adekwatnie do sytuacji komunikacyjnej, ustnie lub w formie prostego tekstu: a) reaguje ustnie (np. podczas rozmowy z innym pracownikiem, klientem, kontrahentem, w tym podczas rozmowy telefonicznej) w typowych sytuacjach związanych z wykonywaniem czynności zawodowych b) reaguje w formie prostego tekstu pisanego (np. wiadomość, formularz, e-mail, dokument związany z wykonywanym zawodem) w typowych sytuacjach związanych z wykonywaniem czynności zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.9.5",
+        "text": "zmienia formę przekazu ustnego lub pisemnego w języku obcym nowożytnym w typowych sytuacjach związanych z wykonywaniem czynności zawodowych",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.9.6",
+        "text": "wykorzystuje strategie służące doskonaleniu własnych umiejętności językowych oraz podnoszące świadomość językową: a) wykorzystuje techniki samodzielnej pracy nad językiem b) współdziała w grupie c) korzysta ze źródeł informacji w języku obcym nowożytnym d) stosuje strategie komunikacyjne i kompensacyjne",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.10",
     "qualification": "INF.04",
     "name": "Kompetencje personalne i społeczne",
-    "subjects": ["projektowanie oprogramowania"],
-    "grades": [3, 4, 5]
+    "subjects": [
+      "projektowanie oprogramowania"
+    ],
+    "grades": [
+      3,
+      4,
+      5
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.10.1",
+        "text": "przestrzega zasad kultury osobistej i etyki zawodowej",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.2",
+        "text": "planuje wykonanie zadania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.3",
+        "text": "ponosi odpowiedzialność za podejmowane działania",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.4",
+        "text": "wykazuje się kreatywnością i otwartością na zmiany",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.5",
+        "text": "stosuje techniki radzenia sobie ze stresem",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.6",
+        "text": "doskonali umiejętności zawodowe",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.7",
+        "text": "stosuje zasady komunikacji interpersonalnej",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.8",
+        "text": "negocjuje warunki porozumień",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.9",
+        "text": "stosuje metody i techniki rozwiązywania problemów",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.10.10",
+        "text": "współpracuje w zespole",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   },
   {
     "id": "INF.04.11",
     "qualification": "INF.04",
     "name": "Organizacja pracy małych zespołów",
-    "subjects": ["zajęcia specjalizujące"],
-    "grades": [4, 5]
+    "subjects": [
+      "zajęcia specjalizujące"
+    ],
+    "grades": [
+      4,
+      5
+    ],
+    "mappingStatus": "unconfirmed",
+    "mappingNote": {
+      "pl": "Przypisanie do przedmiotów i klas jest mapą roboczą. Szkoła nie publikuje planu z takim podziałem.",
+      "ru": "Привязка к предметам и классам является рабочей картой. Школа не публикует план с таким распределением."
+    },
+    "source": {
+      "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+      "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+      "documentDate": "2019-05-16",
+      "retrievedAt": "2026-08-28",
+      "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+      "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+      "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+    },
+    "effects": [
+      {
+        "id": "INF.04.11.1",
+        "text": "planuje i organizuje pracę zespołu w celu wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.11.2",
+        "text": "dobiera osoby do wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.11.3",
+        "text": "kieruje wykonaniem przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.11.4",
+        "text": "ocenia jakość wykonania przydzielonych zadań",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      },
+      {
+        "id": "INF.04.11.5",
+        "text": "wprowadza rozwiązania techniczne i organizacyjne wpływające na poprawę warunków i jakości pracy",
+        "source": {
+          "url": "https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf",
+          "title": "Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406",
+          "documentDate": "2019-05-16",
+          "retrievedAt": "2026-08-28",
+          "sha256": "c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86",
+          "legalBasis": "Dz.U. 2019 poz. 991, załącznik nr 28",
+          "reuseBasis": "Tekst urzędowy wyłączony z prawa autorskiego na podstawie art. 4 pkt 1 ustawy o prawie autorskim i prawach pokrewnych"
+        }
+      }
+    ]
   }
 ]

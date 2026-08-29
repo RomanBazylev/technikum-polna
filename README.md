@@ -25,7 +25,7 @@ Cztery zakładki odpowiadają czterem sytuacjom, w których uczeń sięga po tel
 
 - **Kopii danych z Librusa.** Darmowa Synergia w przeglądarce ma już plan lekcji, oceny, frekwencję i zadania domowe. Budowanie tego od nowa oznaczałoby wieczne naprawianie scrapera przeciwko firmie, która w 2020 roku zamknęła Szkolny.eu, a serwerowa synchronizacja wymagałaby przechowywania cudzych haseł do dziennika.
 - **Banku 2000 pytań egzaminacyjnych.** Istnieje kilka żywych projektów open source, między innymi [Marmo77/egzamin-programista](https://github.com/Marmo77/egzamin-programista) i [Chr1skyy](https://github.com/Chr1skyy/Egzamin-Zawodowy-E14-EE09-INF03) ze 125 arkuszami. Odsyłamy do nich.
-- **Własnej teorii z przedmiotów, których poprawności nie da się sprawdzić uruchomieniem kodu.** Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację, zadania.info i Wolne Lektury.
+- **Własnej teorii z przedmiotów, których poprawności nie da się sprawdzić uruchomieniem kodu.** Do matematyki, fizyki i polskiego prowadzimy na ZPE, Pi-stację i Wolne Lektury.
 - **Reklam.** Poza kwestią gustu: licencja CC BY-NC-SA materiałów Pi-stacji i Khan Academy traktuje reklamę jako użycie komercyjne.
 - **Ocen nauczycieli.** Katalog nauczycieli jest wyłącznie lokalny i nigdy nie trafia do repozytorium.
 

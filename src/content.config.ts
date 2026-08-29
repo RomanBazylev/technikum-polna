@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
+import { handbookSchema } from './lib/content/handbookSchema';
 
 /**
  * YAML сам превращает незакавыченную дату в объект Date, поэтому нормализуем
@@ -11,6 +12,25 @@ const isoDate = z.preprocess(
 );
 
 const monthDay = z.string().regex(/^\d{2}-\d{2}$/, 'Ожидается MM-DD');
+const bilingualNote = z.object({ pl: z.string().min(1), ru: z.string().min(1) });
+const mappingStatus = z.enum(['confirmed', 'framework', 'unconfirmed']);
+const documentProvenance = z.object({
+  title: z.string().min(1),
+  url: z.string().url(),
+  documentDate: isoDate.nullable(),
+  retrievedAt: isoDate,
+  scope: z.enum(['subject', 'hours', 'track', 'textbook']),
+  status: mappingStatus,
+});
+const programmeSource = z.object({
+  url: z.string().url(),
+  title: z.string().min(1),
+  documentDate: isoDate,
+  retrievedAt: isoDate,
+  sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  legalBasis: z.string().min(1),
+  reuseBasis: z.string().min(1),
+});
 
 /**
  * Происхождение материала. У ссылочного варианта нет поля с содержимым, поэтому
@@ -47,22 +67,7 @@ const source = z.discriminatedUnion('kind', [
  */
 const handbook = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './content/handbook' }),
-  schema: z.object({
-    title: z.string().min(1),
-    summary: z.string().min(1),
-    section: z.enum([
-      'pierwszy-tydzien',
-      'zasady',
-      'prawa-cudzoziemca',
-      'pieniadze-i-dojazd',
-      'kalendarz',
-      'kontakt',
-    ]),
-    order: z.number().int().nonnegative(),
-    legalBasis: z.array(z.string()).default([]),
-    sources: z.array(source).default([]),
-    reviewBy: isoDate.optional(),
-  }),
+  schema: handbookSchema,
 });
 
 /** Темы предметов. Польский обязателен, русский только на уровне терминов. */
@@ -74,6 +79,8 @@ const topics = defineCollection({
     grade: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5)]),
     effects: z.array(z.string().regex(/^INF\.0[34]\.\d{1,2}(\.\d{1,2})?$/)).default([]),
     terms: z.array(z.string()).default([]),
+    mappingStatus,
+    mappingNote: bilingualNote,
     sources: z.array(source).default([]),
     reviewBy: isoDate.optional(),
   }),
@@ -125,12 +132,7 @@ const obligations = defineCollection({
   }),
 });
 
-/**
- * Ось программы: единицы efektów kształcenia из podstawa programowa.
- * Названия взяты из ZPE, где они отдаются чистым HTML. Разбирать PDF ORE до
- * уровня отдельных efektów не стали: текстовый дамп искажает польские
- * диакритики, а искажённая ось хуже отсутствующей.
- */
+/** Ось программы, воспроизводимо извлечённая из официального PDF ORE. */
 const effects = defineCollection({
   loader: file('./content/effects.json'),
   schema: z.object({
@@ -139,6 +141,16 @@ const effects = defineCollection({
     name: z.string().min(1),
     subjects: z.array(z.string().min(1)),
     grades: z.array(z.number().int().min(1).max(5)),
+    mappingStatus,
+    mappingNote: bilingualNote,
+    source: programmeSource,
+    effects: z.array(
+      z.object({
+        id: z.string().regex(/^INF\.0[34]\.\d{1,2}\.\d{1,2}$/),
+        text: z.string().min(1),
+        source: programmeSource,
+      }),
+    ).min(1),
   }),
 });
 
@@ -151,7 +163,10 @@ const subjects = defineCollection({
     // null означает, что распределение часов по классам определяет директор.
     hoursByGrade: z.array(z.number().int().min(0)).length(5).nullable(),
     textbook: z.string().optional(),
-    note: z.object({ pl: z.string(), ru: z.string() }).optional(),
+    note: bilingualNote.optional(),
+    mappingStatus,
+    mappingNote: bilingualNote,
+    sources: z.array(documentProvenance).min(1),
   }),
 });
 

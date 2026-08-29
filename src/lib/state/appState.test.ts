@@ -84,6 +84,15 @@ describe('экспорт и импорт', () => {
     const state = defaultState();
     state.settings.showRussian = false;
     state.profile.languageGroup = 'hiszpanski';
+    state.profile.absenceEndedOn = '2026-10-01';
+    state.calculators.absenceBudget = { plannedHours: 96, missedHours: 17 };
+    state.calculators.gradeTools = {
+      points: 37,
+      maxPoints: 50,
+      entries: [{ grade: 5, weight: 3 }],
+      target: 4.5,
+      futureWeight: 2,
+    };
 
     const outcome = importState(exportState(state));
     expect(outcome).toEqual({ kind: 'ok', state });
@@ -111,6 +120,45 @@ describe('схема', () => {
       grades: [{ id: 'mat-1', value: 4, weight: 2 }],
     };
     expect(appStateSchema.safeParse(state).success).toBe(true);
+  });
+
+  it('достраивает новые поля в сохранённом состоянии версии 2', () => {
+    const legacyVersion2 = defaultState();
+    const { calculators: _calculators, ...withoutCalculators } = legacyVersion2;
+    const {
+      absenceEndedOn: _absenceEndedOn,
+      ...profileWithoutAbsence
+    } = withoutCalculators.profile;
+
+    const parsed = appStateSchema.parse({
+      ...withoutCalculators,
+      profile: profileWithoutAbsence,
+    });
+
+    expect(parsed.profile.absenceEndedOn).toBeNull();
+    expect(parsed.calculators).toEqual(defaultState().calculators);
+  });
+
+  it('чинит повреждённые калькуляторы без потери расписания, оценок и прогресса', () => {
+    const state = {
+      ...defaultState(),
+      timetable: [{ id: 'sr-3', day: 'sr', slot: 3, subjectId: 'fizyka' }],
+      grades: [{ id: 'mat-1', value: 5 }],
+      progress: { 'inf-03-3': 'known' },
+      calculators: {
+        absenceBudget: { plannedHours: 60, missedHours: 'nie liczba' },
+        gradeTools: { points: 23 },
+      },
+    };
+    storage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+    const outcome = loadState(storage);
+
+    expect(outcome.kind).toBe('loaded');
+    expect(outcome.state.timetable).toEqual(state.timetable);
+    expect(outcome.state.grades).toEqual(state.grades);
+    expect(outcome.state.progress).toEqual(state.progress);
+    expect(outcome.state.calculators).toEqual(defaultState().calculators);
   });
 
   it('расписание разбирается по настоящей форме урока', () => {

@@ -1,0 +1,1627 @@
+Source: https://ore.edu.pl/wp-content/uploads/2020/03/technik-programista.pdf
+Title: Podstawa programowa kształcenia w zawodzie szkolnictwa branżowego: technik programista 351406
+Document date: 2019-05-16
+Retrieved: 2026-08-28
+SHA-256: c5bd05ab10520590c0912f15059e12f943a6c87f6c03394337a39784b9c3aa86
+
+
+
+      TECHNIK PROGRAMISTA
+      KWALIFIKACJE WYODRĘBNIONE W ZA WOD ZIE
+      INF.03. Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz ba
+      INF.04. Projektowanie, programo wanie i testowanie aplikacji
+
+      CELE KSZTAŁCENIA
+      Absolwent         szkoły         prowadzącej         kształcenie          w za w
+      wykonywania zadań zawodowych:
+
+      1)                            w zakresie kwalifikacji INF.03. Tworzenie i admini
+              bazami danych:
+              a)                              tworzenia i administrowania stronami int
+              b)                            tworzenia, administrowania i użytkowania r
+              c)                              programowania aplikacji internetowych,
+              d)                            tworzenia i administrowania systemami zarz
+
+      2)                            w zakresie kwalifikacji INF.04. Projektowanie, pro
+              a)                              projektowania, programowania i testowani
+              b)                            projektowania, programowania i testowania
+              c)                              projektowania, programowania i testowani
+
+      EFEKTY KSZTAŁCENIA I KRYTERIA WERYFIKACJI TYCH EFEKTÓW
+      Do        wykonywania        zadań        zawodowych        w zakresie kwalifika
+      i aplikacjami internetowymi oraz bazami danych               niezbędne
+      kształcenia:
+
+         INF.03. Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz
+         INF.03.1. Bezpieczeństwo i higiena pracy
+                                      Efekty kształcenia
+                                                Uczeń:
+         1)     określa warunki i organizację pracy
+                zapewniające wymagany poziom ochrony
+                zdrowia i życia przed zagrożeniami
+                występującymi w środowisku pracy
+
+
+
+
+
+
+
+
+         2)     opisuje zadania i uprawnienia instytucji oraz
+                służb działających w zakresie ochrony pracy
+                i ochrony środowiska
+
+
+         3)     opisuje prawa i obowiązki pracownika oraz
+                pracodawcy w zakresie bezpieczeństwa i higieny
+                pracy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        4)    określa skutki oddziaływania czynników
+              szkodliwych na organizm człowieka
+
+
+
+
+
+
+
+
+
+        5)    stosuje środki ochrony indywidualnej
+              i zbiorowej podczas wykonywania zadań
+              zawodowych
+
+
+
+
+
+
+
+
+
+        6)     udziela pierwszej pomocy w stanach nagłego
+              zagrożenia zdrowotnego
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        INF.03.2. Podstawy informatyki
+                                 Efekty kształcenia
+                                          Uczeń:
+        1)    charakteryzuje parametry sprzętu
+              komputerowego
+
+
+
+
+
+
+
+
+        2)    definiuje elementy architektury systemów
+              komputerowych
+
+
+
+
+
+
+
+
+       3)     charakteryzuje systemy informatyczne oraz
+              rozróżnia   s yste my informatyczne pod                               wz
+              funkcjonalności
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       4)     stosuje zalecenia dotyczące ułatwień dostępności
+              serwisów internetowych dla   osób
+              niepełnosprawnych
+
+       5)     posługuje się terminologią dotyczącą sieci
+              komputerowych
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       6)     stosuje pozycyjne systemy liczbowe
+
+
+
+
+
+
+
+
+
+
+
+       7)     stosuje zasady cyberbezpieczeństwa
+
+
+
+
+
+
+
+                                                                                     4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        8)     rozpoznaje właściwe normy i procedury oceny
+               zgodności podczas realizacji zadań zawodowych
+
+
+
+
+
+        INF.03.3. Projektowanie stron internetowych
+                                   Efekty kształcenia
+                                           Uczeń:
+        1)     posługuje się hipertekstowymi językami
+               znaczników (HTML − HyperText Markup
+               Language)
+
+
+
+
+
+
+
+        2)     stosuje kaskadowe arkusze stylów do tworzenia
+               responsywnych stron internetowych
+
+
+
+
+
+
+
+
+
+        3)     stosuje systemy zarządzania treścią CMS
+               (Content Management System)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        4)      projektuje grafikę komputerową
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        5)      wykorzystuje elementy multimedialne
+                na stronach internetowych
+
+
+
+
+
+
+
+
+
+
+
+
+
+        6)      wykonuje strony internetowe zgodnie
+                z projektami
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        7)      stosuje reguły testowania, walidacji
+                i optymalizacji stron internetowych
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        8)     publikuje witryny i aplikacje internetowe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        INF.03.4. Projektowanie i administrowanie bazami danych
+                                   Efekty kształcenia
+                                            Uczeń:
+        1)     posługuje się pojęciami dotyczącymi baz danych
+
+
+
+
+
+
+
+        2)     t wo r z y diagramy E/R (Entity-Relationship
+               Diagram)
+
+
+
+
+
+
+
+        3)     korzysta z systemów zarządzania bazami danych
+               SZBD (Database Management System)
+
+
+
+
+        4)     stosuje strukturalny język zapytań SQL
+               (Structured Query Language)
+
+
+
+
+
+
+
+
+
+        5)     tworzy relacyjne bazy danych zgodnie
+               z projektem
+
+
+
+
+
+
+
+
+
+
+
+
+        6)     tworzy formularze, zapytania i raporty do
+               przetwarzania danych
+
+
+
+
+        7)     modyfikuje struktury baz danych
+
+
+
+
+
+
+
+
+        8)     zarządza systemem bazy danych
+
+
+
+
+
+
+
+
+        INF.03.5. Programowanie aplikacji internetowych
+                                    Efekty kształcenia
+                                             Uczeń:
+        1)     stosuje zasady programowania
+
+
+        2)     stosuje skryptowe języki programowania
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        3)     programuje skrypty wykonywane po stronie
+               klienta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       4)     programuje skrypty wykonywane po stronie
+              serwera
+
+
+
+
+
+
+
+
+
+       5)     stosuje środowisko programistyczne
+              i uruchomieniowe aplikacji internetowych
+
+
+
+
+
+
+
+       6)     przeprowadza walidację kodu programu
+
+
+
+       7)     dokumentuje tworzoną aplikację
+
+
+
+       INF.03.6. Język obcy zawodowy
+                                 Efekty kształcenia
+                                         Uczeń:
+       1)     uczeń posługuje się podstawowym zasobem
+              środków językowych w języku obcym
+              nowożytnym (ze szczególnym uwzględnieniem
+              środków leksykalnych) umożliwiającym
+              realizację czynności zawodowych w zakresie
+              tematów związanych:
+            a)                              ze stanowiskiem pracy i jego wyposażeniem
+            b)             z głównymi technologiami stosowanymi
+                  w danym zawodzie
+            c)               z dokumentacją związaną z danym zawodem
+            d)             z usługami świadczonymi w danym zawodzie
+
+
+
+
+       2)     rozumie proste wypowiedzi ustne artykułowane
+              wyraźnie, w standardowej odmianie języka
+              obcego nowożytnego, a także proste wypowiedzi
+              pisemne w języku obcym nowożytnym,
+              w zakresie umożliwiającym realizację zadań
+              zawodowych:
+              a)                              rozumie proste wypowiedzi ustne dotycząc
+                    czynności zawodowych (np. rozmowy,
+                    wiadomości, komunikaty, instrukcje lub
+                    filmy instruktażowe, prezentacje),
+
+
+                                                                                    52
+
+
+
+                    artykułowane wyraźnie, w standardowej
+                    odmianie języka
+             b)                            rozumie proste wypowiedzi pisemne
+                    dotyczące czynności zawodowych (np.
+                    napisy, broszury, instrukcje obsługi,
+                    przewodniki, dokumentację zawodową)
+       3)    samodzielnie tworzy krótkie, proste, spójne
+             i logiczne wypowiedzi ustne i pisemne w języku
+             obcym nowożytnym, w zakresie
+             umożliwiającym realizację zadań zawodowych:
+             a)                              tworzy krótkie, proste, spójne i logiczne
+                    wypowiedzi ustne dotyczące czynności
+                    zawodowych (np. polecenie, komunikat,
+                    instrukcję)
+             b)                            tworzy krótkie, proste, spójne i logiczne
+                    wypowiedzi pisemne dotyczące czynności
+                    zawodowych (np. komunikat, e-mail,
+                    instrukcję, wiadomość, CV, list
+                    mo t ywac yj ny, dokument związany
+                    z wykonywanym zawodem – według wzoru)
+       4)    uczestniczy w rozmowie w typowych sytuacjach
+             związanych z   realizacją zadań zawodowych       –
+             reaguje w języku obcym nowożytnym w sposób
+             zrozumiały, adekwatnie do sytuacji
+             komunikacyjnej, ustnie lub w formie prostego
+             tekstu:
+             a)                              reaguje ustnie (np. podczas rozmowy
+                    z innym pracownikiem, klientem,
+                    kontrahentem, w tym podczas rozmowy
+                    telefonicznej) w t ypo wyc h sytuacjach
+                    związanych z wykonywaniem czynności
+                    zawodowych
+               b)            reaguje w formie prostego tekstu pisanego
+                    (np. wiadomość, formularz, e-mail,
+                    dokument związany z wykonywanym
+                    zawodem) w typowych sytuacjach
+                    związanych z wykonywaniem czynności
+                    zawodowych
+       5)    zmienia formę przekazu ustnego lub pisemnego
+             w języku obcym nowożytnym w t ypo wyc h
+             sytuacjach związanych z wykonywaniem
+             czynności zawodowych
+
+
+
+
+
+
+
+
+
+       6)    wykorzystuje strategie służące doskonaleniu
+             własnych umiejętności językowych oraz
+             podnoszące świadomość językową:
+             a)                              wykorzystuje techniki samodzielnej nauki
+                    j ęzyka
+             b)                            współdziała w grupie
+             c)                              korzysta ze źródeł informacji w j ęz yku
+                    obcym nowożytnym
+
+
+                                                                                  53
+
+
+
+              d)    stosuje strategie komunikacyjne
+                    i kompensacyjne
+
+
+
+       INF.03.7. Kompetencje personalne i społeczne
+                             Efekty kształcenia
+                                     Uczeń:
+       1)     przestrzega zasad kultury osobistej i etyki
+              za wo d o wej
+
+
+
+
+
+
+
+
+       2)    planuje wykonanie zadania
+
+
+
+
+
+
+       3)    ponosi odpowiedzialność za podejmowane
+             działania
+
+
+
+
+
+
+
+
+       4)    wykazuje się kreatywnością i otwartością
+             na zmiany
+
+
+
+
+
+       5)    stosuje techniki radzenia sobie ze stresem
+
+
+
+
+
+
+
+
+
+
+
+       6)     doskonali umiejętności zawodowe
+
+
+
+
+
+
+                                                                                   54
+
+
+
+                                                                                 4)
+                                                                                 5)
+                                                                                 6)
+
+       7)    stosuje zasady komunikacji interpersonalnej                         1)
+                                                                                 2)
+                                                                                 3)
+                                                                                 4)
+       8)    negocjuje warunki porozumień                                        1)
+
+                                                                                 2)
+
+       9)    stosuje metody i techniki rozwiązywania                             1)
+             problemów
+                                                                                 2)
+                                                                                 3)
+
+       10)   współpracuje w zespole                                              1)
+
+                                                                                 2)
+
+                                                                                 3)
+
+                                                                                 4)
+
+
+       INF.03.8. Organizacja pracy małych zespołów
+                              Efekty kształcenia
+                                      Uczeń:
+       1)    planuje i organizuje pracę zespołu w celu                           1)
+             wykonania przydzielonych zadań                                      2)
+                                                                                 3)
+
+                                                                                 4)
+
+                                                                                 5)
+                                                                                 6)
+
+                                                                                 7)
+
+       2)    dobiera osoby do wykonania przydzielonych                           1)
+             zadań
+                                                                                  2)
+
+       3)    kieruje wykonaniem przydzielonych zadań                             1)
+
+                                                                                 2)
+                                                                                 3)
+
+                                                                                 4)
+
+                                                                                 5)
+                                                                                 6)
+
+       4)    ocenia jakość wykonania przydzielonych zadań                        1)
+                                                                                 2)
+
+
+                                                                                 3)
+
+
+                                                                             55
+
+
+
+       5)     wprowadza rozwiązania techniczne
+              i organizacyjne wpływające na poprawę
+              war unkó w i jakości pracy
+
+
+
+     Do                        wykonywania                       zadań
+     i testowanie aplikacji niezbędne jest osiągnięcie niżej wymienionych efektów kszt
+
+       INF.04. Projektowanie, programo wanie i testowanie aplikacji
+       INF.04.1. Bezpieczeństwo i higiena pracy
+                                Efekty kształcenia
+                                        Uczeń:
+       1)     określa skutki oddziaływania czynników
+              szkodliwych na organizm człowieka
+
+
+
+
+
+
+
+
+
+       2)     stosuje środki ochrony indywidualnej
+              i zbiorowej podczas wykonywania zadań
+              zawodowych na stanowisku pracy
+
+
+
+
+
+
+
+
+
+       3)     udziela pierwszej pomocy w stanach nagłego
+              zagrożenia zdrowotnego
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       INF.04.2. Podstawy informatyki
+                                Efekty kształcenia
+                                        Uczeń:
+
+
+                                                                                   56
+
+
+
+        1)     charakteryzuje parametry sprzętu
+               komputerowego
+
+
+
+
+
+
+
+
+        2)     definiuje elementy architektury systemów
+               komputerowych
+
+
+        3)     charakteryzuje systemy informatyczne oraz
+               rozróżnia   s yste my informatyczne pod                               w
+               funkcjonalności
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        4)     stosuje zalecenia dotyczące ułatwień dostępności
+               serwisów internetowych dla   osób
+               niepełnosprawnych
+
+        5)     posługuje się terminologią dotyczącą sieci
+               komputerowych
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        6)     stosuje pozycyjne systemy liczbowe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        7)    stosuje zasady cyberbezpieczeństwa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        8)    rozpoznaje właściwe normy i procedury oceny
+              zgodności podczas realizacji zadań zawodowych
+
+
+
+
+
+        INF.04.3. Projektowanie oprogramowania
+                                  Efekty kształcenia
+                                          Uczeń:
+        1)    posługuje się prostymi t ypa mi  danych
+
+
+
+
+
+
+
+        2)    posługuje się złożonymi typami danych
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        3)     stosuje metody rozwiązywania problemów za
+               pomocą algorytmów
+
+
+
+
+
+
+
+
+        4)     stosuje algorytmy sortowania i wyszukiwania
+
+
+
+
+
+
+        5)     dobiera narzędzia i metodologie do planowania
+               i zarządzania projektem
+
+
+
+
+
+
+        6)     projektuje aplikację
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        7)     planuje przedsięwzięcie programistyczne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        8)     stosuje wzorce projektowe
+
+
+
+
+
+        9)     stosuje zagadnienia prawa autorskiego
+               w dziedzinie programowania
+
+
+
+
+
+        INF.04.4. Programowanie obiektowe
+                                   Efekty kształcenia
+                                           Uczeń:
+        1)     wykorzystuje środowisko programistyczne dla
+               obiektowych aplikacji konsolowych
+
+
+
+
+
+
+        2)     przestrzega zasad programowania
+
+
+        3)     korzysta z typów danych
+
+
+
+
+
+        4)     stosuje wyrażenia, instrukcje i biblioteki
+
+
+
+
+
+
+
+
+
+
+
+        5)     stosuje zasady programowania obiektowego
+
+
+
+
+
+
+
+        6)     definiuje klasy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        7)    definiuje klasy pochodne
+
+
+
+
+
+
+        8)    programuje szablony (wzorce) klas
+
+        9)    programuje obsługę wyjątków
+
+
+
+
+
+
+        INF.04.5. Programowanie aplikacji desktopowych
+                                  Efekty kształcenia
+                                          Uczeń:
+        1)  wykorzystuje środowisko programistyczne dla
+             aplikacji desktopowych
+
+
+
+
+        2)  wykorzystuje frameworki do programowania
+             aplikacji desktopowych
+
+        3)  programuje desktopowe aplikacje okienkowe
+
+
+
+
+
+
+
+
+
+
+        INF.04.6. Programowanie aplikacji mobilnych
+                                  Efekty kształcenia
+                                          Uczeń:
+        1)    wykorzystuje środowisko programistyczne dla
+              aplikacji mobilnych
+
+
+
+
+
+
+
+
+
+
+       2)     programuje aplikacje mobilne
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       INF.04.7. Programowanie aplikacji zaawansowanych webowych
+                                Efekty kształcenia
+                                        Uczeń:
+       1)     wykorzystuje środowisko programistyczne dla
+              aplikacji zaawansowanych webowych
+
+
+
+
+       2)     wykorzystuje frameworki do programowania
+              aplikacji webowych
+
+
+
+       3)     programuje zaawansowane aplikacje webowych
+
+
+
+
+
+
+
+
+
+
+       INF.04.8. Testowanie i dokumentowanie aplikacji
+                                Efekty kształcenia
+                                        Uczeń:
+
+
+                                                                                   62
+
+
+
+        1)    przeprowadza walidację kodu programu
+
+
+
+
+
+
+        2)    dokumentuje tworzoną aplikację
+
+
+
+
+
+
+
+
+        3)    przeprowadza testy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        INF.04.9. Język obcy zawodowy
+                                 Efekty kształcenia
+                                          Uczeń:
+        1)    posługuje się podstawowym zasobem środków
+              językowych w języku obcym nowożytnym (ze
+              szczególnym uwzględnieniem środków
+              leksykalnych) umożliwiającym realizację
+              czynności za wodo wych w zakresie tematów
+              związanych:
+              a)  ze stanowiskiem pracy i                                    jego wypo
+              b) z głównymi technologiami stosowanymi
+                  w danym zawodzie
+              c)  z dokumentacją związaną z danym zawodem
+              d) z usługami świadczonymi  w danym zawodzie
+
+
+
+
+        2)    rozumie proste wypowiedzi ustne artykułowane
+              wyraźnie,   w standardowej odmianie   języka
+              obcego nowożytnego, a także proste wypowiedzi
+              pisemne w języku obcym nowożytnym
+
+
+
+
+
+
+             w zakresie umożliwiającym realizację zadań                            3)
+             zawodowych:
+             a)  rozumie proste wypowiedzi ustne dotyczące                         4)
+                 czynności za wodo wych (np. rozmowy,
+                 wiadomości, komunikaty, instrukcje czy filmy
+                 instruktażowe, prezentacje), artykułowane
+                 wyraźnie, w standardowej odmianie języka
+             b) rozumie proste wypowiedzi pisemne
+                 dotyczące czynności zawodowych (np. napisy,
+                 broszury, instrukcje obsługi, przewodniki,
+                 dokumentację zawodową)
+       3)    samodzielnie tworzy krótkie, proste, spójne                           1)
+             i logiczne wypowiedzi     ustne i pisemne w języku
+             obcym nowożytnym w zakresie umożliwiającym                            2)
+             realizację zadań zawodowych:
+             a)  t wo r z y krótkie, proste, spójne i logiczne
+                 wypowiedzi ustne dotyczące czynności                              3)
+                 zawodowych (np. polecenie, komunikat,                             4)
+                 instrukcję)
+             b) t wo r z y krótkie, proste, spójne i logiczne                      5)
+                 wypowiedzi pisemne dotyczące czynności
+                 zawodowych (np. komunikat, e-mail,
+                 instrukcję, wiadomość, CV, list motywacyjny,
+                 dokument związany z wykonywanym
+                 zawodem – według wzoru)
+       4)    uczestniczy w roz mo wie w t ypo wyc h sytuacjach                     1)
+             związanych   z realizacją   zadań zawodowych –                        2)
+             reaguje w języku obcym nowożytnym w sposób                            3)
+             zrozumiały, adekwatnie do sytuacji
+             komunikacyj nej, ustnie lub w for mie prostego
+             tekstu:                                                               4)
+             a)  reaguje ustnie (np. podczas                roz mo wy z innym
+                 pracownikiem, klientem, kontrahentem,                             5)
+                 w tym podczas rozmowy telefonicznej)                              6)
+                 w typowych sytuacjach związanych
+                 z wyko nywaniem czynności zawodowych
+             b) reaguje w for mie prostego tekstu pisanego
+                 (np. wiadomość, formularz, e-mail, dokument
+                 związany z wykonywanym zawodem)
+                 w typowych sytuacjach związanych
+                 z wyko nywaniem czynności zawodowych
+       5)    zmienia formę przekazu ustnego lub pisemnego                          1)
+             w języku obcym nowożytnym w t ypo wyc h
+             sytuacjach związanych z wykonywaniem
+             czynności za wodo wych
+
+                                                                                   2)
+
+                                                                                   3)
+
+
+                                                                                   4)
+
+
+       6)    wykorzystuje strategie służące doskonaleniu                           1)
+             własnych umiejętności językowych oraz
+             podnoszące świadomość językową:                                       2)
+             a)  wykorzystuje techniki samodzielnej pracy nad
+                 językiem
+             b) współdziała w grupie
+
+                                                                               64
+
+
+
+             c) korz ysta ze źródeł informacji w j ęz yku obcym                     3)
+                 nowożytnym
+             d) stosuje strategie komunikacyj ne
+                 i kompensacyjne                                                    4)
+                                                                                    5)
+
+                                                                                    6)
+
+
+       INF.04.10. Kompetencje personalne i społeczne
+                               Efekty kształcenia
+                                       Uczeń:
+       1)   przestrzega zasad kultury osobistej i etyki                             1)
+            za wo d o wej
+                                                                                    2)
+
+                                                                                    3)
+
+                                                                                    4)
+
+                                                                                    5)
+
+       2)    planuje wykonanie zadania                                              1)
+
+                                                                                    2)
+                                                                                    3)
+                                                                                    4)
+                                                                                    5)
+                                                                                    6)
+       3)    ponosi odpowiedzialność za podejmowane                                 1)
+             działania
+                                                                                    2)
+
+                                                                                    3)
+                                                                                    4)
+
+
+
+
+       4)    wykazuje się kreatywnością i otwartością na                            1)
+             z mia ny
+                                                                                    2)
+
+                                                                                    3)
+
+
+       5)    stosuje techniki radzenia sobie ze stresem                             1)
+
+                                                                                    2)
+
+                                                                                    3)
+
+                                                                                    4)
+
+                                                                                    5)
+
+
+                                                                                    6)
+       6)    doskonali umiejętności zawodowe                                        1)
+
+
+                                                                                65
+
+
+
+
+
+
+
+
+
+
+
+        7)    stosuje zasady komunikacji interpersonalnej
+
+
+
+        8)    negocjuje warunki porozumień
+
+
+
+        9)    stosuje metody i techniki rozwiązywania
+              problemów
+
+
+
+        10)   współpracuje w zespole
+
+
+
+
+
+
+
+
+        INF.04.11. Organizacja pracy małych zespołów
+                                 Efekty kształcenia
+                                          Uczeń:
+        1)   planuje i organizuje pracę zespołu w celu
+             wykonania przydzielonych zadań
+
+
+
+
+
+
+
+
+
+        2)    dobiera osoby do wykonania przydzielonych
+              zadań
+
+
+        3)    kieruje wykonaniem przydzielonych zadań
+
+
+
+
+
+
+
+
+
+        4)    ocenia jakość wykonania przydzielonych zadań
+
+
+
+
+
+
+
+
+
+
+
+         5)      wprowadza rozwiązania techniczne
+                 i organizacyjne wpływające na poprawę
+                 war unkó w i jakości pracy
+
+
+
+       WARUNKI REALIZACJI KSZTAŁCENIA W ZA WO D ZIE TECHNIK PROGRAMISTA
+
+       Szkoła                                prowadząca
+       odpowiadającym                           technologii
+       efektów kształcenia określonych w podstawie programowej kształcenia w zawodzie
+       umożliwić przygotowanie absolwenta do  wykonywania zadań zawodowych.
+
+       Wyposażenie                                     sz koły
+       i administrowanie stronami i aplikacjami internetowymi oraz bazami danych
+
+       Pracownia stron WWW, baz danych i aplikacji wyposażona w:
+                               stanowisko    dla    nauczyciela     wyposażone     w
+             z dostępem do internetu, z o p ro gr a mo wan ie m s ys te mo wy m i  uży
+             projektora, ekran lub tablicę           multimedialną, projektor
+             drukarkę           i skaner, oprogramowanie do tworzenia grafiki rastrowe
+             materiałów audio i wideo, różne systemy zarządzania bazą danych, oprogram
+             aplikacji internetowych po stronie serwera i klienta w wybranych
+             oprogramowania              zawierające              serwer
+             webowych, dokumentację techniczną,
+                  stanowiska komputerowe dla uczniów           (jedno           stano
+             stacjonarny lub mobilny podłączony                   do
+             i wektorowej         oraz         animacji,         obróbki         mater
+             oprogramowanie   umożliwiające   tworzenie   aplikacji  internetowych  po
+             językach       programo wania,      podłączenie      do      sieci      l
+             zawierające serwer WWW, SQL, PHP, serwer hostingowy do testowania projekt
+             techniczną.
+
+       Wyposażenie                            sz koły                            niezb
+       programowanie i testowanie aplikacji
+
+       Pracownia programowania aplikacji wyposażona w:
+                               stanowisko    dla   nauczyciela    wyposażone    w   k
+             z dostępem do internetu z oprogramowaniem systemowym i użytkowym, tablet
+             projektora,         ekran        lub        tablicę         multimedialną
+             drukarkę     i skaner,     kompilatory     różnych     języków     progra
+             oprogramowanie do tworzenia grafiki i animacji,             obróbki
+             programistyczne,             oprogramowanie             umożliwiające
+             i klienta w wybranych                    językach                    prog
+             desktopowych   oraz    mobilnych,   pakiety   oprogramowania   zawierając
+             mobilne do testowania aplikacji, np. tablet, smartfon, smartwatch, serwer
+             webowych, dokumentacj ę techniczną,
+                               stanowiska           komputerowe           dla
+             stacjonarny lub mobilny, podłączony do sieci lokalnej z dostępem do inter
+             programowania,    edytor    różnych    języków    programowania,    oprog
+             obróbki              materiałów              audio              i wideo,
+             tworzenie aplikacji internetowych po stronie serwera               i klie
+             oprogramowanie  umożliwiające  tworzenie  aplikacji desktopowych  oraz  m
+             zawierające        serwer        WWW,       SQL,        PHP,        urząd
+             smartwatch, serwer hostingowy do testowania projektów webowych, dokumenta
+
+
+
+
+
+
+      Miejsce realizacji praktyk zawodowych:
+                                                    przedsiębiorstwa
+                    informatycznych,
+                                                    przedsiębiorstwa         zajmując
+                    internetowych oraz innych technologii webowych,
+                                                    przedsiębiorstwa zajmujące się tw
+                                              przedsiębiorstwa zajmujące się tworzeni
+                                              przedsiębiorstwa zajmujące się projekto
+                                                    przedsiębiorstwa zajmujące się mo
+                                                    inne                    podmiot y
+                    kształcenie w zawodzie.
+
+      Liczba tygodni przeznaczonych na realizację praktyk zawodowych: 8 tygodni (280 g
+
+      MINIMALNA                                 LICZBA
+      WYODRĘBNIONYCH W ZAWODZIE1)
+
+        INF.03. Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz
+                                          Nazwa jednostki efektów kształcenia
+        INF.03.1. Bezpieczeństwo i higiena pracy
+        INF.03.2. Podstawy informatyki
+        INF.03.3. Projektowanie stron internetowych
+        INF.03.4. Projektowanie i administrowanie bazami danych
+        INF.03.5. Programowanie aplikacji internetowych
+        INF.03.6. Język obcy zawodowy
+
+        INF.03.7. Kompetencje personalne i społeczne2)
+        INF.03.8. Organizacja pracy małych zespołów2)
+
+        INF.04. Projektowanie, programo wanie i testowanie aplikacji
+                                          Nazwa jednostki efektów kształcenia
+        INF.04.1. Bezpieczeństwo i higiena pracy
+        INF.04.2. Podstawy informatyki3)
+        INF.04.3. Projektowanie oprogramowania
+        INF.04.4. Programowanie obiektowe
+        INF.04.5. Programowanie aplikacji desktopowych
+        INF.04.6. Programowanie aplikacji mobilnych
+        INF.04.7. Programowanie aplikacji zaawansowanych webowych
+        INF.04.8. Testowanie i dokumentowanie aplikacji
+        INF.04.9. Język obcy zawodowy
+
+        INF.04.10. Kompetencje personalne i społeczne2)
+        INF.04.11. Organizacja pracy małych zespołów2)
+
+
+      1)   W szkole liczbę godzin kształcenia zawodowego należy dostosować do wymiaru
+         ramowych    planów    nauczania    dla    publicznych    szkół,    przewidzia
+         zachowując                  minimalną                  liczbę
+         wyodrębnionej w           zawodzie.
+      2) Nauczyciele wszystkich obowiązkowych zajęć edukacyjnych z zakresu kształcenia
+         warunki do nabywania kompetencji personalnych      i społecznych      oraz
+         zespołów.
+      3) Wskazana jednostka efektów kształcenia nie jest powtarzana w przypadku, gdy k
+         prowadzącej kształcenie w tym zawodzie.
+
+
+      MOŻLIWOŚCI PODNOSZENIA KWALIFIKACJI W ZA WOD ZIE
+
+
+
+
+
+
+
+          Absolwent             szkoły             prowadzącej             kształcenie
+          INF.03.Tworzenie    i administrowanie stronami    i aplikacjami internetowym
+          dyplom                za wodo wy                w zawodzie technik informaty
+          i eksploatacja systemów komputerowych, urządzeń peryferyjnych i lokalnych si
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

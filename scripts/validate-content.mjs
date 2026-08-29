@@ -59,7 +59,8 @@ function readFrontmatter(path) {
     if (pair === null) continue;
     currentKey = pair[1];
     const value = pair[2].trim();
-    data[currentKey] = value === '' ? [] : value.replace(/^['"]|['"]$/g, '');
+    data[currentKey] =
+      value === '' || value === '[]' ? [] : value.replace(/^['"]|['"]$/g, '');
   }
   return data;
 }
@@ -94,6 +95,8 @@ for (const slug of ruSlugs) {
 // 2. Уникальность идентификаторов в справочных данных.
 const glossary = readJson(join(CONTENT, 'glossary.json'));
 const obligations = readJson(join(CONTENT, 'obligations.json'));
+const effects = readJson(join(CONTENT, 'effects.json'));
+const subjects = readJson(join(CONTENT, 'subjects.json'));
 
 function checkUniqueIds(items, label) {
   const seen = new Set();
@@ -106,8 +109,30 @@ function checkUniqueIds(items, label) {
 
 const glossaryIds = checkUniqueIds(glossary, 'glossary.json');
 checkUniqueIds(obligations, 'obligations.json');
+checkUniqueIds(effects, 'effects.json');
+checkUniqueIds(subjects, 'subjects.json');
 
-// 3. Темы ссылаются только на существующие термины.
+const detailedEffectIds = new Set();
+const qualificationEffectCounts = { 'INF.03': 0, 'INF.04': 0 };
+for (const unit of effects) {
+  for (const effect of unit.effects ?? []) {
+    if (detailedEffectIds.has(effect.id)) {
+      fail(`effects.json: повторяющийся подробный id «${effect.id}»`);
+    }
+    detailedEffectIds.add(effect.id);
+    qualificationEffectCounts[unit.qualification] += 1;
+  }
+}
+for (const [qualification, expected] of Object.entries({ 'INF.03': 58, 'INF.04': 61 })) {
+  if (qualificationEffectCounts[qualification] !== expected) {
+    fail(
+      `effects.json: ${qualification} содержит ${qualificationEffectCounts[qualification]} эффектов вместо ${expected}`,
+    );
+  }
+}
+
+// 3. Темы ссылаются только на существующие термины и подробные эффекты.
+const mappedEffectIds = new Set();
 for (const relative of listMarkdown(join(CONTENT, 'topics'))) {
   const path = join(CONTENT, 'topics', relative);
   const data = readFrontmatter(path);
@@ -115,6 +140,17 @@ for (const relative of listMarkdown(join(CONTENT, 'topics'))) {
     if (!glossaryIds.has(term)) {
       fail(`topics/${relative}: термин «${term}» отсутствует в glossary.json`);
     }
+  }
+  for (const effect of data.effects ?? []) {
+    if (!detailedEffectIds.has(effect)) {
+      fail(`topics/${relative}: эффект «${effect}» отсутствует в effects.json`);
+    }
+    mappedEffectIds.add(effect);
+  }
+}
+for (const effect of detailedEffectIds) {
+  if (!mappedEffectIds.has(effect)) {
+    fail(`topics: подробный эффект «${effect}» не представлен в карте программы`);
   }
 }
 
@@ -165,5 +201,6 @@ if (errors.length > 0) {
 }
 console.log(
   `Контент в порядке. Терминов: ${glossary.length}, обязанностей: ${obligations.length}, ` +
-    `статей справочника: ${plSlugs.size}. Предупреждений: ${warnings.length}.`,
+    `статей справочника: ${plSlugs.size}, подробных эффектов: ${detailedEffectIds.size}, ` +
+    `тем карты: ${mappedEffectIds.size}. Предупреждений: ${warnings.length}.`,
 );

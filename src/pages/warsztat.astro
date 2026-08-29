@@ -45,15 +45,15 @@ import ImageTool from '../components/ImageTool';
       </li>
       <li>
         <strong>Prawdziwy MySQL.</strong> PHP wykonuje się naprawdę, ale zapytania obsługuje
-        SQLite, bo MySQL do przeglądarki nie wchodzi w żadnej postaci. Dlatego zrzut z phpMyAdmin
-        wykłada się na pierwszych liniach: <code>AUTO_INCREMENT</code> i
-        <code>ENGINE=InnoDB</code> to składnia, której SQLite nie zna.
+        warstwa zgodności mysqli oparta na vrzno i sql.js, nie serwer MySQL. Dlatego zrzut z
+        phpMyAdmin wykłada się na pierwszych liniach: <code>AUTO_INCREMENT</code> i
+        <code>ENGINE=InnoDB</code> to składnia, której SQLite nie zna. · PHP выполняется
+        по-настоящему, но запросы идут в sql.js, а не в MySQL.
       </li>
       <li>
-        <strong>Przygotowane zapytania.</strong> <code>mysqli_prepare</code> i
-        <code>bind_param</code> zgłoszą błąd zamiast po cichu nie zadziałać. Do rozwiązań INF.03 to
-        wystarcza, bo one składają SQL i wołają <code>mysqli_query</code>, ale w prawdziwym
-        projekcie tylko przygotowane zapytania bronią przed SQL injection.
+        <strong>Wiele zapytań naraz.</strong> <code>mysqli_multi_query</code> zgłasza czytelny błąd.
+        Pojedyncze <code>query</code> oraz prepared statements działają w stylu proceduralnym i
+        obiektowym. Każde polecenie uruchamiaj osobno. · <code>multi_query</code> не поддерживается.
       </li>
       <li>
         <strong>Reszta stanowiska: Apache, formularze, sesje.</strong> Nie ma

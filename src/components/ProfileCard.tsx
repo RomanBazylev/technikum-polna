@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import { exportState, importState } from '../lib/state/appState';
+import { browserStorage, exportState, importState, loadState } from '../lib/state/appState';
 import { useAppState } from '../lib/state/useAppState';
 
 const GRADES = [1, 2, 3, 4, 5] as const;
@@ -14,7 +14,9 @@ export default function ProfileCard() {
   const [message, setMessage] = useState<string | null>(null);
 
   const download = () => {
-    const blob = new Blob([exportState(state)], { type: 'application/json' });
+    const storage = browserStorage();
+    const current = storage === null ? state : loadState(storage).state;
+    const blob = new Blob([exportState(current)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;

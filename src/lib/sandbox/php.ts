@@ -117,6 +117,29 @@ echo "</ol>";
 mysqli_close($polaczenie);
 `,
   },
+  {
+    id: 'prepared',
+    label: 'Prepared statement',
+    starter: `<?php
+$db = new mysqli("localhost", "root", "", "szkola");
+$klasa = "1B";
+$stmt = $db->prepare(
+    "SELECT imie, nazwisko FROM uczniowie WHERE klasa = ? ORDER BY nazwisko"
+);
+$stmt->bind_param("s", $klasa);
+$stmt->execute();
+$wynik = $stmt->get_result();
+
+echo "<h3>Prepared statement: klasa 1B</h3><ul>";
+while ($uczen = $wynik->fetch_assoc()) {
+    echo "<li>" . $uczen["imie"] . " " . $uczen["nazwisko"] . "</li>";
+}
+echo "</ul><p>Wierszy: " . $wynik->num_rows . "</p>";
+
+$stmt->close();
+$db->close();
+`,
+  },
 ];
 
 /**
@@ -124,23 +147,23 @@ mysqli_close($polaczenie);
  */
 export const PHP_BOUNDARIES: ReadonlyArray<{ title: string; detail: string }> = [
   {
-    title: 'Brak przygotowanych zapytań',
+    title: 'Warstwa zgodności, nie MySQL · Совместимый слой, не MySQL',
     detail:
-      'mysqli_prepare, bind_param i execute zgłoszą tu błąd. Rozwiązania INF.03 budują SQL przez sklejanie i mysqli_query, więc do egzaminu to wystarcza, ale w prawdziwym projekcie przygotowane zapytania są jedyną obroną przed SQL injection.',
+      'PHP 8.3 działa naprawdę, ale mysqli jest lokalnym mostem vrzno → JavaScript → sql.js. Nie ma serwera MySQL, logowania, sieci ani jego ustawień. · PHP настоящий, но mysqli здесь совместимый мост к sql.js.',
   },
   {
-    title: 'Pod spodem jest SQLite, nie MySQL',
+    title: 'Dialekt SQLite · Диалект SQLite',
     detail:
-      'Zapytania trafiają do tej samej bazy co piaskownica SQL. Trzy ciche różnice dialektów opisane są w piaskownicy SQL i obowiązują też tutaj.',
+      'Prepared statements i zwykłe query trafiają do SQLite. AUTO_INCREMENT, ENGINE=InnoDB, funkcje MySQL oraz trzy ciche różnice opisane wyżej nie zachowują się jak na XAMPP-ie. · Запросы выполняет SQLite, поэтому синтаксис и функции MySQL отличаются.',
   },
   {
-    title: 'Jedno zapytanie na wywołanie',
+    title: 'Jedno polecenie · Один запрос',
     detail:
-      'mysqli_multi_query nie działa. Kilka poleceń rozdziel na osobne wywołania mysqli_query.',
+      'mysqli_multi_query i mysqli::multi_query kończą program czytelnym błędem. Obsługa wielu zestawów wyników różniłaby się od MySQL, więc każde polecenie uruchamiaj osobno. · multi_query не поддерживается и завершает программу с явной ошибкой.',
   },
   {
-    title: 'Nie ma Apache, sesji ani plików',
+    title: 'Bez serwera WWW · Без веб-сервера',
     detail:
-      'Nie ma $_POST, $_SESSION, formularzy ani uploadu. To ćwiczy się na XAMPP-ie, bo tam sprawdza się też konfigurację stanowiska.',
+      'Nie ma Apache, routingu, sesji, obsługi formularzy ani uploadu. $_GET, $_POST, $_SESSION i $_FILES nie odwzorowują żądania HTTP. · Нет Apache, HTTP-запросов, сессий, форм и загрузки файлов.',
   },
 ];

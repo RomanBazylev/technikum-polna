@@ -2,13 +2,23 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Destination from '../components/Destination.astro';
+import GlossarySpeak from '../components/GlossarySpeak';
 import TeacherDirectory from '../components/TeacherDirectory';
 import type { SubjectRef } from '../lib/domain/timetable';
 
 const handbook = await getCollection('handbook');
-const russian = handbook
-  .filter((entry) => entry.id.startsWith('ru/'))
+const polish = handbook
+  .filter((entry) => entry.id.startsWith('pl/'))
   .sort((a, b) => a.data.order - b.data.order);
+const russian = handbook.filter((entry) => entry.id.startsWith('ru/'));
+const russianBySection = new Map(russian.map((entry) => [entry.data.section, entry]));
+const articles = polish.map((pl) => {
+  const ru = russianBySection.get(pl.data.section);
+  if (ru === undefined) {
+    throw new Error(`Brak rosyjskiej wersji artykułu ${pl.data.section}`);
+  }
+  return { pl, ru };
+});
 
 const glossary = await getCollection('glossary');
 const subjectEntries = await getCollection('subjects');
@@ -17,6 +27,11 @@ const subjects: SubjectRef[] = subjectEntries.map((entry) => ({
   pl: entry.data.name.pl,
   ru: entry.data.name.ru,
   textbook: entry.data.textbook,
+}));
+const glossaryTerms = glossary.map((entry) => ({
+  pl: entry.data.pl,
+  ru: entry.data.ru,
+  note: entry.data.note?.ru,
 }));
 
 const base = import.meta.env.BASE_URL;
@@ -36,18 +51,14 @@ const base = import.meta.env.BASE_URL;
     </h2>
     <ul class="flex flex-col gap-2">
       {
-        russian.map((entry) => (
-          <li
-            id={entry.id.split('/')[1]}
-            class="scroll-mt-4 rounded-card border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-4 target:border-[var(--color-accent)]"
-          >
-            <h3 class="text-body font-semibold">{entry.data.title}</h3>
-            <p class="mt-1 text-label text-[var(--color-muted)]">{entry.data.summary}</p>
-            {entry.data.legalBasis.length > 0 ? (
-              <p class="mt-2 text-micro text-[var(--color-faint)]">
-                {entry.data.legalBasis.join(' · ')}
-              </p>
-            ) : null}
+        articles.map(({ pl, ru }) => (
+          <li>
+            <Destination
+              href={`${base}szkola/${pl.data.section}/`}
+              pl={pl.data.title}
+              ru={ru.data.title}
+              hint={pl.data.summary}
+            />
           </li>
         ))
       }
@@ -58,19 +69,7 @@ const base = import.meta.env.BASE_URL;
     <h2 class="mb-2 text-label font-semibold uppercase tracking-[0.12em] text-[var(--color-faint)]">
       Słownik, {glossary.length} haseł
     </h2>
-    <dl class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-      {
-        glossary.map((entry) => (
-          <div class="rounded-card border border-[var(--color-line)] p-3">
-            <dt class="text-body font-semibold">{entry.data.pl}</dt>
-            <dd class="text-label text-[var(--color-muted)]">{entry.data.ru}</dd>
-            {entry.data.note?.ru ? (
-              <dd class="mt-1 text-micro text-[var(--color-faint)]">{entry.data.note.ru}</dd>
-            ) : null}
-          </div>
-        ))
-      }
-    </dl>
+    <GlossarySpeak client:idle terms={glossaryTerms} />
   </section>
 
   <section class="mt-7">

@@ -56,6 +56,48 @@ const bellsSchema = z.object({
   breakMinutes: z.number().int().min(0).max(120),
 });
 
+const gradeEntrySchema = z.object({
+  grade: z.union([
+    z.literal(1),
+    z.literal(2),
+    z.literal(3),
+    z.literal(4),
+    z.literal(5),
+    z.literal(6),
+  ]),
+  weight: z.number().min(1),
+});
+
+const calculatorDefaults = {
+  absenceBudget: { plannedHours: 60, missedHours: 8 },
+  gradeTools: {
+    points: 18,
+    maxPoints: 24,
+    entries: [
+      { grade: 3 as const, weight: 1 },
+      { grade: 4 as const, weight: 3 },
+    ],
+    target: 4,
+    futureWeight: 2,
+  },
+};
+
+const calculatorsSchema = z
+  .object({
+    absenceBudget: z.object({
+      plannedHours: z.number().min(1),
+      missedHours: z.number().min(0),
+    }),
+    gradeTools: z.object({
+      points: z.number().min(0),
+      maxPoints: z.number().min(1),
+      entries: z.array(gradeEntrySchema),
+      target: z.number().min(1).max(6),
+      futureWeight: z.number().min(1),
+    }),
+  })
+  .default(() => structuredClone(calculatorDefaults));
+
 export const appStateSchema = z.object({
   version: z.literal(APP_STATE_VERSION),
   profile: z.object({
@@ -63,6 +105,7 @@ export const appStateSchema = z.object({
     languageGroup: z.enum(['niemiecki', 'hiszpanski']).nullable(),
     uiLocale: z.enum(['pl', 'ru']),
     birthDate: isoDate.nullable(),
+    absenceEndedOn: isoDate.nullable().default(null),
   }),
   timetable: z.array(lessonSchema),
   attendance: z.array(opaqueRecord),
@@ -71,6 +114,7 @@ export const appStateSchema = z.object({
   announcedTests: z.array(announcedTestSchema),
   progress: z.record(z.string(), z.enum(['new', 'learning', 'known'])),
   teachers: z.array(teacherSchema),
+  calculators: calculatorsSchema,
   /**
    * Из настроек читаются только bells. Тема мертва: приложение тёмное, светлая
    * половина media-запроса удалена. Переключателя языка тоже нет, интерфейс
@@ -90,7 +134,13 @@ export type TeacherEntry = z.infer<typeof teacherSchema>;
 export function defaultState(): AppState {
   return {
     version: APP_STATE_VERSION,
-    profile: { grade: 1, languageGroup: null, uiLocale: 'pl', birthDate: null },
+    profile: {
+      grade: 1,
+      languageGroup: null,
+      uiLocale: 'pl',
+      birthDate: null,
+      absenceEndedOn: null,
+    },
     timetable: [],
     attendance: [],
     grades: [],
@@ -98,6 +148,7 @@ export function defaultState(): AppState {
     announcedTests: [],
     progress: {},
     teachers: [],
+    calculators: structuredClone(calculatorDefaults),
     settings: { theme: 'system', showRussian: true, bells: { ...DEFAULT_BELLS } },
   };
 }
@@ -125,6 +176,11 @@ function withBells(settings: unknown): unknown {
   return bellsSchema.safeParse(existing).success
     ? settings
     : { ...settings, bells: { ...DEFAULT_BELLS } };
+}
+
+function withCalculators(calculators: unknown): AppState['calculators'] {
+  const parsed = calculatorsSchema.safeParse(calculators);
+  return parsed.success ? parsed.data : structuredClone(calculatorDefaults);
 }
 
 /** Миграции с версии N на N+1. */
@@ -156,7 +212,7 @@ function applyMigrations(input: Record<string, unknown>): Record<string, unknown
     current = step(current);
     version += 1;
   }
-  return current;
+  return { ...current, calculators: withCalculators(current['calculators']) };
 }
 
 /**

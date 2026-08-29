@@ -150,6 +150,63 @@ details.term > summary {
   cursor: pointer;
 }
 
+.handbook-body {
+  font-size: var(--text-label);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.handbook-body h2 {
+  margin-top: 1.5rem;
+  font-size: var(--text-title);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.handbook-body h2:first-child {
+  margin-top: 0;
+}
+
+.handbook-body p,
+.handbook-body ul,
+.handbook-body ol,
+.handbook-body blockquote,
+.handbook-body table {
+  margin-top: 0.75rem;
+}
+
+.handbook-body ul,
+.handbook-body ol {
+  padding-left: 1.25rem;
+}
+
+.handbook-body ul {
+  list-style: disc;
+}
+
+.handbook-body ol {
+  list-style: decimal;
+}
+
+.handbook-body table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.handbook-body th,
+.handbook-body td {
+  border: 1px solid var(--color-line-strong);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.handbook-body blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 0.75rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
