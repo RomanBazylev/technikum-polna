@@ -25,6 +25,12 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Zależności ekstrakcji programu
+        run: pip install -r requirements-content.txt
       - run: npm ci
       - name: Проверка типов
         run: npm run typecheck

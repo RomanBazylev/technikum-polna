@@ -78,7 +78,7 @@ Lista akceptowanych dowodów (§ 4 ust. 3 zarządzenia nr 1571/2024 Prezydenta m
 
 Wszystkie cztery zakładają, że zeznanie **zostało już złożone**. Dokumentu tymczasowego nie ma.
 
-Praktyczny wniosek dla rodziny, która zaczyna pracę w Warszawie w 2026 r. Zeznanie za 2026 r. można złożyć od **15 lutego 2027 r.** Nie ma po co czekać do 30 kwietnia, bo do tego dnia dziecko jeździ na droższym bilecie. Dwa warunki muszą być spełnione naraz: zeznanie idzie do **warszawskiego** urzędu skarbowego i wskazuje **warszawski** adres.
+Jeżeli rodzic ma stałe zameldowanie w Warszawie, PIT nie jest potrzebny. Dopiero gdy go nie ma, znaczenie ma drugi wariant. Dla rodziny, która zaczyna mieszkać i pracować w Warszawie w 2026 r., zeznanie za 2026 r. można złożyć od **15 lutego 2027 r.** Nie ma po co czekać do 30 kwietnia. Uprawnienie nie zaczyna się jednak automatycznie w lutym: najpierw trzeba złożyć zeznanie do **warszawskiego** urzędu skarbowego, wskazać **warszawski** adres i przedstawić jeden z akceptowanych dowodów.
 
 Przyznane uprawnienie jest ważne do **31 grudnia następnego roku**.
 

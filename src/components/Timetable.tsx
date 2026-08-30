@@ -157,7 +157,7 @@ export default function Timetable({ subjects }: Props) {
   return (
     <div className="flex flex-col gap-4">
       <section className="rounded-card border-l-4 border-[var(--color-accent)] bg-[var(--color-ink-soft)] p-4">
-        <h2 className="font-medium">Do dzwonka · До звонка</h2>
+        <h2 className="font-medium">Szacunek do dzwonka · Время примерно</h2>
         {upNext === null ? (
           <p className="mt-1 text-label text-[var(--color-faint)]">Liczymy…</p>
         ) : (
@@ -195,8 +195,9 @@ export default function Timetable({ subjects }: Props) {
         <h2 className="font-medium">Plan lekcji · Расписание</h2>
         <p className="mt-1 text-label text-[var(--color-muted)]">
           Szkoła nie publikuje rozkładu dzwonków, więc godziny liczymy z tych dwóch pól. Lekcja trwa
-          45 minut, § 21 ust. 6 statutu. · Школа не публикует расписание звонков, поэтому время
-          считается из этих двух полей.
+          45 minut, § 21 ust. 6 statutu. Początkowe 8:00 i 10 minut to tylko przykład — wpisz dane
+          z Librusa albo od szkoły. · Школа не публикует расписание звонков; 8:00 и 10 минут —
+          только пример, время считается из этих двух полей.
         </p>
 
         <div className="mt-4 rounded-card border border-[var(--color-line-strong)] bg-[var(--color-ink-raised)] p-4">

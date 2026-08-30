@@ -140,6 +140,12 @@ test('калькулятор считает бюджет пропусков по
   await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
 });
 
+test('страница экзаменов отличает профэкзамен от формулы матуры', async ({ page }) => {
+  await page.goto('./egzaminy/');
+  await expect(page.getByText(/Formule 2019/)).toBeVisible();
+  await expect(page.getByText(/szkoła nie opublikowała jeszcze planu tego oddziału/)).toBeVisible();
+});
+
 test('экспорт и импорт сохраняет значения обоих калькуляторов', async ({ page }) => {
   await page.goto('./kalkulatory/');
   const points = page.getByLabel('Zdobyte punkty');
@@ -290,6 +296,7 @@ test('справочник показывает статьи и словарь',
 
   await page.goto('./szkola/pieniadze-i-dojazd/');
   await expect(page.getByRole('cell', { name: 'Dobry Start' }).first()).toBeVisible();
+  await expect(page.getByText(/Jeżeli rodzic ma stałe zameldowanie w Warszawie/)).toBeVisible();
 
   await page.goto('./szkola/kalendarz/');
   await expect(page.getByText('23–31 grudnia 2026', { exact: true }).first()).toBeVisible();
@@ -326,17 +333,39 @@ test('весь функционал доступен с главной за од
   }
 });
 
-const ROUTES = [
-  './',
-  './nauka/',
-  './egzaminy/',
-  './szkola/',
-  './plan/',
-  './kalkulatory/',
-  './lektury/',
-  './zasoby/',
-  './warsztat/',
+const ROUTE_HEADINGS = [
+  ['./', 'TKK Polna · 1B'],
+  ['./nauka/', 'Nauka'],
+  ['./egzaminy/', 'Egzaminy'],
+  ['./szkola/', 'Szkoła'],
+  ['./szkola/pierwszy-tydzien/', 'Pierwszy tydzień'],
+  ['./szkola/zasady/', 'Zasady, które naprawdę obowiązują'],
+  ['./szkola/prawa-cudzoziemca/', 'Prawa ucznia cudzoziemca'],
+  ['./szkola/pieniadze-i-dojazd/', 'Pieniądze i dojazd'],
+  ['./szkola/kalendarz/', 'Kalendarz roku 2026/2027'],
+  ['./szkola/kontakt/', 'Kontakt i sprawy organizacyjne'],
+  ['./plan/', 'Plan'],
+  ['./kalkulatory/', 'Kalkulatory'],
+  ['./lektury/', 'Lektury'],
+  ['./zasoby/', 'Zasoby'],
+  ['./warsztat/', 'Warsztat'],
 ] as const;
+const ROUTES = ROUTE_HEADINGS.map(([route]) => route);
+
+test('все страницы и их ресурсы отдаются без скрытых 404', async ({ page }) => {
+  const failed = new Set<string>();
+  page.on('response', (response) => {
+    if (response.status() >= 400) failed.add(`${response.status()} ${response.url()}`);
+  });
+
+  for (const [route, heading] of ROUTE_HEADINGS) {
+    const response = await page.goto(route);
+    expect(response?.status(), route).toBe(200);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(heading);
+  }
+
+  expect([...failed], `запросы с ошибкой: ${[...failed].join(', ')}`).toEqual([]);
+});
 
 test('каждая внутренняя ссылка заканчивается слешем', async ({ page }) => {
   // Это ломало продакшен: без слеша воркер не находит адрес среди
@@ -677,6 +706,7 @@ test('карта программы показывает сетку часов �
   // Профессиональный блок: 11/12/13/13/7, всего 56 часов за цикл.
   await expect(page.getByRole('cell', { name: '56', exact: true })).toBeVisible();
   await expect(page.getByText('INF.04.7').first()).toBeVisible();
+  await expect(page.getByText(/Niepotwierdzone przez szkołę/).first()).toBeVisible();
 });
 
 test('вставленная сетка запускает план и переживает переход', async ({ page }) => {

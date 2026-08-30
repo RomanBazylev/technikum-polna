@@ -58,10 +58,12 @@ function Stepper({
   label,
   value,
   onChange,
+  enabled,
 }: {
   label: string;
   value: number;
   onChange: (next: number) => void;
+  enabled: boolean;
 }) {
   return (
     <div>
@@ -70,7 +72,7 @@ function Stepper({
         <button
           type="button"
           aria-label={`${label}: mniej`}
-          disabled={value === 0}
+          disabled={!enabled || value === 0}
           onClick={() => onChange(Math.max(0, value - 1))}
           className="h-10 w-10 rounded-lg border border-[var(--color-line-strong)] text-title leading-none disabled:opacity-30"
         >
@@ -80,8 +82,9 @@ function Stepper({
         <button
           type="button"
           aria-label={`${label}: więcej`}
+          disabled={!enabled}
           onClick={() => onChange(value + 1)}
-          className="h-10 w-10 rounded-lg border border-[var(--color-line-strong)] text-title leading-none"
+          className="h-10 w-10 rounded-lg border border-[var(--color-line-strong)] text-title leading-none disabled:opacity-30"
         >
           +
         </button>
@@ -90,7 +93,7 @@ function Stepper({
   );
 }
 
-function BehaviourHero({ now }: { now: Date | null }) {
+function BehaviourHero({ now, hydrated }: { now: Date | null; hydrated: boolean }) {
   const [unexcused, setUnexcused] = useState(0);
   const [late, setLate] = useState(0);
 
@@ -149,8 +152,13 @@ function BehaviourHero({ now }: { now: Date | null }) {
       </ol>
 
       <div className="mt-4 flex gap-6">
-        <Stepper label="godziny bez usprawiedliwienia" value={unexcused} onChange={setUnexcused} />
-        <Stepper label="spóźnienia" value={late} onChange={setLate} />
+        <Stepper
+          label="godziny bez usprawiedliwienia"
+          value={unexcused}
+          onChange={setUnexcused}
+          enabled={hydrated}
+        />
+        <Stepper label="spóźnienia" value={late} onChange={setLate} enabled={hydrated} />
       </div>
 
       <p className="mt-4 text-micro text-[var(--color-faint)]">
@@ -202,7 +210,7 @@ function LessonNow({
             {subject?.pl ?? lesson.lesson.subjectId}
           </p>
           <p className="mt-1 text-label text-[var(--color-muted)]">
-            {subject?.ru ?? lesson.lesson.subjectId} · do {end}
+            {subject?.ru ?? lesson.lesson.subjectId} · do ok. {end}
             {lesson.lesson.room === undefined ? '' : ` · sala ${lesson.lesson.room}`}
           </p>
         </>
@@ -220,7 +228,7 @@ function LessonNow({
             {subject?.pl ?? lesson.lesson.subjectId}
           </p>
           <p className="mt-1 text-label text-[var(--color-muted)]">
-            {subject?.ru ?? lesson.lesson.subjectId} · {start}
+            {subject?.ru ?? lesson.lesson.subjectId} · ok. {start}
             {lesson.lesson.room === undefined ? '' : ` · sala ${lesson.lesson.room}`}
           </p>
         </>
@@ -339,11 +347,13 @@ function DailyHero({
 
 export default function TodayHero({ subjects, now: fixedNow }: Props) {
   const { state, ready } = useAppState();
+  const [hydrated, setHydrated] = useState(false);
   const [now, setNow] = useState<Date | null>(() =>
     fixedNow === undefined ? null : new Date(fixedNow),
   );
 
   useEffect(() => {
+    setHydrated(true);
     if (fixedNow !== undefined) return;
     setNow(new Date());
     const timer = window.setInterval(() => setNow(new Date()), TICK_MS);
@@ -367,6 +377,6 @@ export default function TodayHero({ subjects, now: fixedNow }: Props) {
   return ready && briefing.kind === 'ready' ? (
     <DailyHero briefing={briefing} subjects={subjects} bells={state.settings.bells} />
   ) : (
-    <BehaviourHero now={now} />
+    <BehaviourHero now={now} hydrated={hydrated} />
   );
 }
