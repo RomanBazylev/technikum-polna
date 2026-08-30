@@ -15,6 +15,9 @@ coverage/
 .pw-browsers/
 .pw-shots/
 .audit/
+handbook-mobile.png
+glossary-speech-mobile.png
+src/lib/sandbox/*.png
 
 # environment
 .env

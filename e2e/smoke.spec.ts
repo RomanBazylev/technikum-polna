@@ -237,7 +237,16 @@ test('дата рождения вводится прямо на главной 
   await expect(
     page.getByText('Legitymacja szkolna obowiązkowa w kontroli'),
   ).toBeVisible();
-  await expect(invite).toHaveCount(0, { timeout: 15_000 });
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const raw = window.localStorage.getItem('tkk-polna:state');
+        if (raw === null) return null;
+        const saved = JSON.parse(raw);
+        return saved.profile?.birthDate ?? null;
+      }),
+    )
+    .toBe('2011-03-15');
 });
 
 test('обратный отсчёт ведёт в статью о первом сентября', async ({ page }) => {
@@ -540,10 +549,15 @@ test('песочница PHP выполняет OO, prepared statements и яв�
 $db = new mysqli("localhost", "root", "", "szkola");
 $wynik = $db->query("SELECT imie, nazwisko FROM uczniowie ORDER BY id LIMIT 1");
 $uczen = $wynik->fetch_assoc();
-echo "OO: " . $uczen["imie"] . " " . $uczen["nazwisko"] . "; errno=" . $db->errno;
+echo "OO: " . $uczen["imie"] . " " . $uczen["nazwisko"]
+    . "; connect_errno=" . $db->connect_errno
+    . "; connect_error=" . ($db->connect_error === null ? "NULL" : $db->connect_error)
+    . "; errno=" . $db->errno;
 `);
   await run.click();
-  await expect(output.getByText('OO: Anna Zielinska; errno=0')).toBeVisible({ timeout: 60_000 });
+  await expect(
+    output.getByText('OO: Anna Zielinska; connect_errno=0; connect_error=NULL; errno=0'),
+  ).toBeVisible({ timeout: 60_000 });
   await expect(page.getByTestId('php-errors')).toHaveCount(0);
 
   await editor.fill(`<?php
@@ -622,6 +636,15 @@ $db->multi_query("SELECT 1; SELECT 2");
   await expect(output.getByText(/BŁĄD: mysqli::multi_query nie działa w tej piaskownicy/)).toBeVisible(
     { timeout: 60_000 },
   );
+
+  await editor.fill(`<?php
+$db = mysqli_connect("localhost", "root", "", "szkola");
+mysqli_multi_query($db, "SELECT 1; SELECT 2");
+`);
+  await run.click();
+  await expect(output.getByText(/BŁĄD: mysqli_multi_query nie działa w tej piaskownicy/)).toBeVisible({
+    timeout: 60_000,
+  });
 });
 
 test('песочница PHP усиливает предупреждение на медленной связи', async ({ page }) => {

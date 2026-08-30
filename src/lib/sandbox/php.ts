@@ -159,7 +159,7 @@ export const PHP_BOUNDARIES: ReadonlyArray<{ title: string; detail: string }> = 
   {
     title: 'Jedno polecenie · Один запрос',
     detail:
-      'mysqli_multi_query i mysqli::multi_query kończą program czytelnym błędem. Obsługa wielu zestawów wyników różniłaby się od MySQL, więc każde polecenie uruchamiaj osobno. · multi_query не поддерживается и завершает программу с явной ошибкой.',
+      'mysqli_multi_query i mysqli::multi_query zwracają false i pokazują czytelny błąd. Obsługa wielu zestawów wyników różniłaby się od MySQL, więc każde polecenie uruchamiaj osobno. · multi_query не поддерживается, возвращает false и показывает явную ошибку.',
   },
   {
     title: 'Bez serwera WWW · Без веб-сервера',

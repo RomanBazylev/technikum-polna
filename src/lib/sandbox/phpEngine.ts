@@ -296,7 +296,8 @@ function tehnikum_ask($request) {
 
 function tehnikum_niedostepne($nazwa, $powod) {
     $komunikat = $nazwa . ' nie działa w tej piaskownicy. ' . $powod;
-    die('<strong>BŁĄD:</strong> ' . htmlspecialchars($komunikat, ENT_QUOTES, 'UTF-8'));
+    echo '<strong>BŁĄD:</strong> ' . htmlspecialchars($komunikat, ENT_QUOTES, 'UTF-8');
+    return false;
 }
 
 class mysqli_stmt {
@@ -477,7 +478,7 @@ class mysqli {
     public function select_db($database) { return true; }
 
     public function multi_query($sql) {
-        tehnikum_niedostepne(
+        return tehnikum_niedostepne(
             'mysqli::multi_query',
             'Warstwa sql.js wykonuje dokładnie jedno polecenie. Rozdziel SQL na osobne wywołania query.'
         );
@@ -567,7 +568,7 @@ function mysqli_stmt_insert_id($statement) { return $statement->insert_id; }
 function mysqli_stmt_num_rows($statement) { return $statement->num_rows; }
 
 function mysqli_multi_query($link, $sql) {
-    tehnikum_niedostepne(
+    return tehnikum_niedostepne(
         'mysqli_multi_query',
         'Warstwa sql.js wykonuje dokładnie jedno polecenie. Rozdziel SQL na osobne wywołania mysqli_query.'
     );
