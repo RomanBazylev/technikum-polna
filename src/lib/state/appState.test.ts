@@ -86,6 +86,7 @@ describe('экспорт и импорт', () => {
     state.profile.languageGroup = 'hiszpanski';
     state.profile.absenceEndedOn = '2026-10-01';
     state.calculators.absenceBudget = { plannedHours: 96, missedHours: 17 };
+    state.calculators.behaviourBudget = { unexcusedHours: 7, lateArrivals: 3 };
     state.calculators.gradeTools = {
       points: 37,
       maxPoints: 50,
@@ -124,30 +125,51 @@ describe('схема', () => {
 
   it('достраивает новые поля в сохранённом состоянии версии 2', () => {
     const legacyVersion2 = defaultState();
-    const { calculators: _calculators, ...withoutCalculators } = legacyVersion2;
+    const { behaviourBudget: _behaviourBudget, ...calculatorsWithoutBehaviour } =
+      legacyVersion2.calculators;
     const {
       absenceEndedOn: _absenceEndedOn,
       ...profileWithoutAbsence
-    } = withoutCalculators.profile;
+    } = legacyVersion2.profile;
 
-    const parsed = appStateSchema.parse({
-      ...withoutCalculators,
-      profile: profileWithoutAbsence,
+    storage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        ...legacyVersion2,
+        profile: profileWithoutAbsence,
+        calculators: calculatorsWithoutBehaviour,
+      }),
+    );
+    const outcome = loadState(storage);
+
+    expect(outcome.kind).toBe('loaded');
+    expect(outcome.state.profile.absenceEndedOn).toBeNull();
+    expect(outcome.state.calculators.absenceBudget).toEqual(
+      legacyVersion2.calculators.absenceBudget,
+    );
+    expect(outcome.state.calculators.gradeTools).toEqual(legacyVersion2.calculators.gradeTools);
+    expect(outcome.state.calculators.behaviourBudget).toEqual({
+      unexcusedHours: 0,
+      lateArrivals: 0,
     });
-
-    expect(parsed.profile.absenceEndedOn).toBeNull();
-    expect(parsed.calculators).toEqual(defaultState().calculators);
   });
 
-  it('чинит повреждённые калькуляторы без потери расписания, оценок и прогресса', () => {
+  it('чинит повреждённое поведение без потери других калькуляторов и данных', () => {
     const state = {
       ...defaultState(),
       timetable: [{ id: 'sr-3', day: 'sr', slot: 3, subjectId: 'fizyka' }],
       grades: [{ id: 'mat-1', value: 5 }],
       progress: { 'inf-03-3': 'known' },
       calculators: {
-        absenceBudget: { plannedHours: 60, missedHours: 'nie liczba' },
-        gradeTools: { points: 23 },
+        absenceBudget: { plannedHours: 96, missedHours: 17 },
+        gradeTools: {
+          points: 37,
+          maxPoints: 50,
+          entries: [{ grade: 5, weight: 3 }],
+          target: 4.5,
+          futureWeight: 2,
+        },
+        behaviourBudget: { unexcusedHours: -4, lateArrivals: 'nie liczba' },
       },
     };
     storage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -158,7 +180,12 @@ describe('схема', () => {
     expect(outcome.state.timetable).toEqual(state.timetable);
     expect(outcome.state.grades).toEqual(state.grades);
     expect(outcome.state.progress).toEqual(state.progress);
-    expect(outcome.state.calculators).toEqual(defaultState().calculators);
+    expect(outcome.state.calculators.absenceBudget).toEqual(state.calculators.absenceBudget);
+    expect(outcome.state.calculators.gradeTools).toEqual(state.calculators.gradeTools);
+    expect(outcome.state.calculators.behaviourBudget).toEqual({
+      unexcusedHours: 0,
+      lateArrivals: 0,
+    });
   });
 
   it('расписание разбирается по настоящей форме урока', () => {

@@ -140,6 +140,30 @@ test('калькулятор считает бюджет пропусков по
   await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
 });
 
+test('§58 сохраняется после перезагрузки', async ({ page }) => {
+  await page.goto('./kalkulatory/');
+  await expect(page.getByRole('heading', { name: 'Zachowanie · Поведение' })).toBeVisible();
+
+  const addHour = page.getByRole('button', {
+    name: 'godziny bez usprawiedliwienia: więcej',
+  });
+  await expect(addHour).toBeEnabled();
+  await addHour.click();
+  await expect(page.getByText('bardzo dobre', { exact: true })).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByText('bardzo dobre', { exact: true })).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const raw = window.localStorage.getItem('tkk-polna:state');
+        if (raw === null) return null;
+        return JSON.parse(raw).calculators?.behaviourBudget ?? null;
+      }),
+    )
+    .toEqual({ unexcusedHours: 1, lateArrivals: 0 });
+});
+
 test('страница экзаменов отличает профэкзамен от формулы матуры', async ({ page }) => {
   await page.goto('./egzaminy/');
   await expect(page.getByText(/Formule 2019/)).toBeVisible();

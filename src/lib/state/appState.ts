@@ -70,6 +70,7 @@ const gradeEntrySchema = z.object({
 
 const calculatorDefaults = {
   absenceBudget: { plannedHours: 60, missedHours: 8 },
+  behaviourBudget: { unexcusedHours: 0, lateArrivals: 0 },
   gradeTools: {
     points: 18,
     maxPoints: 24,
@@ -88,6 +89,13 @@ const calculatorsSchema = z
       plannedHours: z.number().min(1),
       missedHours: z.number().min(0),
     }),
+    behaviourBudget: z
+      .object({
+        unexcusedHours: z.number().int().min(0),
+        lateArrivals: z.number().int().min(0),
+      })
+      .default(() => ({ ...calculatorDefaults.behaviourBudget }))
+      .catch(() => ({ ...calculatorDefaults.behaviourBudget })),
     gradeTools: z.object({
       points: z.number().min(0),
       maxPoints: z.number().min(1),
