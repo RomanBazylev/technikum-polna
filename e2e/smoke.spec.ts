@@ -624,7 +624,7 @@ test('Canvas масштабирует PNG и скачивает JPEG нужно�
  * перед выпуском запускаются командой
  * PHP_LIVE=1 npx playwright test --project=desktop.
  */
-test('песочница PHP выполняет mysqli-код после подтверждения', async ({ page }) => {
+test('PHP LIVE: песочница выполняет mysqli-код после подтверждения', async ({ page }) => {
   test.skip(process.env['PHP_LIVE'] === undefined, 'запускается вручную с PHP_LIVE=1');
   test.setTimeout(180_000);
 
@@ -651,7 +651,7 @@ test('песочница PHP выполняет mysqli-код после под�
   await expect(page.getByTestId('php-errors')).toHaveCount(0);
 });
 
-test('песочница PHP выполняет OO, prepared statements и явные ошибки', async ({
+test('PHP LIVE: OO, prepared statements и явные ошибки', async ({
   page,
 }, testInfo) => {
   test.skip(process.env['PHP_LIVE'] === undefined, 'запускается вручную с PHP_LIVE=1');
