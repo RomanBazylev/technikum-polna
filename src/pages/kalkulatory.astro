@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AbsenceBudget from '../components/AbsenceBudget';
+import BehaviourBudget from '../components/BehaviourBudget';
 import GradeTools from '../components/GradeTools';
 import ProfileCard from '../components/ProfileCard';
 ---
@@ -11,6 +12,7 @@ import ProfileCard from '../components/ProfileCard';
   lead="Rzeczy, których Librus nie liczy, bo progi stoją w statucie tej szkoły."
 >
   <div class="flex flex-col gap-2">
+    <BehaviourBudget client:load />
     <AbsenceBudget client:load />
     <GradeTools client:load />
     <ProfileCard client:load />

@@ -50,6 +50,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -74,4 +76,13 @@ jobs:
       - name: Дымовые тесты по живому адресу
         run: npx playwright test
         env:
+          PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url || 'https://romanbazylev.github.io/technikum-polna/' }}
+      - name: Budżet pierwszego ładowania
+        run: npm run test:budget -- "$PLAYWRIGHT_BASE_URL"
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url || 'https://romanbazylev.github.io/technikum-polna/' }}
+      - name: PHP i mysqli na żywej stronie
+        run: npx playwright test --project=desktop --grep "^PHP LIVE:"
+        env:
+          PHP_LIVE: '1'
           PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url || 'https://romanbazylev.github.io/technikum-polna/' }}

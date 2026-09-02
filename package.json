@@ -19,6 +19,7 @@
     "validate": "node scripts/validate-content.mjs",
     "content:refresh": "node scripts/fetch-lektury.mjs",
     "test": "vitest run",
+    "test:budget": "node scripts/measure-first-load.mjs",
     "test:e2e": "playwright test",
     "verify": "npm run typecheck && npm run validate && npm run test && npm run build"
   },
