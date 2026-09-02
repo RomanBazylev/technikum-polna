@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { expect, test } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
@@ -138,6 +139,13 @@ test('калькулятор считает бюджет пропусков по
   // 60 часов предмета, пропущено 8, значит до порога § 54 остаётся 22.
   await expect(page.getByText('22 godziny', { exact: true })).toBeVisible();
   await expect(page.getByText(/§ 54 ust. 1/)).toBeVisible();
+});
+
+test('калькулятор показывает, какая оценка нужна для цели', async ({ page }) => {
+  await page.goto('./kalkulatory/');
+  await page.getByLabel('Cel średniej').fill('4');
+  await page.getByLabel('Waga przyszłej oceny').fill('3');
+  await expect(page.getByText('Wystarczy 5, wyjdzie 4.29', { exact: true })).toBeVisible();
 });
 
 test('§58 сохраняется после перезагрузки', async ({ page }) => {
@@ -444,6 +452,29 @@ test('песочница честно предупреждает о расхож
   await expect(page.getByText(/Dzielenie całkowite/)).toBeVisible();
 });
 
+test('песочница показывает тихое деление SQLite и MySQL', async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto('./warsztat/');
+
+  const sql = page.getByLabel('Zapytanie SQL');
+  const run = page.getByRole('button', { name: /Uruchom ·/ });
+  await run.scrollIntoViewIfNeeded();
+  await expect(async () => {
+    await sql.fill('SELECT 5 / 2 AS sqlite_result;');
+    await run.click();
+    await expect(
+      page.getByText('Ładowanie silnika bazy').or(page.getByRole('table')),
+    ).toBeVisible({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
+
+  const table = page.getByRole('table');
+  await expect(table).toBeVisible({ timeout: 60_000 });
+  await expect(table.getByRole('cell', { name: '2', exact: true })).toBeVisible();
+
+  await page.getByText('Czym to się różni od egzaminu').click();
+  await expect(page.getByText(/w MySQL 2\.5/)).toBeVisible();
+});
+
 /**
  * Разметка разбирается через DOMParser, которого нет при сборке, поэтому до
  * гидратации острова в рамке стоит заглушка. Ввод, обогнавший гидратацию,
@@ -472,6 +503,16 @@ test('предпросмотр разметки рисует виджет из �
   // Пустая рамка прошла бы проверку на отсутствие ошибки, поэтому смотрим,
   // что виджет действительно разобран, а не просто выведен как текст.
   await expect(frame.locator('[data-widget="button"]')).toHaveCount(1);
+});
+
+test('пресет XAML рисует калькулятор оценок', async ({ page }) => {
+  await openLayoutEditor(page);
+  await page.getByRole('button', { name: /Kalkulator na XAML/ }).click();
+
+  const frame = page.getByTestId('layout-frame');
+  await expect(frame.getByText('Kalkulator ocen')).toBeVisible();
+  await expect(frame.getByText('Policz średnią')).toBeVisible();
+  await expect(frame.locator('[data-widget="field"]')).toHaveCount(2);
 });
 
 test('предпросмотр разметки показывает читаемую ошибку вместо пустой рамки', async ({ page }) => {
@@ -525,7 +566,7 @@ test('код в песочницах читается в светлой теме
   expect(frame.ratio, `podgląd układu: ${frame.paint}`).toBeGreaterThanOrEqual(4.5);
 });
 
-test('песочница PHP не качает ни байта до подтверждения ученика', async ({ page }) => {
+test('тяжёлые движки не скачиваются до запуска SQL или подтверждения PHP', async ({ page }) => {
   // Движок весит мегабайты. Автозагрузка на мобильном интернете съела бы
   // пакет ученика, который зашёл посмотреть на другую песочницу.
   const heavy: string[] = [];
@@ -535,14 +576,47 @@ test('песочница PHP не качает ни байта до подтве
   });
 
   await page.goto('./warsztat/');
+  await page.getByLabel('Zapytanie SQL').scrollIntoViewIfNeeded();
   const gate = page.getByTestId('php-gate');
   await gate.scrollIntoViewIfNeeded();
   await expect(gate).toBeVisible();
   await expect(gate).toContainText(/MB/);
   await expect(gate.getByRole('button', { name: /Pobierz silnik PHP/ })).toBeVisible();
+  await page.getByLabel('Kod układu').scrollIntoViewIfNeeded();
+  await page.getByText('Przygotowanie obrazu · Подготовка изображения').scrollIntoViewIfNeeded();
 
   await page.waitForTimeout(1500);
   expect(heavy, `тяжёлое качалось без спроса: ${heavy.join(', ')}`).toEqual([]);
+});
+
+test('Canvas масштабирует PNG и скачивает JPEG нужной ширины', async ({ page }) => {
+  await page.goto('./warsztat/');
+  const png = Buffer.from(
+    'iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAC0lEQVR4nGP4DwUAI+UH+Yo0eLMAAAAASUVORK5CYII=',
+    'base64',
+  );
+  const heading = page.getByText('Przygotowanie obrazu · Подготовка изображения');
+  await heading.scrollIntoViewIfNeeded();
+  const input = page.locator('input[type="file"][accept="image/*"]');
+  await expect(async () => {
+    await input.setInputFiles({
+      name: 'sample.png',
+      mimeType: 'image/png',
+      buffer: png,
+    });
+    await expect(page.getByText(/sample\.png: 2 × 1 px/)).toBeVisible({ timeout: 3_000 });
+  }).toPass({ timeout: 30_000 });
+
+  await page.getByLabel('Szerokość docelowa, px').fill('200');
+  await expect(page.getByText(/200 × 100 px/)).toBeVisible();
+  await page.getByRole('button', { name: 'Przeskaluj' }).click();
+  await expect(page.locator('canvas')).toHaveJSProperty('width', 200);
+  await expect(page.locator('canvas')).toHaveJSProperty('height', 100);
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Pobierz', exact: true }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/-200\.jpeg$/);
 });
 
 /**
@@ -758,6 +832,20 @@ test('вставленная сетка запускает план и пере�
   await expect(page.getByText(/Wt 1: Robotyka|Pon 1: Robotyka/)).toBeVisible();
   await expect(page.getByRole('button', { name: /Zastąp zapisany plan/ })).toBeDisabled();
   await expect(page.getByLabel('Poniedziałek, lekcja 1')).toHaveValue('fizyka');
+});
+
+test('список вещей показывает учебник на следующий учебный день', async ({ page }) => {
+  await page.clock.setFixedTime(new Date(2026, 8, 8, 12, 0));
+  await page.goto('./plan/');
+
+  const grid = ['Nr\tPon\tWt\tŚr\tCzw\tPt', '1\t\t\tFizyka\t\t'].join('\n');
+  await page.getByLabel(/Tabela planu/).fill(grid);
+  await expect(page.getByText(/Rozpoznano lekcji: 1/)).toBeVisible();
+  await page.getByRole('button', { name: /Wczytaj plan/ }).click();
+
+  const packing = page.getByRole('heading', { name: /Na środę weź/ }).locator('..');
+  await expect(packing.getByText('Fizyka 1, nowa edycja, WSiP', { exact: true })).toBeVisible();
+  await expect(packing.getByText('Fizyka', { exact: true })).toBeVisible();
 });
 
 test('проверка законности ловит объявление за три дня', async ({ page }) => {
