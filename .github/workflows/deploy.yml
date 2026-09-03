@@ -82,7 +82,7 @@ jobs:
         env:
           PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url || 'https://romanbazylev.github.io/technikum-polna/' }}
       - name: PHP i mysqli na żywej stronie
-        run: npx playwright test --project=desktop --grep "^PHP LIVE:"
+        run: npx playwright test --project=desktop --grep "PHP LIVE:"
         env:
           PHP_LIVE: '1'
           PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url || 'https://romanbazylev.github.io/technikum-polna/' }}
